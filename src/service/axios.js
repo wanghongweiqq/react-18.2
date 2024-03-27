@@ -3,7 +3,7 @@
  * @Email: wanghongwei@hualala.com
  * @Date: 2024-03-18 16:40:08
  * @Description: 接口封装
- * @FilePath: /react-c/src/service/axios.js
+ * @FilePath: /react-18.2/src/service/axios.js
  * @config参数定义
     必选：
       url: 接口请求路径
@@ -20,15 +20,15 @@ import axios from 'axios'
 let loadCount = 0
 
 const instance = axios.create({
-  baseURL: '/api',
+  baseURL: '/api', // 会和各接口的url拼接，结尾的/可带可不带，axios会做好处理
   timeout: 30000,
-  headers: {
-    'X-Requested-With': 'XMLHttpRequest',
-    'X-jd-ajax': '1.0',
-    'X-jd-ts': new Date().getTime(),
-  },
+  // headers: {
+  //   'X-Requested-With': 'XMLHttpRequest',
+  //   'X-jd-ajax': '1.0',
+  //   'X-jd-ts': new Date().getTime(),
+  // },
   withCredentials: true,
-  method: 'post',
+  method: 'post', // 项目里那个请求形式多，默认设置成哪种
   data: {},
   showLoading: true,
   showError: true,
@@ -95,16 +95,11 @@ instance.interceptors.response.use(response => {
 
   // token失效,自动跳转到登录页
   if(res.code === '0011111100000001') {
-
+    // ddf
   }
-  if (config.showError && (
-    (res.header && (res.header.success === false || res.header.success === 'false') && res.header.msg)
-    || ((res.success === false || res.success === 'false') && (res.msg || res.message))
-    || (res.result && res.result.code && res.result.code !== '000' && res.result.message)
-  )) {
+  if (config.showError && res.success === false) {
     // success为false时，自动提示错误信息，可通过showError:false关闭
-    const message = (res.header && res.header.msg) || res.msg || res.message || (res.result && res.result.message)
-    // Dialog({ message })
+    // Dialog({ res.message })
   }
   return res
 }, error => {

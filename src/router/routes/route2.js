@@ -3,23 +3,24 @@
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-03-14 15:39:48
  * @Description: 页面/组件/功能的描述
- * @FilePath: /react-c/src/router/routes/route2.js
+ * @FilePath: /react-18.2/src/router/routes/route2.js
  */
-import { Outlet } from "react-router-dom";
-import View2 from "../../view/view2.js";
-import View3 from "../../view/view3.js";
+import { Outlet } from 'react-router-dom'
+import View2 from '../../view/demo/view2.js'
+import View3 from '../../view/demo/view3.js'
 
+import React from 'react'
 const route2 = [
   {
-    path: "a",
-    // element: (
-    //   <div>
-    //     <h2>a的layout</h2>
-    //     <Outlet />
-    //   </div>
-    // ),
+    path: 'a',
+    element: (
+      <div>
+        <h2>a的layout</h2>
+        <Outlet />
+      </div>
+    ),
     meta: {
-      title: "a标题",
+      title: 'a标题',
       // auth: "a",
     },
     children: [
@@ -28,30 +29,28 @@ const route2 = [
         // path: "a1",
         element: <View2 />,
         meta: {
-          title: "a1标题",
-          auth: "aaddhllWorkOrder.gongdanmoban.templateManage",
+          title: 'a1标题',
+          auth: 'aaddhllWorkOrder.gongdanmoban.templateManage',
         },
       },
       {
-        path: "a2",
+        path: 'a2',
         element: <View3 />,
         meta: {
-          title: "a2标题",
-          auth: "hllWorkOrder.gongdanzhongxin.workOrderTrigger",
+          title: 'a2标题',
+          auth: 'hllWorkOrder.gongdanzhongxin.workOrderTrigger',
         },
         children: [
           {
             // index: true,
-            path: "a3",
+            path: 'a3',
             element: <View3 />,
-            meta: {
-              title: "a3标题",
-            },
+            meta: { title: 'a3标题' },
           },
         ],
       },
     ],
   },
-];
+]
 
-export default route2;
+export default route2
