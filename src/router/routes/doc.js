@@ -11,6 +11,7 @@ import Git from '../../view/doc/git.js'
 import Css from '../../view/doc/css.js'
 import Proxy from '../../view/doc/proxy.js'
 import Break from '../../view/doc/break.js'
+import Eslint from '../../view/doc/eslint.js'
 
 import React from 'react'
 const route2 = [
@@ -47,6 +48,11 @@ const route2 = [
         path: 'break',
         element: <Break />,
         meta: { title: 'break' },
+      },
+      {
+        path: 'eslint',
+        element: <Eslint />,
+        meta: { title: 'eslint' },
       },
     ],
   },

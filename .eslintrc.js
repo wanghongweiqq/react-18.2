@@ -2,7 +2,7 @@
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-03-22 17:34:45
- * @Description: 页面/组件/功能的描述
+ * @Description: eslint配置文件
  * @FilePath: /react-18.2/.eslintrc.js
  */
 module.exports = {
@@ -32,32 +32,19 @@ module.exports = {
   // 'no-console': 0,
   // 'no-debugger': 0,
     'no-undef': 'warn',
-    'no-unused-vars': 0,
+    // 'no-unused-vars': 'warn',
     'indent': [ 'error', 2, { SwitchCase: 1 } ], // 缩进：2个空格,Switch语句按1倍缩进执行
     'no-multiple-empty-lines': [ 'error', { max: 1 } ], // 空行最多不能超过1行
     'quotes': [ 'error', 'single' ],
     'semi': [ 'error', 'never' ], // 行末尾分号：不要分号
-    'semi-spacing': [
-      'error',
-      {
-        before: false,
-        after: true,
-      },
-    ], // 分号前后空格：前不要后要
+    'semi-spacing': [ 'error', { before: false, after: true } ], // 分号前后空格：前不要后要
     'no-trailing-spaces': 'error', // 禁用行尾空格
     'no-whitespace-before-property': 'error', // 禁止属性前有空白，错误示例：item. b=xxx
     'space-in-parens': [ 'error', 'never' ], // 禁止圆括号内的空格
     'comma-dangle': [ 'error', 'always-multiline' ], // 数组或对象最后一个值后是否有逗号：和结束符在同一行的时候没有,否则有。（only-multiline：和结束符在同一行的时候没有,否则可有可没有）
     'comma-spacing': 'error', // 逗号前后是否有空格，默认前没有，后有
     'no-inner-declarations': 1, // 函数声明只能在程序或另一个函数体的顶层,不要在if等语句中
-    'no-use-before-define': [
-      'error', {
-        'functions': true,
-        'classes': true,
-        'variables': true,
-        'allowNamedExports': false,
-      },
-    ], // 在定义之前禁止使用变量，依次为：函数声明，类声明，变量声明，export声明
+    'no-use-before-define': [ 'error', { 'functions': true, 'classes': rue, 'variables': true, 'allowNamedExports': false } ], // 在定义之前禁止使用变量，依次为：函数声明，类声明，变量声明，export声明
     'object-curly-spacing': [ 'error', 'always' ], // 在大括号内强制保持一致的间距，{ x:1 }前后有空格,{}除外但中间可以有一个空格
     'array-bracket-spacing': [ 'error', 'always' ], // 在数组括号内强制保持一致的间距，[ 1 ]前后有空格,[]除外但中间可以有一个空格
     'no-await-in-loop': 'error', // 禁止在循环中 出现 await
@@ -70,13 +57,7 @@ module.exports = {
     'func-call-spacing': [ 'error', 'never' ], // 禁止在函数标识符和其调用之间有空格
     'jsx-quotes': [ 'error', 'prefer-single' ], // 强制所有不包含单引号的 JSX 属性值使用单引号
     'key-spacing': 'error', // 强制在对象字面量的键和值之间使用一致的空格,默认冒号前没有后有
-    'generator-star-spacing': [
-      'error',
-      {
-        before: true,
-        after: false,
-      },
-    ], // 强制 generator 函数中 * 号周围使用一致的空格,前有后没有
+    'generator-star-spacing': [ 'error', { before: true, after: false, } ], // 强制 generator 函数中 * 号周围使用一致的空格,前有后没有
     'eqeqeq': 'error', // 要求使用===全等于
     'no-duplicate-imports': 'error', // 禁止重复导入
     'spaced-comment': [ 'error', 'always' ], // 注释风格:有空格
