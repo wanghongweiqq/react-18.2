@@ -9,7 +9,7 @@ import React from 'react'
 
 function Proxy () {
   return (
-    <div className='content'>
+    <div className='pg-doc'>
       <h1>proxy本地开发接口代理说明</h1>
       <p>react项目如果是create-react-app创建，就已经包含了跨域的npm包：<em>http-proxy-middleware</em>（版本号：2.0.3），直接在src目录下新建<em>setupProxy.js</em>即可</p>
       <p> createProxyMiddleware( &apos;/api/&apos;, &#123;target, secure, changeOrigin, pathRewrite ... &#125; )</p>

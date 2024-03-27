@@ -11,7 +11,6 @@ import { BrowserRouter } from 'react-router-dom'
 // import reportWebVitals from "./reportWebVitals";
 import SetRouter from './router/set'
 import './assets/css/reset.scss'
-let a = 2
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
 

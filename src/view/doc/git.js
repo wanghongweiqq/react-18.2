@@ -9,7 +9,7 @@ import React from 'react'
 
 function Git () {
   return (
-    <div className='content'>
+    <div className='pg-doc'>
       <h1>git说明</h1>
       <h2>github与sourcetree配置</h2>
       <p>sourcetree推送到github时报错：Support for password authentication was removed on August 13, 2021. Please use a personal access tokens</p>
@@ -31,11 +31,13 @@ function Git () {
             <p>2.1、新建（直接克隆远程）：顶部菜单【文件】→【新建】→弹窗窗口里在【新进】下拉菜单下选择→【从URL克隆】，在弹窗的窗口中填写【源URL】</p>
             <p>2.2、已有项目（未关联远程）：在soursetree窗口的右上角点击【设置】→弹窗窗口中选择【远程仓库】→【添加】→ 弹窗窗口中填写【URL/路径】</p>
             <p><img alt='sourcetree配置' width='600' src='images/github-url.png' /></p>
-
           </td>
-
         </tr>
       </table>
+      <h2>git提交校验eslint</h2>
+      <h3>第1步：安装husky</h3>
+      <p>npm install husky -D</p>
+
     </div>
   )
 }

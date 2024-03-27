@@ -10,7 +10,7 @@ import React from 'react'
 
 function Init () {
   return (
-    <div className='content'>
+    <div className='pg-doc'>
       <h1>react项目创建说明</h1>
       <h2>react版本说明</h2>
       <table>

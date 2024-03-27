@@ -9,7 +9,7 @@ import React from 'react'
 
 function Css () {
   return (
-    <div className='content'>
+    <div className='pg-doc'>
       <h1>css说明</h1>
       <h2>选择安装sass</h2>
       <table>

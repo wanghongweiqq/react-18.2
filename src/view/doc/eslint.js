@@ -9,7 +9,7 @@ import React from 'react'
 
 function Eslint () {
   return (
-    <div className='content'>
+    <div className='pg-doc'>
       <h1>eslint配置说明</h1>
       <h2>安装Eslint</h2>
       <h3>第1步：安装Eslint</h3>

@@ -9,7 +9,7 @@ import React from 'react'
 
 function Router () {
   return (
-    <div className='content'>
+    <div className='pg-doc'>
       <h1>react路由说明</h1>
       <h2>路由版本说明</h2>
       <table>

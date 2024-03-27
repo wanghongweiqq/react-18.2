@@ -95,11 +95,11 @@ table {
 }
 
 /* doc文件下的样式 */
-.content{ padding:10px;}
-.content img{border:1px solid #999;}
-.content th,.content td{padding: 5px;border:1px solid #999;}
-.content h1{padding: 5px 0;font-size: 20px;color: #000;}
-.content h2{padding: 5px 0;font-size: 18px;color: #333;}
-.content h3{padding: 5px 0;font-size: 16px;}
-.content p{padding: 5px 0;}
-.content em{ color: #ff0000;}
+.pg-doc{ padding:10px;}
+.pg-doc img{border:1px solid #999;}
+.pg-doc th,.pg-doc td{padding: 5px;border:1px solid #999;}
+.pg-doc h1{padding: 5px 0;font-size: 20px;color: #000;}
+.pg-doc h2{padding: 5px 0;font-size: 18px;color: #333;}
+.pg-doc h3{padding: 5px 0;font-size: 16px;color: #444;}
+.pg-doc p{padding: 5px 0;}
+.pg-doc em{ color: #ff0000;}
