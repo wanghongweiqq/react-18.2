@@ -13,7 +13,7 @@ import Page403 from '../view/common/403.js'
 import { axiosGetUserInfo, axiosGetUserRight } from '../service/apis/common'
 
 let userRightList = [] // 用户权限列表
-let platRoutesa = [] // 扁平化的路由，方便title设置
+let platRoutes = [] // 扁平化的路由，方便title设置
 let A = []
 
 function SetRouter () {
