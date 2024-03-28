@@ -1,11 +1,1 @@
-###
- # @Author: 王宏伟
- # @Email：wanghongwei@hualala.com
- # @Date: 2024-03-27 16:20:42
- # @Description: 页面/组件/功能的描述
- # @FilePath: /react-18.2/.husky/commit-msg
-### 
-#!/bin/sh
-# . "$(dirname "$0")/_/husky.sh"
-
 npx --no-install commitlint --edit "$1"
