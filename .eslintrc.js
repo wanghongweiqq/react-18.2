@@ -9,8 +9,9 @@ module.exports = {
   'env': {
     'browser': true,
     'es2021': true,
-    'node': true, // 防止require/module.exports等报错 not defined
+    'node': true, // 防止node的语法，如：require/module.exports等报错（not defined）
   },
+  'settings': { 'react': { 'version': 'detect' } }, // detect：是告诉ESLint去自动检测项目中安装的React版本，并使用相应的React规则，或者指定具体版本，如 "^18.2.01"，防止git提交时的warning警告:React version not specified in eslint-plugin-react settings
   'extends': [ 'eslint:recommended', 'plugin:react/recommended' ],
   'overrides': [
     {
@@ -30,13 +31,11 @@ module.exports = {
    * "error" 或 2 - 开启规则，使用错误级别的错误：error (当被触发的时候，程序会退出，git不可以提交)
    */
   'rules': {
-  // 'no-console': 0,
-  // 'no-debugger': 0,
     'no-undef': 'error',
     'no-unused-vars': 'warn',
     'indent': [ 'error', 2, { SwitchCase: 1 } ], // 缩进：2个空格,Switch语句按1倍缩进执行
     'no-multiple-empty-lines': [ 'error', { max: 1 } ], // 空行最多不能超过1行
-    'quotes': [ 'error', 'single' ],
+    'quotes': [ 'error', 'single' ], // 尽量使用单引号
     'semi': [ 'error', 'never' ], // 行末尾分号：不要分号
     'semi-spacing': [ 'error', { before: false, after: true } ], // 分号前后空格：前不要后要
     'no-trailing-spaces': 'error', // 禁用行尾空格

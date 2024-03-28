@@ -98,8 +98,9 @@ table {
 .pg-doc{ padding:10px;}
 .pg-doc img{border:1px solid #999;}
 .pg-doc th,.pg-doc td{padding: 5px;border:1px solid #999;}
-.pg-doc h1{padding: 5px 0;font-size: 20px;color: #000;}
-.pg-doc h2{padding: 5px 0;font-size: 18px;color: #333;}
-.pg-doc h3{padding: 5px 0;font-size: 16px;color: #444;}
-.pg-doc p{padding: 5px 0;}
+.pg-doc table{margin: 5px 0;}
+.pg-doc h1{font-size: 20px;color: #000;}
+.pg-doc h2{font-size: 18px;color: #333;}
+.pg-doc h3{font-size: 16px;color: #444;}
+.pg-doc h1, .pg-doc h2, .pg-doc h3, .pg-doc p{padding: 5px 0;}
 .pg-doc em{ color: #ff0000;}

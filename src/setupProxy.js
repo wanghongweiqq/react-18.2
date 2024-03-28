@@ -5,7 +5,6 @@
  * @Description: 本地开发接口代理
  * @FilePath: /react-18.2/src/setupProxy.js
  */
-/* global require module */
 const { createProxyMiddleware } = require('http-proxy-middleware')
 module.exports = function (app) {
   app.use(
@@ -14,9 +13,7 @@ module.exports = function (app) {
         target: 'https://support-web-mis-api.tiaofangzi.com',
         secure: false, // 安全策略，默认true，如何target为https，此项必须设置为false，否则接口报错500；如何target为http，此项可以不设置或设置为true/false都可以
         changeOrigin: true,
-        pathRewrite: {
-          '^/api/': '/', // 字符串格式，可以使用正则
-        },
+        pathRewrite: { '^/api/': '/' }, // 字符串格式，可以使用正则
       }),
   )
 }
