@@ -9,6 +9,7 @@ module.exports = {
   'env': {
     'browser': true,
     'es2021': true,
+    'node': true, // 防止require/module.exports等报错 not defined
   },
   'extends': [ 'eslint:recommended', 'plugin:react/recommended' ],
   'overrides': [
