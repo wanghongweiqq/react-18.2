@@ -9,7 +9,7 @@ module.exports = {
   'env': {
     'browser': true,
     'es2021': true,
-    'node': true, // 防止node的语法，如：require/module.exports等报错（not defined）
+    'node': true, // 防止node的语法报错，如require/module.exports等报错 not defined
   },
   'settings': { 'react': { 'version': 'detect' } }, // detect：是告诉ESLint去自动检测项目中安装的React版本，并使用相应的React规则，或者指定具体版本，如 "^18.2.01"，防止git提交时的warning警告:React version not specified in eslint-plugin-react settings
   'extends': [ 'eslint:recommended', 'plugin:react/recommended' ],
