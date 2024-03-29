@@ -46,16 +46,27 @@ function Git () {
       <p>执行<em>npm run prepare</em>，创建 .husky 目录（.husky是隐藏文件夹，查看和关闭隐藏文件夹的快捷键：ctrl+shift+.），该命令修改了.git/config文件里的hooksPath字段=.husky/_（设置 .husky 目录为 git hooks 目录）</p>
       <p><img alt='husky修改git config的hooksPath字段=.husky/_' src={require('../../assets/images/doc/husky-result.png')} /></p>
       <p>.husky目录下只有一个_的文件夹，内含的.gitignore文件用*将所有文件忽略了，不在git的跟踪范围内，在.husky目录下创建一个pre-commit文件，里面放入代码 npm run lint</p>
-      <p><img alt='pre-commit' src={require('../../assets/images/doc/pre-commit.png')} /></p>
+      <p><img alt='pre-commit的修改' src={require('../../assets/images/doc/pre-commit.png')} /></p>
       <p>编辑package.json在script里添加<em>&quot;lint&quot;</em>的值为<em>&quot;eslint .&quot;</em></p>
-      <p><img alt='script-lint' src={require('../../assets/images/doc/script-lint.png')} /></p>
+      <p><img alt='script-lint的添加' src={require('../../assets/images/doc/script-lint.png')} /></p>
       <p>至此提交时，就会对文件进行eslint校验，但是对全部文件校验，而我们希望的是对已暂存的文件进行提交前校验，这就需要再引入<em>lint-staged</em></p>
 
       <h3>第2步：安装int-staged</h3>
       <p>lint-staged作用：对 Git 暂存区代码文件进行 bash 命令操作等等。</p>
       <p><em>npm i lint-staged -D</em></p>
+      <p>版本号：15.2.2</p>
+      <p><img alt='husky和lint-staged的安装' src={require('../../assets/images/doc/husky-lint-staged.png')} /></p>
       <p>package.json添加如下</p>
-      <p><img alt='lint-staged' src={require('../../assets/images/doc/lint-staged.png')} /></p>
+      <p><img alt='lint-staged的配置' src={require('../../assets/images/doc/lint-staged.png')} /></p>
+      <h2>3、git提交时校验“commit-msg”</h2>
+      <h3>第1步：安装依赖：@commitlint/cli 和 @commitlint/config-conventional</h3>
+      <p><em>sudo npm i @commitlint/cli @commitlint/config-conventional -D</em></p>
+      <p>版本号如下图，好奇怪不用sudo安装会报权限不足的错误</p>
+      <p><img alt='@commitlint/cli和@commitlint/config-conventional的安装' src={require('../../assets/images/doc/commitlint.png')} /></p>
+      <p>在.husky文件夹里新建commit-msg文件，编辑内容如为：npx --no-install commitlint --edit &quot;$1&quot;</p>
+      <p><img alt='commit-msg文件内容' src={require('../../assets/images/doc/commit-msg.png')} /></p>
+      <p>在项目根目录下新建文件commitlint.config.js，编辑内容如下</p>
+      <p><img alt='commitlint.config文件内容' src={require('../../assets/images/doc/commitlint-config.png')} /></p>
 
     </div>
   )

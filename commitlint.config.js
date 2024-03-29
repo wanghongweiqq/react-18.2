@@ -1,7 +1,7 @@
 /*
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
- * @Date: 2022-08-31 17:37:56
+ * @Date: 2024-03-28 17:26:53
  * @Description: git提交时校验的信息，主要校验的type，后紧跟英文冒号+空格（中英文都可以）:
  * @FilePath: /react-18.2/commitlint.config.js
  */
