@@ -2,8 +2,8 @@
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-03-14 15:45:26
- * @Description: 页面/组件/功能的描述
- * @FilePath: /react-18.2/src/view/view2.js
+ * @Description:  demo视图2
+ * @FilePath: /react-18.2/src/view/demo/view2.js
  */
 import React from 'react'
 import { useNavigate, Link } from 'react-router-dom'

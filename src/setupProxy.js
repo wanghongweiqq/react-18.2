@@ -8,12 +8,14 @@
 const { createProxyMiddleware } = require('http-proxy-middleware')
 module.exports = function (app) {
   app.use(
-    createProxyMiddleware('/api/', // 字符串格式，不可使用正则的量词，如：^，尽量层级写完整，这样匹配度更高，如'/api'就可以匹配上这样的路径'/api1/'
+    createProxyMiddleware(
+      '/api/', // 字符串格式，不可使用正则的量词，如：^，尽量层级写完整，这样匹配度更高，如'/api'就可以匹配上这样的路径'/api1/'
       {
         target: 'https://support-web-mis-api.tiaofangzi.com',
         secure: false, // 安全策略，默认true，如何target为https，此项必须设置为false，否则接口报错500；如何target为http，此项可以不设置或设置为true/false都可以
         changeOrigin: true,
         pathRewrite: { '^/api/': '/' }, // 字符串格式，可以使用正则
-      }),
+      },
+    ),
   )
 }

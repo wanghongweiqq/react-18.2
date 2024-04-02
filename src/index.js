@@ -13,7 +13,6 @@ import SetRouter from './router/set'
 import './assets/css/reset.scss'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-
   <BrowserRouter>
     <SetRouter />
   </BrowserRouter>,

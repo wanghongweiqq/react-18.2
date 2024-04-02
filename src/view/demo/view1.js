@@ -2,7 +2,7 @@
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-03-14 15:45:26
- * @Description: 页面/组件/功能的描述
+ * @Description: demo视图1
  * @FilePath: /react-18.2/src/view/demo/view1.js
  */
 
@@ -25,7 +25,7 @@ function View1 () {
             navigate('/a/a2', { state: { x: 1 } })
           }}
         >
-          go to a2
+          go to a2!
         </button>
       </div>
     </div>

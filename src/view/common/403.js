@@ -2,7 +2,7 @@
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-03-14 15:45:26
- * @Description: 页面/组件/功能的描述
+ * @Description: 403页面
  * @FilePath: /react-18.2/src/view/common/403.js
  */
 import React, { useEffect } from 'react'

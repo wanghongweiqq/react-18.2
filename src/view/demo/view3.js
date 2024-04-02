@@ -2,7 +2,7 @@
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-03-14 15:45:26
- * @Description: 页面/组件/功能的描述
+ * @Description:  demo视图3
  * @FilePath: /react-18.2/src/view/demo/view3.js
  */
 import React from 'react'

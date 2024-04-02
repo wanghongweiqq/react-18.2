@@ -37,11 +37,18 @@ pre {
 
 img,
 td,
-th { border: none; }
+th {
+  border: none;
+}
 
 img,
-li { vertical-align: top; }
-li { list-style-type: none; }
+li {
+  vertical-align: top;
+}
+
+li {
+  list-style-type: none;
+}
 
 font,
 h1,
@@ -73,15 +80,25 @@ ins {
 }
 
 body {
-  font-family:  "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
+  position: relative;
+  width: 100px;
+  font-family:
+    "Microsoft YaHei",
+    "微软雅黑",
+    "Helvetica Neue",
+    Helvetica,
+    "PingFang SC",
+    "Hiragino Sans GB",
+    Arial,
+    sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.3;
   color: #666;
-  -webkit-text-size-adjust: none;
   word-break: break-all;
   word-wrap: break-word;
   background-color: #fff;
+  text-size-adjust: none;
 }
 
 ol,
@@ -95,12 +112,46 @@ table {
 }
 
 /* doc文件下的样式 */
-.pg-doc{ padding:10px;}
-.pg-doc img{border:1px solid #999;}
-.pg-doc th,.pg-doc td{padding: 5px;border:1px solid #999;}
-.pg-doc table{margin: 5px 0;}
-.pg-doc h1{font-size: 20px;color: #000;}
-.pg-doc h2{font-size: 18px;color: #333;}
-.pg-doc h3{font-size: 16px;color: #444;}
-.pg-doc h1, .pg-doc h2, .pg-doc h3, .pg-doc p{padding: 5px 0;}
-.pg-doc em{ color: #ff0000;}
+.pg-doc {
+  padding: 10px;
+
+  img {
+    border: 1px solid #999;
+  }
+
+  th,
+  td {
+    padding: 5px;
+    border: 1px solid #999;
+  }
+
+  table {
+    margin: 5px 0;
+  }
+
+  h1 {
+    font-size: 20px;
+    color: #000;
+  }
+
+  h2 {
+    font-size: 18px;
+    color: #333;
+  }
+
+  h3 {
+    font-size: 16px;
+    color: #444;
+  }
+
+  h1,
+  h2,
+  h3,
+  p {
+    padding: 5px 0;
+  }
+
+  em {
+    color: #f00;
+  }
+}

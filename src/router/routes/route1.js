@@ -14,7 +14,6 @@ const route1 = [
     // path: "/",
     element: <View1 />,
     meta: { title: '首页' },
-
   },
 ]
 
