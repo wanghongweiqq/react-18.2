@@ -5,6 +5,6 @@
  * @Description: stylelint配置文件
  * @FilePath: /react-18.2/.stylelintrc.js
  */
-module.exports = { 
+module.exports = {
   'extends': [ 'stylelint-config-standard','stylelint-config-recess-order'],
 }

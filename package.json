@@ -12,15 +12,14 @@
     "eslint": "eslint src",
     "eslint-fix": "eslint src --fix",
     "stylelint": "stylelint src/**/*.{scss,css}",
-    "stylelint-fix": "stylelint  src/**/*.{scss,css} --fix",
-    "prettier": "prettier --check src"
+    "stylelint-fix": "stylelint  src/**/*.{scss,css} --fix"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint src --fix"
+      "eslint"
     ],
     "src/**/*.{scss,css}": [
-      "stylelint src/**/*.{scss,css} --fix"
+      "stylelint"
     ]
   },
   "eslintConfig": {
@@ -60,7 +59,6 @@
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "node-sass": "^7.0.3",
-    "prettier": "^3.2.5",
     "stylelint": "^14.16.1",
     "stylelint-config-recess-order": "^3.1.0",
     "stylelint-config-standard": "^26.0.0"
