@@ -2,7 +2,7 @@
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-03-25 15:39:41
- * @Description: eslint配置
+ * @Description: eslint配置说明
  * @FilePath: /react-18.2/src/view/doc/eslint.js
  */
 import React from 'react'

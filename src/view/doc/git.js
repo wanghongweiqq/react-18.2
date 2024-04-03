@@ -58,7 +58,21 @@ function Git () {
       <p><img alt='husky和lint-staged的安装' src={require('../../assets/images/doc/husky-lint-staged.png')} /></p>
       <p>package.json添加如下</p>
       <p><img alt='lint-staged的配置' src={require('../../assets/images/doc/lint-staged.png')} /></p>
-      <h2>3、git提交时校验“commit-msg”</h2>
+
+      <h2>3、git提交前“pre-commit”校验stylelint</h2>
+      <p>前提是已配置好stylelint，配置过程见<a href='/doc/stylelint'>stylelint安装教程</a></p>
+      <p><img alt='commitlint.config文件内容' src={require('../../assets/images/doc/pre-commit-lint.png')} /></p>
+      <h3>PS：关于蓝色区域的特别说明</h3>
+      <p>蓝色的辅助命令可以不用设置，主要是为了检查和修复，检查用xxxlint，修复用xxxlint-fix，慎用自动修复，因自动修复有可能改动量比较大，产生后果难以预测</p>
+      <p>eslint src命令里的src指根目录下的src文件夹，指定src可使lint校验的更具体、高效</p>
+      <p>eslint . 指的是执行整个项目目录里的文件，貌似node_modules等不在执行范围内，是否与.gitignore有关待确认。</p>
+      <p>eslint 后必须指定文件路径，如果为空，不做任何处理</p>
+      <p>npm run eslint = npx eslint src（npx 后面是具体要执行的命令，其值可与scripts里对应的命令的值相同）</p>
+      <p>npm run eslint-fix = npx eslint src --fix = npm run eslint <em>--</em> --fix（ <em>--</em> 有连接符的意思，转化为具体的命令时会自动消失 ）</p>
+      <p>npx是一个由Node.js官方提供的用于快速执行npm包中的可执行文件的工具。它可以帮助我们在不全局安装某些包的情况下，直接运行该包提供的命令行工具。npx会在执行时，检查本地项目中是否安装了对应的依赖，如果没有安装则会自动下载安装，并执行命令。如果本地已经存在该依赖，则直接执行命令。</p>
+      <p>使用npx时，可以在命令行中输入要执行的包名加上其参数，例如：npx create-react-app my-app</p>
+
+      <h2>4、git提交时校验“commit-msg”</h2>
       <h3>第1步：安装依赖：@commitlint/cli 和 @commitlint/config-conventional</h3>
       <p><em>sudo npm i @commitlint/cli @commitlint/config-conventional -D</em></p>
       <p>版本号如下图，好奇怪不用sudo安装会报权限不足的错误</p>

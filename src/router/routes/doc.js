@@ -12,9 +12,10 @@ import Css from '../../view/doc/css.js'
 import Proxy from '../../view/doc/proxy.js'
 import Break from '../../view/doc/break.js'
 import Eslint from '../../view/doc/eslint.js'
+import Stylelint from '../../view/doc/stylelint.js'
 
 import React from 'react'
-const route2 = [
+const doc = [
   {
     path: 'doc',
     meta: { title: '文档' },
@@ -54,8 +55,14 @@ const route2 = [
         element: <Eslint />,
         meta: { title: 'eslint' },
       },
+      {
+        path: 'stylelint',
+        element: <Stylelint />,
+        meta: { title: 'stylelint' },
+      },
+
     ],
   },
 ]
 
-export default route2
+export default doc
