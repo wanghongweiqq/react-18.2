@@ -13,6 +13,7 @@ import Proxy from '../../view/doc/proxy.js'
 import Break from '../../view/doc/break.js'
 import Eslint from '../../view/doc/eslint.js'
 import Stylelint from '../../view/doc/stylelint.js'
+import PropTypes from '../../view/doc/prop-types.js'
 
 import React from 'react'
 const doc = [
@@ -59,6 +60,11 @@ const doc = [
         path: 'stylelint',
         element: <Stylelint />,
         meta: { title: 'stylelint' },
+      },
+      {
+        path: 'prop-types',
+        element: <PropTypes />,
+        meta: { title: 'prop-types' },
       },
 
     ],

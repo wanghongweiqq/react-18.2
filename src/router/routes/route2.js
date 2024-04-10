@@ -30,7 +30,7 @@ const route2 = [
         element: <View2 />,
         meta: {
           title: 'a1标题',
-          auth: 'aaddhllWorkOrder.gongdanmoban.templateManage',
+          auth: 'xxxxhllWorkOrder.gongdanmoban.templateManage',
         },
       },
       {

@@ -8,14 +8,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
 // import reportWebVitals from "./reportWebVitals";
 import SetRouter from './router/set'
+import store from './store'
 import './assets/css/reset.scss'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <BrowserRouter>
-    <SetRouter />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <SetRouter />
+    </BrowserRouter>
+  </Provider>,
 )
 
 // 网站指标监测 (for example: reportWebVitals(console.log))

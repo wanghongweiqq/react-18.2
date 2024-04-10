@@ -43,7 +43,7 @@ function Git () {
       <p>版本号：9.0.11</p>
       <p>编辑package.json在script里添加<em>&quot;prepare&quot;</em>，值为<em>&quot;husky install&quot;</em></p>
       <p><img alt='script prepare' src={require('../../assets/images/doc/husky-install.png')} /></p>
-      <p>执行<em>npm run prepare</em>，创建 .husky 目录（.husky是隐藏文件夹，查看和关闭隐藏文件夹的快捷键：ctrl+shift+.），该命令修改了.git/config文件里的hooksPath字段=.husky/_（设置 .husky 目录为 git hooks 目录）</p>
+      <p>执行<em>npm run prepare</em>，创建 .husky 目录（.husky是隐藏文件夹，查看和关闭隐藏文件夹的快捷键：ctrl+shift+.），该命令修改了.git/config文件里的hooksPath字段=.husky/_（设置 .husky 目录为 git hooks 的目录）</p>
       <p><img alt='husky修改git config的hooksPath字段=.husky/_' src={require('../../assets/images/doc/husky-result.png')} /></p>
       <p>.husky目录下只有一个_的文件夹，内含的.gitignore文件用*将所有文件忽略了，不在git的跟踪范围内，在.husky目录下创建一个pre-commit文件，里面放入代码 npm run lint</p>
       <p><img alt='pre-commit的修改' src={require('../../assets/images/doc/pre-commit.png')} /></p>
