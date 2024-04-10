@@ -8,10 +8,10 @@
 
 import { legacy_createStore as createStore, combineReducers, applyMiddleware } from 'redux'
 import { thunk } from 'redux-thunk'
-import counterReducer from './reducers/counter'
-import userInfoReducer from './reducers/userInfo'
-import userRightReducer from './reducers/userRight'
-import flatRouteReducer from './reducers/flatRoute'
+import { counterReducer } from './redux/counter'
+import { userInfoReducer } from './redux/userInfo'
+import { userRightReducer } from './redux/userRight'
+import { flatRouteReducer } from './redux/flatRoute'
 
 const rootReducer = combineReducers({
   counter: counterReducer, // 计数器 number

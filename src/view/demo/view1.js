@@ -10,10 +10,10 @@ import React from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { counterIncrement, counterDecrement, counterRandom } from '../../store/actions/counter'
+import { counterIncrementAction, counterDecrementAction, counterRandomAction } from '../../store/redux/counter'
 import store from '../../store'
 
-function View1 ({ counter, userInfo, flatRoute, counterIncrement, counterDecrement, counterRandom }) {
+function View1 ({ counter, userInfo, flatRoute, counterIncrementAction, counterDecrementAction, counterRandomAction }) {
   const navigate = useNavigate()
   console.log('View1')
 
@@ -22,7 +22,7 @@ function View1 ({ counter, userInfo, flatRoute, counterIncrement, counterDecreme
     const num = Math.round(Math.random() * 10) || val
     console.log('store')
     console.log(store.getState())
-    counterRandom(num)
+    counterRandomAction(num)
   }
   return (
     <div className='pg-doc'>
@@ -31,8 +31,8 @@ function View1 ({ counter, userInfo, flatRoute, counterIncrement, counterDecreme
 
       <p>Count: {counter}</p>
       <p>
-        <button onClick={counterIncrement}>增加1</button>&nbsp;&nbsp;
-        <button onClick={counterDecrement}>减少1</button>&nbsp;&nbsp;
+        <button onClick={counterIncrementAction}>增加1</button>&nbsp;&nbsp;
+        <button onClick={counterDecrementAction}>减少1</button>&nbsp;&nbsp;
         <button onClick={randomFun}>随机加10以内整数</button>
       </p>
       <p>
@@ -51,9 +51,9 @@ View1.propTypes = {
   counter: PropTypes.node,
   flatRoute: PropTypes.array,
   userInfo: PropTypes.object,
-  counterIncrement: PropTypes.func,
-  counterDecrement: PropTypes.func,
-  counterRandom: PropTypes.func,
+  counterIncrementAction: PropTypes.func,
+  counterDecrementAction: PropTypes.func,
+  counterRandomAction: PropTypes.func,
 }
 const mapStateToProps = (state) => {
   return {
@@ -63,12 +63,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = { counterIncrement, counterDecrement, counterRandom }
+const mapDispatchToProps = { counterIncrementAction, counterDecrementAction, counterRandomAction }
 // const mapDispatchToProps = (dispatch) => {
 //   return {
-//     counterIncrement: () => dispatch({ type: 'counter-increment' }),
-//     counterDecrement: () => dispatch({ type: 'counter-decrement' }),
-//     counterRandom: (num) => dispatch({ type: 'counter-random', payload: num }),
+//     counterIncrementAction: () => dispatch({ type: 'counter-increment' }),
+//     counterDecrementAction: () => dispatch({ type: 'counter-decrement' }),
+//     counterRandomAction: (num) => dispatch({ type: 'counter-random', payload: num }),
 //   }
 // }
 

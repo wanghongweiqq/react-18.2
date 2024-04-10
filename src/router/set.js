@@ -12,9 +12,9 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import routes from './index.js'
 import Page403 from '../view/common/403.js'
-import { getUserInfoAction } from '../store/actions/userInfo'
-import { getUserRightAction } from '../store/actions/userRight'
-import { setFlatRouteAction } from '../store/actions/flatRoute'
+import { getUserInfoAction } from '../store/redux/userInfo'
+import { getUserRightAction } from '../store/redux/userRight'
+import { setFlatRouteAction } from '../store/redux/flatRoute'
 
 function SetRouter ({ userInfo, userRight, getUserInfoAction, getUserRightAction, setFlatRouteAction }) {
   // console.log('SetRouter')
