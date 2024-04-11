@@ -17,8 +17,7 @@ import { getUserRightAction } from '../store/redux/userRight'
 import { setFlatRouteAction } from '../store/redux/flatRoute'
 
 function SetRouter ({ userInfo, userRight, getUserInfoAction, getUserRightAction, setFlatRouteAction }) {
-  // console.log('SetRouter')
-  // console.log(userRight)
+  console.log('SetRouter')
   const location = useLocation()
   let flatRoutes = [] // 扁平化的路由，方便遍历路由信息，比如设置title
   const [ flatRoutesList, setPlatRoutesList ] = useState([])
@@ -61,36 +60,34 @@ function SetRouter ({ userInfo, userRight, getUserInfoAction, getUserRightAction
     })
   }
 
-  // 获取用户信息和权限，只执行一次
+  // 获取用户信息
   useEffect(() => {
     console.log('获取用户信息')
     getUserInfoAction()
   }, [])
 
+  // 获取用户权限
   useEffect(() => {
     if(userInfo.empID) {
-      console.log('userInfo.b改变')
-      console.log(userInfo.b)
       getUserRightAction(userInfo.empID)
     }
   }, [ userInfo.empID ])
 
+  // 获取用户权限后要做的事情
   useEffect(() => {
     if(userRight && userRight.length > 0) {
-      flatRoutes = []
-      // 对原始路由routes做权限过滤，接下来将作为useRoutes的入参
-      filterRouter(routes)
-      // 先用上面的方法filterRouter处理routes，主要是路由path更新为决定路径，再设置title
-      setTitle(location.pathname)
-      setPlatRoutesList(flatRoutes)
+      flatRoutes = [] // 扁平化路由的临时变量情况
+      filterRouter(routes)// 对原始路由routes做权限过滤，接下来将作为useRoutes的入参
+      setTitle(location.pathname)// 先用上面的方法filterRouter处理routes，主要是路由path更新为决定路径，再设置网页title
+      setPlatRoutesList(flatRoutes) // 扁平化路由赋值
     }
   }, [ userRight ])
 
-  //  扁平化路由改变时进行全局存储
+  // 扁平化路由改变时进行全局存储
   useEffect(() => {
-    console.log('扁平化路由改变时进行全局存储')
-    console.log(flatRoutesList)
-    setFlatRouteAction(flatRoutesList)
+    if(flatRoutesList && flatRoutesList.length > 0) {
+      setFlatRouteAction(flatRoutesList)
+    }
   }, [ flatRoutesList ])
 
   // 路由改变时执行设置页面title，为了减少方法filterRouter调用次数，初始话时因为没有用户权限暂不执行，待接口返回用户权限后先执行filterRouter生产绝对路径的path后再执行filterTitle
@@ -103,7 +100,6 @@ function SetRouter ({ userInfo, userRight, getUserInfoAction, getUserRightAction
   // routes作为useRoutes的入参，通过useRoutes方法后，返回react路由主体
   const router = useRoutes(routes)
 
-  console.log('render')
   if (userRight.length > 0) {
     return router
   } else {
