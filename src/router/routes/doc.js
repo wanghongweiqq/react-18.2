@@ -7,14 +7,14 @@
  */
 import Init from '../../view/Doc/Init.js'
 import Router from '../../view/Doc/Router.js'
-import Git from '../../view/Doc/Git1.js'
-import Css from '../../view/Doc/Css1.js'
-import Proxy from '../../view/Doc/Proxy12.js'
-import Break from '../../view/Doc/Break1.js'
+import Git from '../../view/Doc/Git.js'
+import Css from '../../view/Doc/Css.js'
+import Proxy from '../../view/Doc/Proxy.js'
+import Break from '../../view/Doc/Break.js'
 import Eslint from '../../view/Doc/Eslint.js'
 import Stylelint from '../../view/Doc/Stylelint.js'
 import PropTypes from '../../view/Doc/PropTypes.js'
-import Redux from '../../view/Doc/Redux1.js'
+import Redux from '../../view/Doc/Redux.js'
 
 import React from 'react'
 const doc = [
