@@ -6,11 +6,11 @@
  * @FilePath: /react-18.2/src/router/index.js
  */
 import React from 'react'
-import common from './routes/common.js'
-import doc from './routes/doc.js'
-import route1 from './routes/route1.js'
-import route2 from './routes/route2.js'
-import Layout from '../layout/index.js'
+import common from '@/router/routes/common'
+import doc from './routes/doc'
+import route1 from './routes/route1'
+import route2 from './routes/route2'
+import Layout from '../layout'
 
 const routes = [
   {
