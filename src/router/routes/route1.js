@@ -6,7 +6,7 @@
  * @FilePath: /react-18.2/src/router/routes/route1.js
  */
 import React from 'react'
-import View1 from '../../view/Demo/View1.js'
+import View1 from '@/view/Demo/View1.js'
 
 const route1 = [
   {

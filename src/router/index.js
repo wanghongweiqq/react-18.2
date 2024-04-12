@@ -6,7 +6,7 @@
  * @FilePath: /react-18.2/src/router/index.js
  */
 import React from 'react'
-import common from '@/router/routes/common'
+import common from './routes/common'
 import doc from './routes/doc'
 import route1 from './routes/route1'
 import route2 from './routes/route2'

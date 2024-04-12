@@ -15,8 +15,8 @@ module.exports = {
     'react': { 'version': 'detect' }, // detect：是告诉ESLint去自动检测项目中安装的React版本，并使用相应的React规则，或者指定具体版本，如 "^18.2.01"，防止git提交时的warning警告:React version not specified in eslint-plugin-react settings
     'import/resolver': {
       alias: {
-        map: [ [ '@', './src' ] ], // 这里配置你的别名路径，例如将 '@' 映射到 './src'
-        // extensions: [ '.js', '.ts', '.tsx', '.jsx', '.json' ], // 这里配置你的文件扩展名，例如支持 .js, .jsx, .ts, .tsx 文件   引用的时候可以忽略后缀
+        // 这里配置你的别名路径，例如将 '@' 映射到 './src'
+        map: [ [ '@', './src' ] ],
       },
     },
   },

@@ -11,10 +11,10 @@ import { useRoutes, useLocation } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import routes from './index.js'
-import Page403 from '../view/common/403.js'
-import { getUserInfoAction } from '../store/redux/userInfo'
-import { getUserRightAction } from '../store/redux/userRight'
-import { setFlatRouteAction } from '../store/redux/flatRoute'
+import Page403 from '@/view/common/403.js'
+import { getUserInfoAction } from '@/store/redux/userInfo'
+import { getUserRightAction } from '@/store/redux/userRight'
+import { setFlatRouteAction } from '@/store/redux/flatRoute'
 
 function SetRouter ({ userInfo, userRight, getUserInfoAction, getUserRightAction, setFlatRouteAction }) {
   console.log('SetRouter')

@@ -6,8 +6,8 @@
  * @FilePath: /react-18.2/src/router/routes/route2.js
  */
 import { Outlet } from 'react-router-dom'
-import View2 from '../../view/Demo/View2.js'
-import View3 from '../../view/Demo/View3.js'
+import View2 from '@/view/Demo/View2.js'
+import View3 from '@/view/Demo/View3.js'
 
 import React from 'react'
 const route2 = [

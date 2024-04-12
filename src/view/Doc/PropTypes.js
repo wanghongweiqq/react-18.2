@@ -3,7 +3,7 @@
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-03-25 15:39:41
  * @Description: prop-types 类型检测
- * @FilePath: /react-18.2/src/view/doc/prop-types.js
+ * @FilePath: /react-18.2/src/view/Doc/PropTypes.js
  */
 import React from 'react'
 
@@ -43,35 +43,36 @@ function PropTypes () {
 
       <h2>PropTypes 提供一系列属性验证器</h2>
       <table>
-        <tr><td colSpan='2'><em>JS 原生类型</em></td></tr>
-        <tr><td>symbol</td><td>PropTypes.symbol</td></tr>
-        <tr><td>布尔值</td><td>PropTypes.bool</td></tr>
-        <tr><td>数字</td><td>PropTypes.number</td></tr>
-        <tr><td>字符串</td><td>PropTypes.string</td></tr>
-        <tr><td>数组</td><td>PropTypes.array</td></tr>
-        <tr><td>方法</td><td>PropTypes.func</td></tr>
-        <tr><td>对象</td><td>PropTypes.object</td></tr>
-        <tr><td colSpan='2'><em>特殊类型</em></td></tr>
-        <tr><td>任意类型的数据</td><td>PropTypes.any</td></tr>
-        <tr><td>任何可被渲染的元素（包括数字、数组等）</td><td>PropTypes.node</td></tr>
-        <tr><td>React 元素</td><td>PropTypes.element</td></tr>
-        <tr><td>React 元素类型，如：MyComponent</td><td>PropTypes.elementType</td></tr>
-        <tr><td>几个值中的任意一个值、枚举类型</td><td>PropTypes.oneOf ( [男, 女] ),</td></tr>
-        <tr><td>几种类型中的任意一个类型</td><td>PropTypes.oneOfType ( [<br />
+        <tbody>
+          <tr><td colSpan='2'><em>JS 原生类型</em></td></tr>
+          <tr><td>symbol</td><td>PropTypes.symbol</td></tr>
+          <tr><td>布尔值</td><td>PropTypes.bool</td></tr>
+          <tr><td>数字</td><td>PropTypes.number</td></tr>
+          <tr><td>字符串</td><td>PropTypes.string</td></tr>
+          <tr><td>数组</td><td>PropTypes.array</td></tr>
+          <tr><td>方法</td><td>PropTypes.func</td></tr>
+          <tr><td>对象</td><td>PropTypes.object</td></tr>
+          <tr><td colSpan='2'><em>特殊类型</em></td></tr>
+          <tr><td>任意类型的数据</td><td>PropTypes.any</td></tr>
+          <tr><td>任何可被渲染的元素（包括数字、数组等）</td><td>PropTypes.node</td></tr>
+          <tr><td>React 元素</td><td>PropTypes.element</td></tr>
+          <tr><td>React 元素类型，如：MyComponent</td><td>PropTypes.elementType</td></tr>
+          <tr><td>几个值中的任意一个值、枚举类型</td><td>PropTypes.oneOf ( [男, 女] ),</td></tr>
+          <tr><td>几种类型中的任意一个类型</td><td>PropTypes.oneOfType ( [<br />
         &nbsp;&nbsp;PropTypes.string,<br />
         &nbsp;&nbsp;PropTypes.number,<br />
         ] )</td></tr>
-        <tr><td>一个数组由某一类型的元素组成</td><td>PropTypes.arrayOf ( PropTypes.number ) </td></tr>
-        <tr><td>一个对象由某一类型的元素组成</td><td>PropTypes.objectOf ( PropTypes.number ) </td></tr>
-        <tr><td>一个对象由特定的类型值组成</td><td>PropTypes.shape ( &#123;<br />
+          <tr><td>一个数组由某一类型的元素组成</td><td>PropTypes.arrayOf ( PropTypes.number ) </td></tr>
+          <tr><td>一个对象由某一类型的元素组成</td><td>PropTypes.objectOf ( PropTypes.number ) </td></tr>
+          <tr><td>一个对象由特定的类型值组成</td><td>PropTypes.shape ( &#123;<br />
         &nbsp;&nbsp;color: PropTypes.string,<br />
         &nbsp;&nbsp;fontSize: PropTypes.number<br />
         &#125; )</td></tr>
-        <tr><td>类的实例</td><td>PropTypes.instanceOf(Message)</td></tr>
-        <tr><td colSpan='2'><em>属性必须提供</em></td></tr>
-        <tr><td>xxx类型的prop必须提供</td><td>PropTypes.xxx.isRequired</td></tr>
+          <tr><td>类的实例</td><td>PropTypes.instanceOf(Message)</td></tr>
+          <tr><td colSpan='2'><em>属性必须提供</em></td></tr>
+          <tr><td>xxx类型的prop必须提供</td><td>PropTypes.xxx.isRequired</td></tr>
+        </tbody>
       </table>
-
     </div>
   )
 }

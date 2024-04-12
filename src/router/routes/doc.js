@@ -5,16 +5,17 @@
  * @Description: 构建过程中的说明文档
  * @FilePath: /react-18.2/src/router/routes/doc.js
  */
-import Init from '../../view/Doc/Init.js'
-import Router from '../../view/Doc/Router.js'
-import Git from '../../view/Doc/Git.js'
-import Css from '../../view/Doc/Css.js'
-import Proxy from '../../view/Doc/Proxy.js'
-import Break from '../../view/Doc/Break.js'
-import Eslint from '../../view/Doc/Eslint.js'
-import Stylelint from '../../view/Doc/Stylelint.js'
-import PropTypes from '../../view/Doc/PropTypes.js'
-import Redux from '../../view/Doc/Redux.js'
+import Init from '@/view/Doc/Init.js'
+import Router from '@/view/Doc/Router.js'
+import Git from '@/view/Doc/Git.js'
+import Css from '@/view/Doc/Css.js'
+import Proxy from '@/view/Doc/Proxy.js'
+import Break from '@/view/Doc/Break.js'
+import Eslint from '@/view/Doc/Eslint.js'
+import Stylelint from '@/view/Doc/Stylelint.js'
+import PropTypes from '@/view/Doc/PropTypes.js'
+import Redux from '@/view/Doc/Redux.js'
+import Alias from '@/view/Doc/Alias.js'
 
 import React from 'react'
 const doc = [
@@ -71,6 +72,11 @@ const doc = [
         path: 'redux',
         element: <Redux />,
         meta: { title: 'redux' },
+      },
+      {
+        path: 'alias',
+        element: <Alias />,
+        meta: { title: 'alias' },
       },
 
     ],

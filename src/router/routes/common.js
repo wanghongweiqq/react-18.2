@@ -6,8 +6,8 @@
  * @FilePath: /react-18.2/src/router/routes/common.js
  */
 import React from 'react'
-import Page403 from '../../view/common/403.js'
-import Page404 from '../../view/common/404.js'
+import Page403 from '@/view/common/403.js'
+import Page404 from '@/view/common/404.js'
 
 const common = [
   {

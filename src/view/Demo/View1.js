@@ -10,7 +10,7 @@ import React from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { counterIncrementAction, counterDecrementAction, counterRandomAction } from '../../store/redux/counter'
+import { counterIncrementAction, counterDecrementAction, counterRandomAction } from '@/store/redux/counter'
 import store from '../../store'
 
 function View1 ({ counter, userInfo, flatRoute, counterIncrementAction, counterDecrementAction, counterRandomAction }) {
