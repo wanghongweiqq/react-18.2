@@ -33,6 +33,10 @@ function Alias () {
 
       <h2>3、jsconfig.json对别名alias配置</h2>
       <p><img alt='jsconfig.json对别名alias配置' src={require('../../assets/images/doc/jsconfig.png')} /></p>
+      <p>jsconfig.json 是一个用于配置 JavaScript 项目的文件，特别是在使用 TypeScript 或者是在 React 项目中。它的主要功能如下：</p>
+      <p>1、自动模块解析：moduleResolution: node</p>
+      <p>2、路径别名：baseUrl、paths</p>
+      <p>3、指定包含的文件：能提高IDE的性能，使用 include 和 exclude 数组，你可以明确指定哪些文件应该被编译器包含和排除</p>
 
     </div>
   )
