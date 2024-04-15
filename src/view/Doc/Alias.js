@@ -37,7 +37,8 @@ function Alias () {
       <p>1、自动模块解析：moduleResolution: node</p>
       <p>2、路径别名：baseUrl、paths</p>
       <p>3、指定包含的文件：能提高IDE的性能，使用 include 和 exclude 数组，你可以明确指定哪些文件应该被编译器包含和排除</p>
-
+      <p>ps:注意如果键值对为最后一项，含有的英文逗号要省略，否则npm start的时候报这个位置错误</p>
+      <p><img alt='jsconfig.json错误配置' src={require('../../assets/images/doc/jsconfig-error.png')} /></p>
     </div>
   )
 }

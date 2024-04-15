@@ -37,7 +37,7 @@ module.exports = {
     'sourceType': 'module',
   },
   'plugins': [ 'react' ],
-  'ignorePatterns': [ 'config', 'scripts' ],
+  // 'ignorePatterns': [ 'config', 'scripts' ], // 忽略检查列表
 
   /**
    * "off" 或 0 - 关闭规则
