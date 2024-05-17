@@ -3,10 +3,10 @@
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-03-14 15:45:26
  * @Description:  demo视图2
- * @FilePath: /react-18.2/src/view/demo/view2.js
+ * @FilePath: /react-18.2/src/view/Demo/View2.js
  */
 import React from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate, Link, Outlet } from 'react-router-dom'
 
 function View2 () {
   const navigate = useNavigate()
@@ -17,7 +17,8 @@ function View2 () {
   }
 
   return (
-    <div>
+    <div className='pg-doc'>
+      <p>VIEW2</p>
       <p>
         <Link to='/403' replace>
           replace形式跳转到403
@@ -27,6 +28,7 @@ function View2 () {
         <Link to='/'>a1 to index</Link>
       </p>
       <button onClick={handleClick}>返回首页</button>
+      <Outlet />
     </div>
   )
 }

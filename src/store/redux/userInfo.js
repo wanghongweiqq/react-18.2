@@ -24,7 +24,7 @@ const getUserInfoAction = () => {
 }
 
 // Reducers
-const initialState = { b: 1 }
+const initialState = { }
 const userInfoReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_USER_INFO:

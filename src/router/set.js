@@ -16,15 +16,29 @@ import { getUserInfoAction } from '@/store/redux/userInfo'
 import { getUserRightAction } from '@/store/redux/userRight'
 import { setFlatRouteAction } from '@/store/redux/flatRoute'
 
-function SetRouter ({ userInfo, userRight, getUserInfoAction, getUserRightAction, setFlatRouteAction }) {
+function SetRouter ({ userInfo, userRight, flatRoute, getUserInfoAction, getUserRightAction, setFlatRouteAction }) {
   console.log('SetRouter')
   const location = useLocation()
-  let flatRoutes = [] // 扁平化的路由，方便遍历路由信息，比如设置title
+  let flatRoutes = [] // 扁平化的路由，临时使用的变量，方便重置和push等，SetRouter的props改变时，自动重置，无需再userRight改变时重置
   const [ flatRoutesList, setPlatRoutesList ] = useState([])
 
   // 设置title
   function setTitle (pathname) {
-    const result = flatRoutes.find(item => item.path === pathname)
+    // 防止不规范的访问路径造成后面判断的不准，将路径最后以/结尾的斜杠去掉，不包含根目录
+    if(pathname.length > 1 && /\/$/.test(pathname)) { pathname = pathname.slice(0, -1) }
+    // 这里不要使用flatRoutes遍历，因为setPlatRoutesList后SetRouter方法重新渲染，flatRoutes已被置空
+    let result = flatRoutesList.find(route => {
+      if(route.path.indexOf(':') === -1) { // 先对普通路由遍历，匹配不到再对动态路由遍历
+        return pathname === route.path
+      }
+    })
+    if(!result) { // 普通路由遍历未匹配到，开始对动态路由遍历
+      result = flatRoutesList.find(route => {
+        if(route.path.indexOf(':') > -1) { // 动态路由，目前暂不支持动态路由还嵌套子路由的模式
+          return pathname.indexOf(route.path.split(':')[0]) > -1
+        }
+      })
+    }
     if (result && result.meta && result.meta.title) {
       document.title = result.meta.title
     }
@@ -62,8 +76,10 @@ function SetRouter ({ userInfo, userRight, getUserInfoAction, getUserRightAction
 
   // 获取用户信息
   useEffect(() => {
-    console.log('获取用户信息')
-    getUserInfoAction()
+    // getUserInfoAction()
+    // 非跳房子时直接执行下面的方法
+    filterRouter(routes) // 对原始路由routes做权限过滤，接下来将作为useRoutes的入参
+    setPlatRoutesList(flatRoutes) // 扁平化路由赋值
   }, [])
 
   // 获取用户权限
@@ -76,21 +92,20 @@ function SetRouter ({ userInfo, userRight, getUserInfoAction, getUserRightAction
   // 获取用户权限后要做的事情
   useEffect(() => {
     if(userRight && userRight.length > 0) {
-      flatRoutes = [] // 扁平化路由的临时变量情况
-      filterRouter(routes)// 对原始路由routes做权限过滤，接下来将作为useRoutes的入参
-      setTitle(location.pathname)// 先用上面的方法filterRouter处理routes，主要是路由path更新为决定路径，再设置网页title
+      filterRouter(routes) // 对原始路由routes做权限过滤，接下来将作为useRoutes的入参
       setPlatRoutesList(flatRoutes) // 扁平化路由赋值
     }
   }, [ userRight ])
 
-  // 扁平化路由改变时进行全局存储
+  // 扁平化路由改变时
   useEffect(() => {
     if(flatRoutesList && flatRoutesList.length > 0) {
-      setFlatRouteAction(flatRoutesList)
+      setTitle(location.pathname) // 先用上面的方法filterRouter处理routes，主要是路由path更新为决定路径，再设置网页title
+      setFlatRouteAction(flatRoutesList) // 进行全局存储
     }
   }, [ flatRoutesList ])
 
-  // 路由改变时执行设置页面title，为了减少方法filterRouter调用次数，初始话时因为没有用户权限暂不执行，待接口返回用户权限后先执行filterRouter生产绝对路径的path后再执行filterTitle
+  // 路由改变时执行设置页面title，为了减少方法filterRouter调用次数，初始话时因为没有用户权限暂不执行，待接口返回用户权限后先执行filterRouter生产绝对路径的path后再执行setTitle
   useEffect(() => {
     if (userRight && userRight.length > 0) {
       setTitle(location.pathname)
@@ -100,7 +115,7 @@ function SetRouter ({ userInfo, userRight, getUserInfoAction, getUserRightAction
   // routes作为useRoutes的入参，通过useRoutes方法后，返回react路由主体
   const router = useRoutes(routes)
 
-  if (userRight.length > 0) {
+  if (flatRoute.length > 0) { // 不使用flatRoutesList判断，因为setPlatRoutesList方法后，会执行状态存储setFlatRouteAction(flatRoutesList)方法，导致使用状态属性flatRoute的组件重复渲染
     return router
   } else {
     return <div>Loading...</div>
@@ -110,6 +125,7 @@ function SetRouter ({ userInfo, userRight, getUserInfoAction, getUserRightAction
 SetRouter.propTypes = {
   userInfo: PropTypes.object,
   userRight: PropTypes.array,
+  flatRoute: PropTypes.array,
   getUserInfoAction: PropTypes.func,
   getUserRightAction: PropTypes.func,
   setFlatRouteAction: PropTypes.func,
@@ -118,6 +134,7 @@ SetRouter.propTypes = {
 const mapStateToProps = (state) => ({
   userInfo: state.userInfo,
   userRight: state.userRight,
+  flatRoute: state.flatRoute,
 })
 const mapDispatchToProps = {
   getUserInfoAction,

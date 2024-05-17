@@ -33,6 +33,7 @@ del,
 pre {
   padding: 0;
   margin: 0;
+  font-family: inherit;
 }
 
 img,
@@ -151,6 +152,10 @@ table {
 
   p {
     padding: 6px 0;
+  }
+
+  pre {
+    padding: 2px 0;
   }
 
   em {

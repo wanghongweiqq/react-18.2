@@ -18,69 +18,67 @@ import Redux from '@/view/Doc/Redux.js'
 import Alias from '@/view/Doc/Alias.js'
 
 import React from 'react'
-const doc = [
-  {
-    path: 'doc',
-    meta: { title: '文档' },
-    children: [
-      {
-        path: 'init',
-        element: <Init />,
-        meta: { title: 'init' },
-      },
-      {
-        path: 'router',
-        element: <Router />,
-        meta: { title: 'router' },
-      },
-      {
-        path: 'git',
-        element: <Git />,
-        meta: { title: 'git' },
-      },
-      {
-        path: 'css',
-        element: <Css />,
-        meta: { title: 'css' },
-      },
-      {
-        path: 'proxy',
-        element: <Proxy />,
-        meta: { title: 'proxy' },
-      },
-      {
-        path: 'break',
-        element: <Break />,
-        meta: { title: 'break' },
-      },
-      {
-        path: 'eslint',
-        element: <Eslint />,
-        meta: { title: 'eslint' },
-      },
-      {
-        path: 'stylelint',
-        element: <Stylelint />,
-        meta: { title: 'stylelint' },
-      },
-      {
-        path: 'prop-types',
-        element: <PropTypes />,
-        meta: { title: 'prop-types' },
-      },
-      {
-        path: 'redux',
-        element: <Redux />,
-        meta: { title: 'redux' },
-      },
-      {
-        path: 'alias',
-        element: <Alias />,
-        meta: { title: 'alias' },
-      },
+const doc = {
+  path: 'doc',
+  meta: { title: '文档' },
+  children: [
+    {
+      path: 'init',
+      element: <Init />,
+      meta: { title: 'init' },
+    },
+    {
+      path: 'router',
+      element: <Router />,
+      meta: { title: 'router' },
+    },
+    {
+      path: 'git',
+      element: <Git />,
+      meta: { title: 'git' },
+    },
+    {
+      path: 'css',
+      element: <Css />,
+      meta: { title: 'css' },
+    },
+    {
+      path: 'proxy',
+      element: <Proxy />,
+      meta: { title: 'proxy' },
+    },
+    {
+      path: 'break',
+      element: <Break />,
+      meta: { title: 'break' },
+    },
+    {
+      path: 'eslint',
+      element: <Eslint />,
+      meta: { title: 'eslint' },
+    },
+    {
+      path: 'stylelint',
+      element: <Stylelint />,
+      meta: { title: 'stylelint' },
+    },
+    {
+      path: 'prop-types',
+      element: <PropTypes />,
+      meta: { title: 'prop-types' },
+    },
+    {
+      path: 'redux',
+      element: <Redux />,
+      meta: { title: 'redux' },
+    },
+    {
+      path: 'alias',
+      element: <Alias />,
+      meta: { title: 'alias' },
+    },
 
-    ],
-  },
-]
+  ],
+}
 
 export default doc
