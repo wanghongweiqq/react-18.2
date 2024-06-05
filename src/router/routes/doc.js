@@ -16,6 +16,7 @@ import Stylelint from '@/view/Doc/Stylelint.js'
 import PropTypes from '@/view/Doc/PropTypes.js'
 import Redux from '@/view/Doc/Redux.js'
 import Alias from '@/view/Doc/Alias.js'
+import Memo from '@/view/Doc/Memo.js'
 
 import React from 'react'
 const doc = {
@@ -76,6 +77,11 @@ const doc = {
       path: 'alias',
       element: <Alias />,
       meta: { title: 'alias' },
+    },
+    {
+      path: 'memo',
+      element: <Memo />,
+      meta: { title: 'memo' },
     },
 
   ],
