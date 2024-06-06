@@ -15,7 +15,7 @@ function Css () {
       <table>
         <tbody>
           <tr>
-            <td><em>sass</em></td>
+            <td width='40'><em>sass</em></td>
             <td>
               <p>node-sass 版本号：7.0.3</p>
               <p>react里默认已经配置了sass, 你直接写sass,运行会发现报Cannot find module &apos;sass&apos;，其实是create-react-app只安装了sass-loader，没有安装node-sass依赖，只需执行安装命令即可：npm install node-sass --save-dev</p>

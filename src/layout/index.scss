@@ -1,0 +1,11 @@
+.router-list {
+  padding: 10px;
+
+  >dt {
+    font-weight: bold;
+  }
+
+  >dd {
+    line-height: 2;
+  }
+}
