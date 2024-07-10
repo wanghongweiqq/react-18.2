@@ -83,11 +83,13 @@ ins {
 body {
   position: relative;
   font-family:
+    -apple-system,
+    "PingFang SC",
+    system-ui,
     "Microsoft YaHei",
     "微软雅黑",
     "Helvetica Neue",
     Helvetica,
-    "PingFang SC",
     "Hiragino Sans GB",
     Arial,
     sans-serif;
@@ -157,6 +159,7 @@ table {
 
   pre {
     padding: 2px 0;
+    font-family: monospace;
   }
 
   em {

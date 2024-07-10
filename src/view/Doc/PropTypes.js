@@ -26,7 +26,9 @@ function PropTypes () {
       <pre>&#125;</pre>
       <pre>……</pre>
       <pre>&#125;</pre>
-      <p>static说明,凡是被static修饰的属性和方法都是静态方法和静态属性,只能被类名调用,不能被实例化对象调用（普通方法只能被实例调用，不能被类调用）,static修饰的属于当前这个类，可以被子类用extends继承。
+      <p>static说明,凡是被static修饰的属性和方法都是静态方法和静态属性,只能被类名调用,不能被实例化对象调用（普通方法只能被实例调用，不能被类调用）,static修饰的属于当前这个类，可以被子类用extends继承。</p>
+      <p>在静态方法内部，不能使用this关键字，因为静态方法与特定实例无关。静态方法只能访问静态属性或调用其他静态方法。</p>
+      <p>
         <a target='_blank' href='https://blog.csdn.net/persis_in/article/details/123310777' rel='noreferrer'>查看示例1</a>&nbsp;&nbsp;&nbsp;&nbsp;
         <a target='_blank' href='https://blog.csdn.net/cnds123/article/details/131792511' rel='noreferrer'>查看示例2</a></p>
 

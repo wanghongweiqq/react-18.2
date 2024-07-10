@@ -17,6 +17,7 @@ import PropTypes from '@/view/Doc/PropTypes.js'
 import Redux from '@/view/Doc/Redux.js'
 import Alias from '@/view/Doc/Alias.js'
 import Memo from '@/view/Doc/Memo.js'
+import Operator from '@/view/Doc/Operator.js'
 
 import React from 'react'
 const doc = {
@@ -82,6 +83,11 @@ const doc = {
       path: 'memo',
       element: <Memo />,
       meta: { title: 'memo' },
+    },
+    {
+      path: 'operator',
+      element: <Operator />,
+      meta: { title: 'operator' },
     },
 
   ],
