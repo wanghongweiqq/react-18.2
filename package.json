@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "dotenv -e .env.dev node scripts/start.js ",
-    "build": "node scripts/build.js",
+    "start:prod": "dotenv -e .env.prod node scripts/start.js ",
+    "build": "dotenv -e .env.prod node scripts/build.js",
     "test": "node scripts/test.js",
     "prepare": "husky install",
     "lint": "lint-staged",

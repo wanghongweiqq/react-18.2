@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 html,
 body,
 div,
@@ -121,19 +123,23 @@ table {
     border: 1px solid #999;
   }
 
-  th,
-  td {
-    padding: 5px;
-    border: 1px solid #999;
-  }
-
   table {
     margin: 5px 0;
+
+    th,
+    td {
+      padding: 5px;
+      border: 1px solid #999;
+
+      img {
+        max-width: 80vw;
+      }
+    }
   }
 
   h1 {
     font-size: 20px;
-    color: #000;
+    color: $T-C-Success;
   }
 
   h2 {

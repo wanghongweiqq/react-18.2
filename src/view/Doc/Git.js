@@ -17,12 +17,12 @@ function Git () {
       <table>
         <tbody>
           <tr>
-            <td>GitHub tokens</td>
+            <td width='120'>GitHub tokens</td>
             <td>
               <p>1、登入你的GitHub账号</p>
               <p>2、依次点击【右上角个人头像】→【Settings】→【Developer settings】→左边菜单【Personal access tokens】→下拉选项【Tokens (classic)】，可以选择生成一个永久有效的token</p>
               <p>3、注意创建成功记得保存下你的token，后面需要使用</p>
-              <p><img alt='GitHub创建Personal access tokens' width='1000' src={require('@/assets/images/doc/github-token.png')} /></p>
+              <p><img alt='GitHub创建Personal access tokens' src={require('@/assets/images/doc/github-token.png')} /></p>
             </td>
           </tr>
           <tr>
@@ -32,7 +32,7 @@ function Git () {
               <p>2、使用场景如下 </p>
               <p>2.1、新建（直接克隆远程）：顶部菜单【文件】→【新建】→弹窗窗口里在【新进】下拉菜单下选择→【从URL克隆】，在弹窗的窗口中填写【源URL】</p>
               <p>2.2、已有项目（未关联远程）：在soursetree窗口的右上角点击【设置】→弹窗窗口中选择【远程仓库】→【添加】→ 弹窗窗口中填写【URL/路径】</p>
-              <p><img alt='sourcetree配置' width='600' src={require('@/assets/images/doc/github-url.png')} /></p>
+              <p><img alt='sourcetree配置' src={require('@/assets/images/doc/github-url.png')} /></p>
             </td>
           </tr>
         </tbody>

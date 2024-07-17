@@ -37,7 +37,7 @@ function View1 ({ counter, userInfo, flatRoute, counterIncrementAction, counterD
       </p>
       <p>state参数：传参于无形中，刷新不会消失（这点比vue的params强），复制链接到新tab下，参数会清空</p>
       <p>
-        <Link to='/demo/navigate?id=1' state={{ x: 1, y: 2 }} replace>state参数-Link标签跳转</Link>
+        <Link to='/demo/navigate?id=1' state={{ x: 1, y: 2 }} replace >state参数-Link标签跳转</Link>
       </p>
       {/* <p>
         这种形式只能获取到pathname，其他参数无法获取，pathname的值后面带search参数还会报错
@@ -45,9 +45,9 @@ function View1 ({ counter, userInfo, flatRoute, counterIncrementAction, counterD
       </p> */}
       <p>
         <button onClick={() => {
-          navigate('/demo/navigate?id=1&sex=male&id=2', { // 除了Link能使用的state、replace属性外，其他属性都无法传递
+          navigate('/demo/navigate?id=1&sex=male&id=2#name', { // 除了Link能使用的state、replace属性外，其他属性都无法传递
             state: { x: 1, y: 2 },
-            replace: true,
+            replace: false,
             search: { a: 3 }, // 无法传递
             hash: 4, // 无法传递
           })
@@ -55,6 +55,15 @@ function View1 ({ counter, userInfo, flatRoute, counterIncrementAction, counterD
           state参数-useNavigate方法跳转
         </button>
       </p>
+      <button onClick={() => {
+        navigate('/demo/b2/c3/3/4', {
+          state: { x: 1, y: 2 },
+          replace: true,
+          search: { a: 3 },
+        })
+      }} >
+          go to 动态路由 !
+      </button>
     </div>
   )
 }

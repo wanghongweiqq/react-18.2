@@ -76,10 +76,10 @@ function SetRouter ({ userInfo, userRight, flatRoute, getUserInfoAction, getUser
 
   // 获取用户信息
   useEffect(() => {
-    getUserInfoAction()
+    // getUserInfoAction()
     // 非跳房子时直接执行下面的方法
-    // filterRouter(routes) // 对原始路由routes做权限过滤，接下来将作为useRoutes的入参
-    // setPlatRoutesList(flatRoutes) // 扁平化路由赋值
+    filterRouter(routes) // 对原始路由routes做权限过滤，接下来将作为useRoutes的入参
+    setPlatRoutesList(flatRoutes) // 扁平化路由赋值
   }, [])
 
   // 获取用户权限

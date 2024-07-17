@@ -18,6 +18,7 @@ import Redux from '@/view/Doc/Redux.js'
 import Alias from '@/view/Doc/Alias.js'
 import Memo from '@/view/Doc/Memo.js'
 import Operator from '@/view/Doc/Operator.js'
+import Env from '@/view/Doc/Env.js'
 
 import React from 'react'
 const doc = {
@@ -88,6 +89,11 @@ const doc = {
       path: 'operator',
       element: <Operator />,
       meta: { title: 'operator' },
+    },
+    {
+      path: 'env',
+      element: <Env />,
+      meta: { title: 'env' },
     },
 
   ],

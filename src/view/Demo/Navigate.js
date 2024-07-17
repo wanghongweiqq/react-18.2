@@ -16,7 +16,7 @@ function Navigate () {
   console.log('useLocation-state:', state)
   console.log('useLocation-search:', search)
 
-  console.log('useResolvedPath("user?id=1&name=tom#sex"):', useResolvedPath('/user?id=001&name=tom#qwe'))
+  console.log('useResolvedPath("user?id=1&name=tom#sex"):', useResolvedPath('/user?id=001&name=tom#sex'))
 
   function demoUseSearchParams () {
     console.log('demoUseSearchParams')
@@ -91,9 +91,9 @@ function Navigate () {
   }
   useEffect(() => {
     console.log('Navigate useEffect')
-    demoUseSearchParams()
-    demoURLSearchParams()
-    demoUseResolvedPath()
+    // demoUseSearchParams()
+    // demoURLSearchParams()
+    // demoUseResolvedPath()
   }, [ ])
 
   // 触发：const navigate = useNavigate()、Link
