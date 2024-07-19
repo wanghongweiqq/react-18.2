@@ -24,6 +24,7 @@ function PropTypes () {
       <pre> a: true,</pre>
       <pre> b: 1,</pre>
       <pre>&#125;</pre>
+      <pre>const &#123; a, b &#125; = this.props</pre>
       <pre>……</pre>
       <pre>&#125;</pre>
       <p>static说明,凡是被static修饰的属性和方法都是静态方法和静态属性,只能被类名调用,不能被实例化对象调用（普通方法只能被实例调用，不能被类调用）,static修饰的属于当前这个类，可以被子类用extends继承。</p>
@@ -33,7 +34,8 @@ function PropTypes () {
         <a target='_blank' href='https://blog.csdn.net/cnds123/article/details/131792511' rel='noreferrer'>查看示例2</a></p>
 
       <h2>hooks组件</h2>
-      <pre>function XXX (&#123;a,b&#125;)&#123;……&#125;</pre>
+      <pre>function XXX (&#123;a,b&#125;)&#123;……&#125;或者</pre>
+      <pre>function XXX (props)&#123; const &#123; a, b &#125; = props ……&#125; </pre>
       <pre>XXX.propTypes= &#123;</pre>
       <pre> a: PropTypes.array,</pre>
       <pre> b: PropTypes.func,</pre>

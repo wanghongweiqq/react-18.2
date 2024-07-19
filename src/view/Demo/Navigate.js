@@ -7,14 +7,18 @@
  */
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useParams, useSearchParams, useResolvedPath } from 'react-router-dom'
+import { searchToParams } from '@/utils'
 
 function Navigate () {
   console.log('Navigate')
-  const { state, search } = useLocation()
+  const { state: { x, y }, state, search } = useLocation()
   const [ searchParams, setSearchParams ] = useSearchParams()
   console.log(useLocation())
   console.log('useLocation-state:', state)
+  console.log('useLocation-state:', x)
+  console.log('useLocation-state:', y)
   console.log('useLocation-search:', search)
+  console.log('useLocation-search-params:', searchToParams())
 
   console.log('useResolvedPath("user?id=1&name=tom#sex"):', useResolvedPath('/user?id=001&name=tom#sex'))
 

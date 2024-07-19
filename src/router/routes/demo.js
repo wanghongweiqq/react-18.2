@@ -57,7 +57,7 @@ const route2 = {
       element: <View2 />,
       meta: {
         title: 'b2标题',
-        auth: 'hllWorkOrder.gongdanzhongxin.workOrderTrigger',
+        // auth: 'hllWorkOrder.gongdanzhongxin.workOrderTrigger',
       },
       children: [
         {

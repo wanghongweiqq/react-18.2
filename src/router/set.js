@@ -55,17 +55,18 @@ function SetRouter ({ userInfo, userRight, flatRoute, getUserInfoAction, getUser
       ) { // 没有权限的页面，挂载403的组件
         item.element = <Page403 /> // <Navigate to="/403" replace />
       }
-      if (item.path && /^\//.test(item.path) === false && parentPath) {
+      if (item.path && /^\//.test(item.path) === false && parentPath) { // path不以 / 开头，绝大多数普通路由，除了根目录 / 指向的首页，如果path以 / 开头表示其路由配置的是绝对路由，无需再次拼接，直接使用即可
         const path = parentPath === '/' ? '' : '/'
         item.path = parentPath + path + item.path
-      } else if (item.index) {
+      } else if (item.index) { // 子路由含有 index: true
         item.path = parentPath
       }
-      if (item.children && item.children.length > 0) {
+      if (item.children && item.children.length > 0) { // 如果含有子路由，使用递归来继续过滤路由
         filterRouter(item.children, item.path)
-        // 以下逻辑主要是为了打平路由，方便获取路由信息
+
+        // 以下逻辑直到filterRouter方法结束，主要是为了打平路由，方便获取路由信息
         const childrenHaveIndex = item.children.some((child) => child.index)
-        if (childrenHaveIndex) return
+        if (childrenHaveIndex) return // 如果当前路由的子路由内含有 index: true，那当前路由就不被收入打平路由flatRoutes的数组内，其子路由会被收录进去，从而防止重复
       }
       let obj = {}
       obj.path = item.path
@@ -76,10 +77,10 @@ function SetRouter ({ userInfo, userRight, flatRoute, getUserInfoAction, getUser
 
   // 获取用户信息
   useEffect(() => {
-    // getUserInfoAction()
+    getUserInfoAction()
     // 非跳房子时直接执行下面的方法
-    filterRouter(routes) // 对原始路由routes做权限过滤，接下来将作为useRoutes的入参
-    setPlatRoutesList(flatRoutes) // 扁平化路由赋值
+    // filterRouter(routes) // 对原始路由routes做权限过滤，接下来将作为useRoutes的入参
+    // setPlatRoutesList(flatRoutes) // 扁平化路由赋值
   }, [])
 
   // 获取用户权限
@@ -115,6 +116,8 @@ function SetRouter ({ userInfo, userRight, flatRoute, getUserInfoAction, getUser
   }, [ location.pathname ])
 
   // routes作为useRoutes的入参，通过useRoutes方法后，返回react路由主体
+  console.log('routes')
+  console.log(routes)
   const router = useRoutes(routes)
 
   if (flatRoute.length > 0) { // 不使用flatRoutesList判断，因为setPlatRoutesList方法后，会执行状态存储setFlatRouteAction(flatRoutesList)方法，导致使用状态属性flatRoute的组件重复渲染

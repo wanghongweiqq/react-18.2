@@ -56,13 +56,8 @@ function View1 ({ counter, userInfo, flatRoute, counterIncrementAction, counterD
         </button>
       </p>
       <button onClick={() => {
-        navigate('/demo/b2/c3/3/4', {
-          state: { x: 1, y: 2 },
-          replace: true,
-          search: { a: 3 },
-        })
-      }} >
-          go to 动态路由 !
+        navigate('/demo/b2/c3/3/4', { state: { x: 1, y: 2 } })
+      }}>go to 动态路由 !
       </button>
     </div>
   )

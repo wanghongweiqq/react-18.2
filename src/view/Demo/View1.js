@@ -40,7 +40,7 @@ function View1 ({ counter, userInfo, flatRoute, counterIncrementAction, counterD
       </p>
       <p>
         <button onClick={() => {
-          navigate('/a/b2/c3/3/4', {
+          navigate('/demo/b2/c3/3/4', {
             state: { x: 1, y: 2 },
             search: { a: 3 },
           })
