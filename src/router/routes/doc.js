@@ -19,6 +19,7 @@ import Alias from '@/view/Doc/Alias.js'
 import Memo from '@/view/Doc/Memo.js'
 import Operator from '@/view/Doc/Operator.js'
 import Env from '@/view/Doc/Env.js'
+import EscapeSequence from '@/view/Doc/EscapeSequence.js'
 
 import React from 'react'
 const doc = {
@@ -28,74 +29,78 @@ const doc = {
     {
       path: 'init',
       element: <Init />,
-      meta: { title: 'init' },
+      meta: { title: 'init 项目初始话' },
     },
     {
       path: 'router',
       element: <Router />,
-      meta: { title: 'router' },
+      meta: { title: 'router 配置' },
     },
     {
       path: 'git',
       element: <Git />,
-      meta: { title: 'git' },
+      meta: { title: 'git 配置' },
     },
     {
       path: 'css',
       element: <Css />,
-      meta: { title: 'css' },
+      meta: { title: 'css 配置' },
     },
     {
       path: 'proxy',
       element: <Proxy />,
-      meta: { title: 'proxy' },
+      meta: { title: 'proxy 接口的反向代理' },
     },
     {
       path: 'break',
       element: <Break />,
-      meta: { title: 'break' },
+      meta: { title: 'break 退出循环' },
     },
     {
       path: 'eslint',
       element: <Eslint />,
-      meta: { title: 'eslint' },
+      meta: { title: 'eslint 配置' },
     },
     {
       path: 'stylelint',
       element: <Stylelint />,
-      meta: { title: 'stylelint' },
+      meta: { title: 'stylelint 配置' },
     },
     {
       path: 'prop-types',
       element: <PropTypes />,
-      meta: { title: 'prop-types' },
+      meta: { title: 'prop-types 类型检测' },
     },
     {
       path: 'redux',
       element: <Redux />,
-      meta: { title: 'redux' },
+      meta: { title: 'redux 状态存储' },
     },
     {
       path: 'alias',
       element: <Alias />,
-      meta: { title: 'alias' },
+      meta: { title: 'alias 路径别名' },
     },
     {
       path: 'memo',
       element: <Memo />,
-      meta: { title: 'memo' },
+      meta: { title: 'memo 性能优化' },
     },
     {
       path: 'operator',
       element: <Operator />,
-      meta: { title: 'operator' },
+      meta: { title: 'operator 运算符' },
     },
     {
       path: 'env',
       element: <Env />,
-      meta: { title: 'env' },
+      meta: { title: 'env 环境变量' },
     },
-
+    {
+      path: 'escape-sequence',
+      element: <EscapeSequence />,
+      meta: { title: 'escape-sequence 转义字符串' },
+    },
   ],
 }
 

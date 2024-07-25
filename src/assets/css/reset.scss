@@ -124,15 +124,25 @@ table {
   }
 
   table {
-    margin: 5px 0;
+    margin: 6px 0;
+
+    th {
+      font-weight: bold;
+    }
 
     th,
     td {
-      padding: 5px;
+      padding: 6px;
       border: 1px solid #999;
 
       img {
         max-width: 80vw;
+      }
+    }
+
+    &.escape-sequence-table {
+      tr td:first-child {
+        font-size: 22px;
       }
     }
   }

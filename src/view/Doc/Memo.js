@@ -2,7 +2,7 @@
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-05-31 17:09:10
- * @Description: 页面/组件/功能的描述
+ * @Description: 性能优化
  * @FilePath: /react-18.2/src/view/Doc/Memo.js
  */
 import React, { memo, useState, useMemo, useCallback } from 'react'
