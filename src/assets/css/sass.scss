@@ -3,8 +3,10 @@
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-07-12 10:35:09
  * @Description: 全局的样式变量，T:theme, S:font-size, C:color
- * @FilePath: /react-18.2/src/assets/css/variables.scss
+ * @FilePath: /react-18.2/src/assets/css/sass.scss
  */
+
+/* 变量 variable */
 
 $T-S:14px;
 $T-C:#308eff;
@@ -16,13 +18,13 @@ $T-C-E:#eee;
 $T-C-F:#fff;
 $T-C-Success:#00a854;
 $T-C-Warning:#e6a23c;
-$T-C-WarningLight:#fffece;
 $T-C-Danger:#d81e06;
-$T-C-Pink:#fb8196;
+
+/* 混入 mixin */
 
 /* n行出省略号，默认1行 */
 @mixin ellipsis ($line:1) {
-  display: box !important;
+  display: -webkit-box !important;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: $line;
   overflow: hidden;

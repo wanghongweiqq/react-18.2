@@ -77,10 +77,10 @@ function SetRouter ({ userInfo, userRight, flatRoute, getUserInfoAction, getUser
 
   // 获取用户信息
   useEffect(() => {
-    getUserInfoAction()
+    // getUserInfoAction()
     // 非跳房子时直接执行下面的方法
-    // filterRouter(routes) // 对原始路由routes做权限过滤，接下来将作为useRoutes的入参
-    // setPlatRoutesList(flatRoutes) // 扁平化路由赋值
+    filterRouter(routes) // 对原始路由routes做权限过滤，接下来将作为useRoutes的入参
+    setPlatRoutesList(flatRoutes) // 扁平化路由赋值
   }, [])
 
   // 获取用户权限
@@ -108,11 +108,11 @@ function SetRouter ({ userInfo, userRight, flatRoute, getUserInfoAction, getUser
 
   // 路由改变时执行设置页面title，为了减少方法filterRouter调用次数，初始话时因为没有用户权限暂不执行，待接口返回用户权限后先执行filterRouter生产绝对路径的path后再执行setTitle
   useEffect(() => {
-    if (userRight && userRight.length > 0) {
-      setTitle(location.pathname)
-    }
+    // if (userRight && userRight.length > 0) {
+    //   setTitle(location.pathname)
+    // }
     // 非跳房子时直接执行下面的方法
-    // setTitle(location.pathname)
+    setTitle(location.pathname)
   }, [ location.pathname ])
 
   // routes作为useRoutes的入参，通过useRoutes方法后，返回react路由主体

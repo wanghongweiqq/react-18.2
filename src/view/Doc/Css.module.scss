@@ -1,11 +1,14 @@
+/*
+ * @Author: 王宏伟
+ * @Email：wanghongwei@hualala.com
+ * @Date: 2024-07-30 10:35:01
+ * @Description: css模块化样式
+ * @FilePath: /react-18.2/src/view/Doc/Css.module.scss
+ */
 .red {
-  color: red;
+  color: $T-C-Danger;
 }
 
 .bold {
   font-weight: bold;
-}
-
-.current {
-  background-color: black;
 }

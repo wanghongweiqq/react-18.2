@@ -40,6 +40,7 @@ function Css () {
       <p>webpack.config.js中已经对css（默认针对的是.css和sass）的引入做了处理，主要是判断：<em>css文件名称是不是以.module+.css/sass/scss结尾</em>，做了不同的模式mode：</p>
       <p>1、不是.module.css结尾，mode是：icss-全局作用域</p>
       <p>2、是.module.css结尾，mode是：local-局部作用域</p>
+      <p><img alt='react对css的默认配置' src={require('@/assets/images/doc/css-module.png')} /></p>
 
       <h3>1、使用常规的css文件，对应上面的mode-icss</h3>
       <p>创建一个CSS文件，css文件名称不是以.module+.css/sass/scss结尾，并在React组件中引入这个CSS文件。</p>
@@ -47,7 +48,7 @@ function Css () {
         <pre>import &apos;./Css.scss&apos;</pre>
         <pre>className=&apos;red bold&apos;</pre>
       </div>
-      <p>特点：方便简单，但容易冲突，对命名要求较高，可以使用相对唯一的层级嵌套规避同名冲突</p>
+      <p>特点：方便简单，但容易冲突，对命名要求较高，可以使用父级类名相对唯一的层级嵌套规避同名冲突： ly-主结构、pg-页面、cp-公共组件、bcp-业务组件、</p>
 
       <h3>2、使用css模块，对应上面的mode-local</h3>
       <p>创建一个CSS文件，css文件名称是以.module+.css/sass/scss结尾，并在React组件中引入这个CSS文件。</p>
@@ -102,6 +103,21 @@ function Css () {
         <pre>if(isActive) &#123; classNamesA += &apos; bold&apos; &#125;</pre>
         <pre>className=&#123; classNamesA &#125;</pre>
       </div>
+
+      <h2>设置全局SCSS变量</h2>
+
+      <h3>第1步：安装依赖 sass-resources-loader</h3>
+      <pre>npm i sass-resources-loader -D</pre>
+
+      <h3>第2步：修改webpack相关配置：/config/webpack.config.js</h3>
+      <p>如果没有这个文件，需要执行：npm run eject，来弹窗相关配置文件</p>
+      <p>对方法“ <em>getStyleLoaders(cssOptions, preProcessor)</em> ”进行修改，由于主要是对css变量variable、混入mixin进行全局配置，而这些只有css预处理器才支持，原生css不支持，所以利用之前的判断if(preProcessor)，在里面添加专门针对sass的全局配置即可</p>
+      <p><img alt='webpack相关配置修改' src={require('@/assets/images/doc/webpack-sass-import.png')} /></p>
+
+      <h3>第3步：更新stylelint相关配置</h3>
+      <p>不更新的话虽然不影响浏览器页面显示，但代码相应位置会报红，而且会被git提交校验拦住，导致无法提交</p>
+      <p><img alt='stylelint相关配置修改' src={require('@/assets/images/doc/stylelint-sass-import.png')} /></p>
+
     </div>
   )
 }

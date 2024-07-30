@@ -160,6 +160,7 @@ module.exports = function (webpackEnv) {
         },
       },
     ].filter(Boolean)
+    // 第二个参数preProcessor是判断是否为css预处理器，如sass、less等
     if (preProcessor) {
       loaders.push(
         {
@@ -172,6 +173,14 @@ module.exports = function (webpackEnv) {
         {
           loader: require.resolve(preProcessor),
           options: { sourceMap: true },
+        },
+        // sass变量全局的配置
+        {
+          loader: require.resolve('sass-resources-loader'),
+          options: {
+            // resources支持：字符串、数组（当前使用），require.resolve('../src/xx.scss')亦可
+            resources: [ path.join(__dirname, '../src/assets/css/sass.scss') ],
+          },
         },
       )
     }
@@ -298,7 +307,8 @@ module.exports = function (webpackEnv) {
         .map(ext => `.${ ext }`)
         .filter(ext => useTypeScript || !ext.includes('ts')),
       alias: {
-        '@': path.resolve(__dirname, '../src'), // 设置别名 @=/src
+        // 设置别名 @=/src
+        '@': path.resolve(__dirname, '../src'),
 
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
