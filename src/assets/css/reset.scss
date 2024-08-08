@@ -129,30 +129,6 @@ table {
     border: 1px solid #999;
   }
 
-  table {
-    margin: 6px 0;
-
-    th {
-      font-weight: bold;
-    }
-
-    th,
-    td {
-      padding: 6px;
-      border: 1px solid #999;
-
-      img {
-        max-width: 80vw;
-      }
-    }
-
-    &.escape-sequence-table {
-      tr td:first-child {
-        font-size: 22px;
-      }
-    }
-  }
-
   h1 {
     font-size: 20px;
     color: $T-C-Success;
@@ -191,5 +167,36 @@ table {
   .code {
     padding: 10px;
     background-color: $T-C-E;
+  }
+
+  table {
+    margin: 6px 0;
+
+    th {
+      font-weight: bold;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #999;
+
+      img {
+        max-width: 80vw;
+      }
+
+      p {
+        &:first-child,
+        &:last-child {
+          padding: 0;
+        }
+      }
+    }
+
+    &.escape-sequence-table {
+      tr td:first-child {
+        font-size: 22px;
+      }
+    }
   }
 }

@@ -20,6 +20,7 @@ import Memo from '@/view/Doc/Memo.js'
 import Operator from '@/view/Doc/Operator.js'
 import Env from '@/view/Doc/Env.js'
 import EscapeSequence from '@/view/Doc/EscapeSequence.js'
+import Webpack from '@/view/Doc/Webpack.js'
 
 import React from 'react'
 const doc = {
@@ -101,6 +102,12 @@ const doc = {
       element: <EscapeSequence />,
       meta: { title: 'escape-sequence 转义字符串' },
     },
+    {
+      path: 'webpack',
+      element: <Webpack />,
+      meta: { title: 'Webpack 概览' },
+    },
+
   ],
 }
 
