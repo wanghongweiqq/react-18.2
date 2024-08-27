@@ -3,12 +3,11 @@
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-03-25 15:39:41
  * @Description: 退出循环
- * @FilePath: /react-18.2/src/view/doc/break.js
+ * @FilePath: /react-18.2/src/view/Doc/Break.js
  */
 import React, { useEffect } from 'react'
 
 function Break () {
-
   function test () {
     let a = [ 1, 2, 3, 4, 5 ]
     let b = [ 1, 2, 3, 4, 5 ]

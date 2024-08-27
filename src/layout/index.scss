@@ -1,4 +1,11 @@
-.router-list {
+.ly-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.ly-menu {
   padding: 10px;
 
   >dt {

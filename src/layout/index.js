@@ -5,7 +5,7 @@
  * @Description: 页面公共部分
  * @FilePath: /react-18.2/src/layout/index.js
  */
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
@@ -14,11 +14,33 @@ import './index.scss'
 function Layout ({ flatRoute }) {
   console.log('flatRoute')
   console.log(flatRoute)
+
+  const switchTheme = () => {
+    // alert(1)
+    const colorDark = '#FF6100'
+    const isDark = document.documentElement.style.getPropertyValue('--primary-color') === colorDark
+    if (!isDark) {
+      document.documentElement.style.setProperty('--primary-color', colorDark)
+    } else {
+      document.documentElement.style.setProperty('--primary-color', '#333')
+    }
+  }
+  useEffect(() => {
+    // 监听按钮点击事件来切换主题
+    document.getElementById('theme-toggle').addEventListener('click', switchTheme)
+    return () => {
+      document.getElementById('theme-toggle').removeEventListener('click', switchTheme)
+    }
+  }, [])
+
   return (
-    <div className='wrapper'>
-      <p>首页layout</p>
+    <div className='ly-wrapper'>
+      <div className='ly-title'>
+        <p>首页layout</p>
+        <button id='theme-toggle'>切换主题</button>
+      </div>
       <Outlet />
-      <dl className='router-list abc'>
+      <dl className='ly-menu'>
         <dt>路由列表：</dt>
         {flatRoute.map(item => <dd key={item.path}><Link to={item.path}>{item.meta.title}</Link></dd>)}
       </dl>

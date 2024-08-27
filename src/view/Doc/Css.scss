@@ -5,10 +5,353 @@
  * @Description: css常规样式
  * @FilePath: /react-18.2/src/view/Doc/Css.scss
  */
-.red {
-  color: $T-C-Danger;
-}
 
-.bold {
-  font-weight: bold;
+.pg-css {
+  .red {
+    color: $T-C-Danger;
+  }
+
+  .bold {
+    font-weight: bold;
+  }
+
+  .before-after {
+    &::before {
+      color: $T-C-Success;
+      content: "你好，";
+    }
+
+    &::after {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 10px;
+      overflow: hidden;
+      vertical-align: middle;
+      content: "";
+      border-color: transparent transparent  $T-C-Success;
+      border-style: solid;
+      border-width: 9px 5px;
+      border-top-width: 0;
+      transition: all 0.4s;
+    }
+
+    &:hover {
+      &::after {
+        border-bottom-color: $T-C-Danger;
+      }
+    }
+  }
+
+  .first-line {
+    &::first-line {
+      color: $T-C-Success;
+    }
+  }
+
+  .first-letter {
+    &::first-letter {
+      color: $T-C-Success;
+      initial-letter: 2;
+    }
+  }
+
+  .selection {
+    &::selection {
+      color: $T-C-0;
+      text-shadow: 3px 0 0 $T-C-Warning;
+      background-color: $T-C-Success;
+    }
+  }
+
+  .placeholder {
+    >* {
+      &::placeholder {
+        color: $T-C-Success;
+      }
+    }
+  }
+
+  .pseudo-class {
+    a,
+    span {
+      &:link {
+        color: $T-C-Success;
+      }
+
+      &:visited {
+        color: $T-C-Danger;
+      }
+
+      &:hover {
+        color: $T-C;
+      }
+
+      &:active {
+        color: $T-C-Warning;
+      }
+    }
+
+    input {
+      padding: 2px 4px;
+      background-color: $T-C-E;
+      border-width: 1px;
+
+      &:focus {
+        background-color: $T-C-F;
+      }
+    }
+
+    p {
+      > ins {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: top;
+        background-color: $T-C-9;
+      }
+    }
+
+    .first-child {
+      :first-child {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .last-child {
+      :last-child {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-child-1 {
+      :nth-child(1) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-child-nadd3 {
+      :nth-child(n+3) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-child-top-3 {
+      :nth-child(-n+3) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-child-even {
+      :nth-child(2n) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-child-odd {
+      :nth-child(2n+1) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-last-child-1 {
+      :nth-last-child(1) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-last-child-nadd3 {
+      :nth-last-child(n+3) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-last-child-top-3 {
+      :nth-last-child(-n+3) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-last-child-even {
+      :nth-last-child(2n) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-last-child-odd {
+      :nth-last-child(2n+1) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .only-child {
+      :only-child {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .first-of-type {
+      :first-of-type {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .last-of-type {
+      :last-of-type {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-of-type-1 {
+      :nth-of-type(1) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-of-type-top-3 {
+      :nth-of-type(-n+3) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-last-of-type-1 {
+      :nth-last-of-type(1) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .nth-last-of-type-top-3 {
+      :nth-last-of-type(-n+3) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .only-of-type {
+      :only-of-type {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .empty {
+      :empty {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .not {
+      ins:not(:first-child) {
+        background-color: $T-C-Success;
+      }
+
+      ins:not(.no) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .not-1 {
+      ins:not(:first-child) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .not-2 {
+      ins:not(.no) {
+        background-color: $T-C-Success;
+      }
+    }
+
+    .has {
+      >p:has(.a,.c) {
+        ins {
+          background-color: $T-C-Success;
+        }
+      }
+
+      >h4:has(+h4) {
+        color: $T-C-Success;
+      }
+
+      >p:has(span:not(.x)) {
+        color: $T-C-Success;
+      }
+    }
+
+    .is :is(.is-1,.is-2) {
+      :is(i,span) {
+        color: $T-C-Success;
+      }
+    }
+
+    .is :is(p,#is-3) {
+      :is(i,span) {
+        color: $T-C-Danger;
+      }
+    }
+
+    .where :where(.where-1,.where-2) {
+      :where(i,span) {
+        color: $T-C-Success;
+      }
+
+      :is(i,span) {
+        color: $T-C-Warning;
+      }
+    }
+
+    .where :where(p,#where-3) {
+      :where(i,span) {
+        color: $T-C-Danger;
+      }
+    }
+
+    .status {
+      >* {
+        margin-right: 10px;
+      }
+
+      input {
+        color: $T-C-6;
+      }
+
+      input:enabled {
+        color: $T-C-3;
+      }
+
+      input:disabled {
+        color: $T-C-9;
+      }
+
+      input:checked {
+        accent-color: $T-C-Success;
+      }
+
+      label:has(input:checked) {
+        color: $T-C-Success;
+      }
+
+      input:valid {
+        background-color: $T-C-Success;
+      }
+
+      input:invalid {
+        background-color: $T-C-Danger;
+      }
+    }
+  }
+
+  :target {
+    background-color: yellow;
+    animation: fade-in 3s ease-in-out;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 }
