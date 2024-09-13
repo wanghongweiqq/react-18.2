@@ -1,3 +1,12 @@
+/*
+ * @Author: 王宏伟
+ * @Email：wanghongwei@hualala.com
+ * @Date: 2024-09-11 14:47:16
+ * @Description: 通用样式
+ * @FilePath: /react-18.2/src/assets/css/reset.scss
+ */
+@import "reset.html.scss";
+
 html,
 body,
 div,
@@ -121,6 +130,10 @@ table {
   @include ellipsis(2);
 }
 
+.monospace {
+  font-family: monospace;
+}
+
 /* doc文件下的样式 */
 .pg-doc {
   padding: 10px;
@@ -136,12 +149,12 @@ table {
 
   h2 {
     font-size: $T-S + 4;
-    color: #135ce0;
+    color: $T-C;
   }
 
   h3 {
     font-size: $T-S + 2;
-    color: #333;
+    color: $T-C-Warning;
   }
 
   h1,

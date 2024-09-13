@@ -24,7 +24,7 @@ function EscapeSequence () {
       <h2>转义字符串的组成</h2>
       <p>转义字符串（Escape Sequence），即字符实体（Character Entity）分成三部分：第一部分是一个&符号，英文叫ampersand；第二部分是实体（Entity）名字或者是#加上实体（Entity）编号；第三部分是一个分号。</p>
       <p>比如，要显示小于号”&lt;“，就可以写 &lt；或者 &#60； 。</p>
-      <p>用实体（Entity）名字的好处是比较好理解，一看lt，大概就猜出是less than的意思，但是其劣势在于并不是所有的浏览器都支持最新的Entity名字。而实体(Entity)编号，各种浏览器都能处理，方法：<em>str.charCodeAt(0)</em>可以用来获取实体编号，反过来，<em>String.fromCharCode(编号)</em>函数用于从Unicode字符值中返回对应的字符串，如编号39对应的单引号</p>
+      <p>用实体（Entity）名字的好处是比较好理解，一看lt，大概就猜出是less than的意思，但是其劣势在于并不是所有的浏览器都支持最新的Entity名字。而实体(Entity)编号，各种浏览器都能处理，方法：<em>str.charCodeAt(index)</em>可以用来获取实体编号，其中参数index为字符串中的下标，默认0，反过来，<em>String.fromCharCode(编号)</em>函数用于从Unicode字符值中返回对应的字符串，如编号39对应的单引号</p>
       <p>备注：同一个符号，可以用“实体名称”和“实体编号”两种方式引用，“实体名称”的优势在于便于记忆，但不能保证所有的浏览器都能顺利识别它，并且它是区分大小写的，而“实体编号”则没有这种担忧，但它实在不方便记忆。</p>
 
       <h2>常用HTML特殊转义字符列表</h2>
@@ -102,7 +102,7 @@ function EscapeSequence () {
             <td>&quot;</td>
             <td>&quot ;</td>
             <td>&#34 ;</td>
-            <td colSpan={3}>双引号，&apos;&nbsp;&quot;&apos;.charCodeAt(0)=39 </td>
+            <td colSpan={3}>双引号，&apos;&nbsp;&quot;&apos;.charCodeAt(0)=34 </td>
           </tr>
           <tr>
             <td>‘</td>

@@ -1,0 +1,24 @@
+/*
+ * @Author: 王宏伟
+ * @Email：wanghongwei@hualala.com
+ * @Date: 2024-09-13 10:09:40
+ * @Description: scss中因涉及到函数等导致stylelint校验不过的通用样式写这里
+ * @FilePath: /react-18.2/src/assets/css/reset.html.scss
+ */
+$font-color-map:(
+  "default": $T-C-3,
+  "disabled": $T-C-9,
+  "success": $T-C-Success,
+  "warning": $T-C-Warning,
+  "danger": $T-C-Danger,
+);
+
+$font-color-key-list:map-keys($font-color-map);
+
+@each $key in $font-color-key-list{
+  .text-#{ $key } { color: map-get($font-color-map,$key); }
+}
+// @for $i from 1 through length($font-color-key-list){
+//   $key:nth($font-color-key-list,$i);
+//   .text-#{ $key } { color: map-get($font-color-map,$key); }
+// }

@@ -1,3 +1,5 @@
+/* stylelint-disable function-no-unknown */
+
 /*
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
@@ -15,7 +17,27 @@
     font-weight: bold;
   }
 
-  .before-after {
+  .padding-top-10 {
+    padding-top: 10px;
+  }
+
+  %font-important-basic {
+    color: $T-C-Danger;
+  }
+
+  .font-important-1 {
+    @extend %font-important-basic;
+
+    text-decoration: line-through;
+  }
+
+  .font-important-2 {
+    @extend %font-important-basic;
+
+    text-decoration: underline;
+  }
+
+  .before-after-normal {
     &::before {
       color: $T-C-Success;
       content: "你好，";
@@ -29,16 +51,88 @@
       overflow: hidden;
       vertical-align: middle;
       content: "";
-      border-color: transparent transparent  $T-C-Success;
+      border-color: transparent transparent $T-C-Success;
       border-style: solid;
-      border-width: 9px 5px;
-      border-top-width: 0;
+      border-width: 0 5px 9px;
       transition: all 0.4s;
     }
 
-    &:hover {
-      &::after {
-        border-bottom-color: $T-C-Danger;
+    &:hover::after {
+      border-bottom-color: $T-C-Danger;
+    }
+  }
+
+  .before-after-placeholder {
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid $T-C-E;
+
+    &:empty::before {
+      color: #ccc;
+      content: "请输入内容";
+    }
+  }
+
+  .before-after-content-attr {
+    a::after {
+      content: "链接为（" attr(href) "），标题为（" attr(title) "）";
+    }
+  }
+
+  .before-after-content-quotes {
+    quotes: "\"" ")"; /* 添加双引号要转义 */
+    &::before {
+      content: open-quote;
+    }
+
+    &::after {
+      content: close-quote;
+    }
+  }
+
+  .before-after-content-counter-increment {
+    li {
+      counter-increment: item;
+
+      &::before {
+        content: counter(item) ". ";
+      }
+    }
+  }
+
+  .before-after-content-counter-reset {
+    >* {
+      padding: 4px 0;
+    }
+
+    .item-h1 {
+      font-size: $T-S + 2;
+      font-weight: bold;
+      counter-reset: item-h2;
+      counter-increment: item-h1;
+
+      &::before {
+        content: counter(item-h1) ". ";
+      }
+    }
+
+    .item-h2 {
+      padding-left: 20px;
+      counter-reset: item-h3;
+      counter-increment: item-h2;
+
+      &::before {
+        content: counter(item-h1) "-"counter(item-h2) ". ";
+      }
+    }
+
+    .item-h3 {
+      padding-left: 40px;
+      font-size: $T-S - 2;
+      counter-increment: item-h3;
+
+      &::before {
+        content: counter(item-h1) "-"counter(item-h2) "-"counter(item-h3) ". ";
       }
     }
   }
@@ -103,7 +197,7 @@
     }
 
     p {
-      > ins {
+      >ins {
         display: inline-block;
         width: 20px;
         height: 20px;
@@ -262,7 +356,7 @@
     }
 
     .has {
-      >p:has(.a,.c) {
+      >p:has(.a, .c) {
         ins {
           background-color: $T-C-Success;
         }
@@ -277,30 +371,30 @@
       }
     }
 
-    .is :is(.is-1,.is-2) {
-      :is(i,span) {
+    .is :is(.is-1, .is-2) {
+      :is(i, span) {
         color: $T-C-Success;
       }
     }
 
-    .is :is(p,#is-3) {
-      :is(i,span) {
+    .is :is(p, #is-3) {
+      :is(i, span) {
         color: $T-C-Danger;
       }
     }
 
-    .where :where(.where-1,.where-2) {
-      :where(i,span) {
+    .where :where(.where-1, .where-2) {
+      :where(i, span) {
         color: $T-C-Success;
       }
 
-      :is(i,span) {
+      :is(i, span) {
         color: $T-C-Warning;
       }
     }
 
-    .where :where(p,#where-3) {
-      :where(i,span) {
+    .where :where(p, #where-3) {
+      :where(i, span) {
         color: $T-C-Danger;
       }
     }
@@ -353,5 +447,40 @@
     to {
       opacity: 1;
     }
+  }
+
+  .ellipsis {
+    padding-bottom: 0;
+    margin-bottom: 6px;
+  }
+
+  /* 实现px与em的转化 */
+  @function px-to-em($px, $base-font-size: 14px) {
+    @if (unitless($px)) {
+      @warn "#{$px} 定义为像素px，请使用像素的参数值";
+
+      @return px-to-em($px + 0);
+    }
+
+    @else if (unit($px)==em) {
+      @return $px;
+    }
+
+    @return ($px / $base-font-size) * 1em;
+  }
+
+  .px-to-em-600 {
+    width: px-to-em(600px);
+  }
+}
+
+$a:
+("small": 12px, "normal": 18px, "large": 24px)
+;
+$b: quote(map-keys($a));
+
+.to-lower-case {
+  &::before {
+    content: $b;
   }
 }
