@@ -6,18 +6,20 @@
  * @FilePath: /react-18.2/src/assets/css/reset.html.scss
  */
 $font-color-map:(
-  "default": $T-C-3,
-  "disabled": $T-C-9,
-  "success": $T-C-Success,
-  "warning": $T-C-Warning,
-  "danger": $T-C-Danger,
+  "default": $color-3,
+  "disabled": $color-9,
+  "primary": $color-primary,
+  "success": $color-success,
+  "warning": $color-warning,
+  "danger": $color-danger,
 );
 
 $font-color-key-list:map-keys($font-color-map);
 
 @each $key in $font-color-key-list{
-  .text-#{ $key } { color: map-get($font-color-map,$key); }
+  .text-#{ $key } { color: map-get($font-color-map,$key)!important; }
 }
+
 // @for $i from 1 through length($font-color-key-list){
 //   $key:nth($font-color-key-list,$i);
 //   .text-#{ $key } { color: map-get($font-color-map,$key); }

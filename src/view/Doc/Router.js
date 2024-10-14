@@ -75,7 +75,7 @@ function Router () {
           <tr>
             <td>&lt;Link&gt;</td>
             <td>
-              <p><em>推荐，</em>Link标签只是用DOM操作将页面中的标签切换，通过网址来切换组件。该支持的参数都支持，只是样式有些单一，文字跳转比较合适</p>
+              <p><em>推荐，</em>Link标签只适用DOM操作将页面中的标签切换，通过网址来切换组件。该支持的参数都支持，只是样式有些单一，文字跳转比较合适</p>
               <pre>import &#123; Link &#125; from &#39;react-router-dom&#39;</pre>
               <p><img alt='Link标签跳转' src={require('@/assets/images/doc/router-link.png')} /></p>
             </td>
@@ -167,7 +167,7 @@ function Router () {
           <tr>
             <td>params</td>
             <td>
-              <p>params传参也叫动态路由传参，参数放在网址中，放在passname中</p>
+              <p>params传参也叫动态路由传参，参数放在网址中，放在pathname中</p>
               <p><img alt='search传参跳转' src={require('@/assets/images/doc/navigate-params.png')} /></p>
             </td>
             <td>
@@ -182,6 +182,37 @@ function Router () {
           </tr>
         </tbody>
       </table>
+
+      <h2>react-router-dom V4的说明</h2>
+      <h3>创建过程</h3>
+      <div className='code'>
+        <pre>import &#123; HashRouter, Switch, Route &#125; from &apos;react-router-dom&apos;</pre>
+        <pre>
+          <img alt='react-router-dom V4的初始化' src={require('@/assets/images/doc/react-router-dom-v4-init.png')} />
+          <img alt='react-router-dom V4的路由' src={require('@/assets/images/doc/react-router-dom-v4-route.png')} />
+        </pre>
+        <pre>两种路由形式：HashRouter BrowserRouter</pre>
+        <pre>Switch：保证匹配路由的唯一性，否则网址有可能匹配到多个路由，进而将全部路由文件渲染</pre>
+
+      </div>
+
+      <h3>路由跳转</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td>跳转</td>
+            <td><img alt='react-router-dom V4的跳转说明' src={require('@/assets/images/doc/react-router-dom-v4-jump.png')} /></td>
+          </tr>
+          <tr>
+            <td rowSpan={4}>解析</td>
+            <td>动态路由参数：props.match.params?.id</td>
+          </tr>
+          <tr><td>search参数：自己写工具类方法，如：searchToParams，</td></tr>
+          <tr><td>state参数：props.location.state?.id</td></tr>
+          <tr><td>其他和state平级参数：props.location.xxx</td></tr>
+        </tbody>
+      </table>
+
     </div>
   )
 }

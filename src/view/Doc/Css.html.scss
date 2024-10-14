@@ -18,17 +18,4 @@
   }
 
 }
-// $font-color-map:(
-//   "default": $T-C-3,
-//   "disabled": $T-C-9,
-//   "success": $T-C-Success,
-//   "warning": $T-C-Warning,
-//   "danger": $T-C-Danger,
-// );
-
-// $font-color-key-list:map-keys($font-color-map);
-
-// @each $key in $font-color-key-list{
-//   .text-#{ $key } { color: map-get($font-color-map,$key); }
-// }
 

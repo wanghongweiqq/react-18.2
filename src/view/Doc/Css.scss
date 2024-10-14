@@ -10,7 +10,7 @@
 
 .pg-css {
   .red {
-    color: $T-C-Danger;
+    color: $color-danger;
   }
 
   .bold {
@@ -22,7 +22,7 @@
   }
 
   %font-important-basic {
-    color: $T-C-Danger;
+    color: $color-danger;
   }
 
   .font-important-1 {
@@ -39,7 +39,7 @@
 
   .before-after-normal {
     &::before {
-      color: $T-C-Success;
+      color: $color-success;
       content: "你好，";
     }
 
@@ -51,21 +51,21 @@
       overflow: hidden;
       vertical-align: middle;
       content: "";
-      border-color: transparent transparent $T-C-Success;
+      border-color: transparent transparent $color-success;
       border-style: solid;
       border-width: 0 5px 9px;
       transition: all 0.4s;
     }
 
     &:hover::after {
-      border-bottom-color: $T-C-Danger;
+      border-bottom-color: $color-danger;
     }
   }
 
   .before-after-placeholder {
     padding: 10px;
     margin-top: 10px;
-    border: 1px solid $T-C-E;
+    border: 1px solid $color-e;
 
     &:empty::before {
       color: #ccc;
@@ -106,7 +106,7 @@
     }
 
     .item-h1 {
-      font-size: $T-S + 2;
+      font-size: $font-size-normal + 2;
       font-weight: bold;
       counter-reset: item-h2;
       counter-increment: item-h1;
@@ -128,7 +128,7 @@
 
     .item-h3 {
       padding-left: 40px;
-      font-size: $T-S - 2;
+      font-size: $font-size-normal - 2;
       counter-increment: item-h3;
 
       &::before {
@@ -139,29 +139,29 @@
 
   .first-line {
     &::first-line {
-      color: $T-C-Success;
+      color: $color-success;
     }
   }
 
   .first-letter {
     &::first-letter {
-      color: $T-C-Success;
+      color: $color-success;
       initial-letter: 2;
     }
   }
 
   .selection {
     &::selection {
-      color: $T-C-0;
-      text-shadow: 3px 0 0 $T-C-Warning;
-      background-color: $T-C-Success;
+      color: $color-0;
+      text-shadow: 3px 0 0 $color-warning;
+      background-color: $color-success;
     }
   }
 
   .placeholder {
     >* {
       &::placeholder {
-        color: $T-C-Success;
+        color: $color-success;
       }
     }
   }
@@ -170,29 +170,32 @@
     a,
     span {
       &:link {
-        color: $T-C-Success;
+        color: $color-success;
       }
 
       &:visited {
-        color: $T-C-Danger;
+        color: $color-danger;
       }
 
       &:hover {
-        color: $T-C;
+        color: $color-primary;
       }
 
       &:active {
-        color: $T-C-Warning;
+        color: $color-warning;
       }
     }
 
     input {
       padding: 2px 4px;
-      background-color: $T-C-E;
       border-width: 1px;
 
-      &:focus {
-        background-color: $T-C-F;
+      &.focus {
+        background-color: $color-e;
+
+        &:focus {
+          background-color: $color-f;
+        }
       }
     }
 
@@ -203,199 +206,199 @@
         height: 20px;
         margin-right: 10px;
         vertical-align: top;
-        background-color: $T-C-9;
+        background-color: $color-9;
       }
     }
 
     .first-child {
       :first-child {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .last-child {
       :last-child {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-child-1 {
       :nth-child(1) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-child-nadd3 {
       :nth-child(n+3) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-child-top-3 {
       :nth-child(-n+3) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-child-even {
       :nth-child(2n) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-child-odd {
       :nth-child(2n+1) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-last-child-1 {
       :nth-last-child(1) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-last-child-nadd3 {
       :nth-last-child(n+3) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-last-child-top-3 {
       :nth-last-child(-n+3) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-last-child-even {
       :nth-last-child(2n) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-last-child-odd {
       :nth-last-child(2n+1) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .only-child {
       :only-child {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .first-of-type {
       :first-of-type {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .last-of-type {
       :last-of-type {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-of-type-1 {
       :nth-of-type(1) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-of-type-top-3 {
       :nth-of-type(-n+3) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-last-of-type-1 {
       :nth-last-of-type(1) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .nth-last-of-type-top-3 {
       :nth-last-of-type(-n+3) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .only-of-type {
       :only-of-type {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .empty {
       :empty {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .not {
       ins:not(:first-child) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
 
       ins:not(.no) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .not-1 {
       ins:not(:first-child) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .not-2 {
       ins:not(.no) {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
     }
 
     .has {
       >p:has(.a, .c) {
         ins {
-          background-color: $T-C-Success;
+          background-color: $color-success;
         }
       }
 
       >h4:has(+h4) {
-        color: $T-C-Success;
+        color: $color-success;
       }
 
       >p:has(span:not(.x)) {
-        color: $T-C-Success;
+        color: $color-success;
       }
     }
 
     .is :is(.is-1, .is-2) {
       :is(i, span) {
-        color: $T-C-Success;
+        color: $color-success;
       }
     }
 
     .is :is(p, #is-3) {
       :is(i, span) {
-        color: $T-C-Danger;
+        color: $color-danger;
       }
     }
 
     .where :where(.where-1, .where-2) {
       :where(i, span) {
-        color: $T-C-Success;
+        color: $color-success;
       }
 
       :is(i, span) {
-        color: $T-C-Warning;
+        color: $color-warning;
       }
     }
 
     .where :where(p, #where-3) {
       :where(i, span) {
-        color: $T-C-Danger;
+        color: $color-danger;
       }
     }
 
@@ -405,31 +408,31 @@
       }
 
       input {
-        color: $T-C-6;
+        color: $color-6;
       }
 
       input:enabled {
-        color: $T-C-3;
+        color: $color-3;
       }
 
       input:disabled {
-        color: $T-C-9;
+        color: $color-9;
       }
 
       input:checked {
-        accent-color: $T-C-Success;
+        accent-color: $color-success;
       }
 
       label:has(input:checked) {
-        color: $T-C-Success;
+        color: $color-success;
       }
 
       input:valid {
-        background-color: $T-C-Success;
+        background-color: $color-success;
       }
 
       input:invalid {
-        background-color: $T-C-Danger;
+        background-color: $color-danger;
       }
     }
   }
@@ -450,37 +453,38 @@
   }
 
   .ellipsis {
+    display: block;
     padding-bottom: 0;
     margin-bottom: 6px;
   }
 
-  /* 实现px与em的转化 */
-  @function px-to-em($px, $base-font-size: 14px) {
-    @if (unitless($px)) {
-      @warn "#{$px} 定义为像素px，请使用像素的参数值";
-
-      @return px-to-em($px + 0);
-    }
-
-    @else if (unit($px)==em) {
-      @return $px;
-    }
-
-    @return ($px / $base-font-size) * 1em;
-  }
-
-  .px-to-em-600 {
-    width: px-to-em(600px);
-  }
+  /* stylelint-disable-next-line value-keyword-case */
 }
-
 $a:
-("small": 12px, "normal": 18px, "large": 24px)
-;
-$b: quote(map-keys($a));
+  ("small": 12px, "normal": 18px, "large": 24px);
+$b: quote(unit(12abc2王宏伟));
 
 .to-lower-case {
   &::before {
     content: $b;
   }
+}
+
+/* 实现由px到em的转化 */
+@function px-to-em($px, $base-font-size: 14px) {
+  @if (unitless($px)) {
+    @warn "#{$px} 定义为像素px，请使用像素的参数值";
+
+    @return px-to-em($px + 0);
+  }
+
+  @else if (unit($px)==em) {
+    @return $px;
+  }
+
+  @return ($px / $base-font-size) * 1em;
+}
+
+.px-to-em-600 {
+  width: px-to-em(600px);
 }

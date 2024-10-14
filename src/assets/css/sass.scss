@@ -2,23 +2,26 @@
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-07-12 10:35:09
- * @Description: 全局的样式变量，T:theme, S:font-size, C:color
+ * @Description: sass中定义的全局的样式变量、混入等
  * @FilePath: /react-18.2/src/assets/css/sass.scss
  */
 
 /* 变量 variable */
 
-$T-S:14px;
-$T-C:#308eff;
-$T-C-0:#000;
-$T-C-3:#333;
-$T-C-6:#666;
-$T-C-9:#999;
-$T-C-E:#eee;
-$T-C-F:#fff;
-$T-C-Success:#00a854;
-$T-C-Warning:#e6a23c;
-$T-C-Danger:#d81e06;
+/* 字体大小 */
+$font-size-normal:14px;
+
+/* 颜色 */
+$color-0:#000;
+$color-3:#333;
+$color-6:#666;
+$color-9:#999;
+$color-e:#eee;
+$color-f:#fff;
+$color-primary:#308eff;
+$color-success:#00a854;
+$color-warning:#e6a23c;
+$color-danger:#d81e06;
 
 /* 混入 mixin */
 

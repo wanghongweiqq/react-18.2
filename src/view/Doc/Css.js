@@ -108,8 +108,9 @@ function Css () {
       <h2>设置全局SCSS变量</h2>
 
       <h3>第1步：安装依赖 sass-resources-loader</h3>
-      <pre>npm i sass-resources-loader -D</pre>
-
+      <div className='code'>
+        <pre>npm i sass-resources-loader -D</pre>
+      </div>
       <h3>第2步：修改webpack相关配置：/config/webpack.config.js</h3>
       <p>如果没有这个文件，需要执行：npm run eject，来弹窗相关配置文件</p>
       <p>对方法“ <em>getStyleLoaders(cssOptions, preProcessor)</em> ”进行修改，由于主要是对css变量variable、混入mixin进行全局配置，而这些只有css预处理器才支持，原生css不支持，所以利用之前的判断if(preProcessor)，在里面添加专门针对sass的全局配置即可</p>
@@ -298,9 +299,9 @@ function Css () {
             </td>
             <td>
               <p>::first-line/::first-letter 只能用于块级元素。用于设置附属元素的第一个行内容/字母的样式。</p>
-              <p>demo：使用伪元素选择器::first-line 为首行声明样式 color: $T-C-Success;</p>
+              <p>demo：使用伪元素选择器::first-line 为首行声明样式 color: $color-success;</p>
               <p className='first-line'>第一行内容，当文字内容很多或者宽度调整时，有可能文字会处于不同的行，我们还可以使用&lt;br &#47;&gt;强行换行。<br />这里就是使用&lt;br &#47;&gt;强行换行的内容</p>
-              <p>demo：使用伪元素选择器::first-letter 为首字声明样式 color: $T-C-Success; initial-letter: 2; </p>
+              <p>demo：使用伪元素选择器::first-letter 为首字声明样式 color: $color-success; initial-letter: 2; </p>
               <p className='first-letter'>这次使用的伪元素选择器first-letter只对第一个letter（汉字或字母）做处理。initial-letter属性可以实现首字下沉效果，其属性值为正整数。<br />这里就是使用&lt;br &#47;&gt;强行换行的内容</p>
             </td>
           </tr>
@@ -309,16 +310,16 @@ function Css () {
             <td>
               <p>::selection 匹配鼠标长按拖动选中的内容。</p>
               <p>值得注意的是 ::selection 仅支持 color，background 和 text-shadow 属性。</p>
-              <p>demo：使用伪元素选择器::selection 为鼠标选中的部分声明样式 background-color: $T-C-Success; </p>
+              <p>demo：使用伪元素选择器::selection 为鼠标选中的部分声明样式 background-color: $color-success; </p>
               <p className='selection'>这里是普通的文字内容，鼠标选中会有不同的样式。</p>
             </td>
           </tr>
           <tr>
             <td>::placeholder</td>
             <td>
-              <p>::placeholder 用于设置input元素的placeholder内容的样式。</p>
-              <p>demo：使用伪元素选择器::placeholder 为输入框input声明样式 color: $T-C-Success; </p>
-              <p className='placeholder'><input placeholder='文本输入框默认文字内容'></input></p>
+              <p>::placeholder 用于设置input元素的placeholder文字内容的样式。</p>
+              <p>demo：使用伪元素选择器::placeholder 为输入框input声明样式 color: $color-success; </p>
+              <p className='placeholder'><input placeholder='文本输入框'></input></p>
               <p className='placeholder'><textarea rows={3} cols={40} placeholder='多行文本域默认文字内容'></textarea></p>
             </td>
           </tr>
@@ -351,7 +352,7 @@ function Css () {
             <td>
               <p>鼠标悬停在元素上面时的样式效果，可以是任意标签元素，不止a标签。a标签默认有手型。</p>
               <p>
-                <a>a标签的链接</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a>a标签的链接</a>&#12288;
                 <span>普通的span标签</span>
               </p>
             </td>
@@ -361,7 +362,7 @@ function Css () {
             <td>
               <p>点击元素时的样式效果，即按下鼠标左键时发生的样式，可以是任意标签元素，不止a标签。a标签默认有手型。</p>
               <p>
-                <a>a标签的链接</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a>a标签的链接</a>&#12288;
                 <span>普通的span标签</span>
               </p>
             </td>
@@ -371,7 +372,7 @@ function Css () {
             <td>
               <p>用于元素成为焦点时的样式效果，常用与表单元素</p>
               <p>
-                <input type='text' placeholder='请输入您的姓名'></input>
+                <input className='focus' type='text' placeholder='请输入您的姓名'></input>
               </p>
             </td>
           </tr>
@@ -494,12 +495,12 @@ function Css () {
             <td>:not()</td>
             <td>
               <p>:not 伪类接受一个选择器作为参数，排查或者过滤掉该特定元素，由于它的作用是防止特定的元素被选中，它也被称为反选伪类（negation pseudo-class）</p>
-              <p>反选伪类()中的参数选择器只能使用一个，不能逗号隔开使用多个（这样就无法选中被排除掉的元素，进而被全部选中），()中的选择器不需要引号包裹。</p>
+              <p>反选伪类()中的参数选择器只能使用一个，不能逗号隔开使用多个（这样就会选中被排除掉的元素，进而被全部选中），()中的选择器不需要引号包裹。</p>
               <p>特别注意当css中声明了多个同层级（:not前的选择器构成一样）的反选伪类样式时，是否会导致互相叠加，从而使选择器范围扩大，甚至被全部选中。</p>
-              <p>下面的示例就是前面同层级.not ins，导致互相叠加了，第一行：:not(:first-child)；第二行：:not(.no)；第二个ins是类名no，导致全部被选中</p>
+              <p>下面的示例就是前面同层级.not ins，导致互相叠加了，第一行 .not ins:not(:first-child)；第二行 .not ins:not(.no)；第二个ins是类名no，导致全部被选中</p>
               <p className='not'><ins /><ins /><ins /><ins /><ins /></p>
               <p className='not'><ins /><ins className='no' /><ins /><ins /><ins /></p>
-              <p>应当使:not前的选择器构成不一样，第一行.not-1，第二行.not-2，这样可以有效避免他们之间的互相伤害</p>
+              <p>应当使:not前的选择器构成不一样，第一行 .not-1 ins:not(:first-child)，第二行 .not-2 ins:not(.no)，这样可以有效避免他们之间的互相伤害</p>
               <p className='not-1'><ins /><ins /><ins /><ins /><ins /></p>
               <p className='not-2'><ins /><ins className='no' /><ins /><ins /><ins /></p>
             </td>
@@ -556,7 +557,7 @@ function Css () {
             <td>:enabled</td>
             <td>
               <p>选择可用的表单元素。其样式会和合法的:valid样式按正常权重互相叠加。</p>
-              <p>input:enabled &#123; color: $T-C-3 &#125; ; input:valid &#123; background-color: $T-C-Success; &#125;</p>
+              <p>input:enabled &#123; color: $color-3 &#125; ; input:valid &#123; background-color: $color-success; &#125;</p>
               <p className='status'>
                 <input defaultValue='11' />
               </p>
@@ -566,7 +567,7 @@ function Css () {
             <td>:disabled</td>
             <td>
               <p>选择被禁用的表单元素。其样式独立，不会和可用的:enabled、合法的:valid样式互相叠加。</p>
-              <p>input:disabled &#123; color: $T-C-9 &#125;</p>
+              <p>input:disabled &#123; color: $color-9 &#125;</p>
               <p className='status'>
                 <input disabled defaultValue='22' />
               </p>
@@ -577,7 +578,7 @@ function Css () {
             <td>
               <p>选择被选中的表单元素，如复选框或单选按钮。</p>
               <p>accent-color: 意为重点色、强调色，可以设置复选框或单选按钮的背景色，background-color属性去设置无效。</p>
-              <p>input:enabled &#123; accent-color: $T-C-Success; &#125; ; label:has(input:checked) &#123; color: $T-C-Success; &#125; ;</p>
+              <p>input:enabled &#123; accent-color: $color-success; &#125; ; label:has(input:checked) &#123; color: $color-success; &#125; ;</p>
               <p className='status'>
                 <label><input name='Fruit' type='radio' defaultChecked value='a'/>苹果 </label>
                 <label><input name='Fruit' type='radio'value='b' />桃子 </label>
@@ -609,7 +610,7 @@ function Css () {
             <td>
               <p>它用于选择当前活动的目标元素（‌即URL指向的元素）‌。‌当你点击一个指向页面中某个元素的链接时，‌那个元素就会成为目标元素，‌:target伪类就可以用来为这个元素应用样式。‌</p>
               <p>
-                <a href='#top'>top</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href='#top'>top</a>&#12288;
                 <a href='#middle'>middle</a>
               </p>
             </td>
@@ -625,7 +626,7 @@ function Css () {
       <p>编译后的结果为：要继承样式的变量名/选择器名, .a, .b &#123; 继承的样式 &#125;</p>
       <p>如果要继承的样式使用<em>%开头</em>定义，则自身不会出现在css中: .a, .b &#123; 继承的样式 &#125;，这样看上去更干净整洁。</p>
       <p>demo：</p>
-      <p>定义：%font-important-basic &#123; color: $T-C-Danger; &#125;</p>
+      <p>定义：%font-important-basic &#123; color: $color-danger; &#125;</p>
       <p className='font-important-1'>此段落样式定义为：.font-important-1 &#123; @extend %font-important-basic; text-decoration: line-through; &#125;</p>
       <p className='font-important-2'>此段落样式定义为：.font-important-2 &#123; @extend %font-important-basic; text-decoration: underline; &#125;</p>
 
@@ -643,11 +644,13 @@ function Css () {
       <p>调用函数时，直接使用方法名称px-to-em()即可，参数如果定义时都设置了默认值，可以不设置，这时不可以省略()，注意混入@include时是可以省略()的。</p>
       <p>demo：</p>
       <p className='px-to-em-600'>@function px-to-em($px, $base-font-size: 14px)，这里将宽度值通过函数由px转为em，其中用unit和unitless对单位做了判断，支持if、else、return等js语法，但前面要加上@符号</p>
+      <p><img alt='sass方法 px-to-em' src={require('@/assets/images/doc/px-to-em.png')} /></p>
+
       <table>
         <thead>
           <tr>
-            <th>类型</th>
-            <th>名称</th>
+            <th width='150'>类型</th>
+            <th width='250'>名称</th>
             <th>说明</th>
             <th>示例</th>
           </tr>
@@ -816,7 +819,7 @@ function Css () {
             </td>
           </tr>
           <tr>
-            <td rowSpan={9}>Map(映射) 函数</td>
+            <td rowSpan={7}>Map(映射) 函数</td>
             <td colSpan={3}>Map(映射)对象是以一对或多对的 key/value 来表示。Sass Map 是不可变的，因此在处理 Map 对象时，返回的是一个新的 Map 对象，而不是在原有的 Map 对象上进行修改。</td>
           </tr>
           <tr>
@@ -832,7 +835,6 @@ function Css () {
             <td>判断 map 是否有对应的 key，存在返回 true，否则返回 false。</td>
             <td className='monospace'>map-has-key($font-sizes, &quot;big&quot;) // false </td>
           </tr>
-
           <tr>
             <td>map-keys(map)</td>
             <td>返回 map 中所有的 key 组成的队列。</td>
@@ -846,34 +848,102 @@ function Css () {
           </tr>
 
           <tr>
-            <td>mmap-merge(map1, map2)</td>
+            <td>map-merge(map1, map2)</td>
             <td>合并两个 map 形成一个新的 map 类型，即将 map2 添加到 map1的尾部</td>
             <td>
-              <pre>$font-sizes2: (&quot;x-large&quot;: 30px, &quot;xx-large&quot;: 36px)</pre>
+              <pre>$font-sizes2: (&quot;x-large&quot;: 30px)</pre>
               <pre>map-merge($font-sizes, $font-sizes2) </pre>
-              <pre>&#47;&#47; &quot;small&quot;: 12px, &quot;normal&quot;: 18px, &quot;large&quot;: 24px, &quot;x-large&quot;: 30px, &quot;xx-large&quot;: 36px</pre>
+              <pre>&#47;&#47; &quot;small&quot;: 12px, &quot;normal&quot;: 18px, &quot;large&quot;: 24px, &quot;x-large&quot;: 30px</pre>
             </td>
           </tr>
           <tr>
             <td>map-remove(map, keys...)</td>
             <td>移除 map 中的 keys，多个 key 使用逗号隔开。</td>
-            <td className='monospace'>map-remove($font-sizes, &quot;small&quot;) // (&quot;normal&quot;: 18px, &quot;large&quot;: 24px) </td>
+            <td className='monospace'>map-remove($font-sizes, &quot;small&quot;, &quot;large&quot;) // (&quot;normal&quot;: 18px) </td>
+          </tr>
+
+          <tr>
+            <td rowSpan={9}>Introspection 函数</td>
+            <td colSpan={3}>Sass Introspection 函数比较少用于构建样式表，一般用于代码的调试上。</td>
+          </tr>
+          <tr>
+            <td>call(function, arguments...)</td>
+            <td>函数的动态调用，即调用函数function（包含自定义函数、内置函数、纯css函数等），参数arguments，并返回结果。</td>
+            <td className='monospace'>color: call(rgb, 0, 0, 0); // color:#000000;</td>
+          </tr>
+          <tr>
+            <td>type-of(value)</td>
+            <td>返回值类型。返回值可以是 number, string, color, list, map, bool, null, function, arglist。</td>
+            <td>
+              <pre>type-of(15px) // number</pre>
+              <pre>type-of(#ff0000) // color</pre>
+              <pre>type-of(left) // string</pre>
+            </td>
+          </tr>
+          <tr>
+            <td>unit(value)</td>
+            <td>value必须是数字开头，否则报错，返回传入数字的单位，该单位可以是任意的字母、汉字、数字（不能在开头位置）的组合，没有单位时返回空字符串</td>
+            <td>
+              <pre>unit(15px) // &quot;px&quot;</pre>
+              <pre>unit(2abc1王) // &quot;abc1王&quot;</pre>
+            </td>
+          </tr>
+          <tr>
+            <td>unitless(value)</td>
+            <td>判断传入的数字是否不带有单位，返回一个布尔值，如果不带单位则返回true，带有单位则返回false。</td>
+            <td>
+              <pre>unitless(15px) // false</pre>
+              <pre>unitless(2) // true</pre>
+            </td>
+          </tr>
+
+          <tr>
+            <td>function-exists(functionName)</td>
+            <td>用于检测指定的函数是否存在</td>
+            <td className='monospace'>function-exists(px-to-em) // true</td>
+          </tr>
+
+          <tr>
+            <td>global-variable-exists(variableName)</td>
+            <td>用于检测某个全局变量是否定义，变量名不含有$符号</td>
+            <td className='monospace'>global-variable-exists((color-0) // true</td>
+          </tr>
+
+          <tr>
+            <td>mixin-exists(mixinName)</td>
+            <td>用于检测指定混入是否存在，混入名不含有$符号</td>
+            <td className='monospace'>mixin-exists(ellipsis) // true</td>
+          </tr>
+
+          <tr>
+            <td>variable-exists(variableName)</td>
+            <td>判断变量是否在当前的作用域下，变量名不含有$符号，和js的作用域基本一个概念，在作用域里定义的变量在作用域是访问不到的</td>
+            <td className='monospace'>variable-exists(color-0) // true</td>
           </tr>
 
         </tbody>
       </table>
       <p className='to-lower-case'>,to-lower-case</p>
 
-      <p>使用@each为一个颜色的list生成不同的类名，$colors:red,green,blue; &nbsp;&nbsp;&nbsp;&nbsp;@each $i in $colors &#123; .item-#&#123; $i &#125; &#123; color: $i; &#125;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span className='item-red'>className=item-red</span>&nbsp;&nbsp;&nbsp;&nbsp;
-        <span className='item-green'>className=item-green</span>&nbsp;&nbsp;&nbsp;&nbsp;
+      <p>1、使用@each为一个颜色的list生成不同的类名：
+        <span className='item-red'>className=item-red</span>&#12288;
+        <span className='item-green'>className=item-green</span>&#12288;
         <span className='item-blue'>className=item-blue</span>
       </p>
-      <p>使用@each为一个颜色的list生成不同的类名，$colors:red,green,blue; &nbsp;&nbsp;&nbsp;&nbsp;@each $i in $colors &#123; .item-#&#123; $i &#125; &#123; color: $i; &#125;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span className='text-success'>className=item-red</span>&nbsp;&nbsp;&nbsp;&nbsp;
-        <span className='text-warning'>className=item-green</span>&nbsp;&nbsp;&nbsp;&nbsp;
-        <span className='text-danger'>className=item-blue</span>
+      <div className='code'>
+        <pre>$colors:red,green,blue; &#12288;</pre>
+        <pre>@each $i in $colors &#123; .item-#&#123; $i &#125; &#123; color: $i; &#125;</pre>
+      </div>
+      <p>2、使用@each为一个颜色的map生成不同的类名：
+        <span className='text-default'>className=text-default</span>&#12288;
+        <span className='text-disabled'>className=text-disabled</span>&#12288;
+        <span className='text-primary'>className=text-primary</span>&#12288;
+        <span className='text-success'>className=text-success</span>&#12288;
+        <span className='text-warning'>className=text-warning</span>&#12288;
+        <span className='text-danger'>className=text-danger</span>
       </p>
+      <p><img alt='使用@each为一个颜色的map生成不同的类名' src={require('@/assets/images/doc/classname-map.png')} /></p>
+
     </div>
   )
 }
