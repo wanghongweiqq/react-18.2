@@ -26,3 +26,13 @@ const preloadedState = undefined // 如要设置：{ counter: 1, userInfo: { } }
 const store = legacy_createStore(rootReducer, preloadedState, applyMiddleware(thunk))
 
 export default store
+
+// 以下代码用来实现‌‌replaceReducer，路由：/doc/redux
+const newRootReducer = combineReducers({
+  counter: counterReducer, // 计数器 number
+  userInfo: userInfoReducer, // 用户基本信息 object
+  userRight: userRightReducer, // 用户权限列表 array
+  flatRoute: flatRouteReducer, // 扁平化路由 array
+  counter2: counterReducer, // 计数器 number
+})
+export { newRootReducer }

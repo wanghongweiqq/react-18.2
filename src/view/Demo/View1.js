@@ -26,7 +26,7 @@ function View1 ({ counter, userInfo, flatRoute, counterIncrementAction, counterD
   }
   return (
     <div className='pg-doc'>
-      <p>User: {JSON.stringify(userInfo)}</p>
+      <p>View1-User: {JSON.stringify(userInfo)}</p>
       <p>flatRoute: {JSON.stringify(flatRoute)}</p>
 
       <p>Count: {counter}</p>

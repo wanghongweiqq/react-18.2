@@ -6,18 +6,34 @@
  * @FilePath: /react-18.2/src/view/Demo/index.js
  */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { counterIncrementAction, counterDecrementAction, counterRandomAction } from '@/store/redux/counter'
 import store from '../../store'
 
-function View1 ({ counter, userInfo, flatRoute, counterIncrementAction, counterDecrementAction, counterRandomAction }) {
+function View1 ({
+  counter, userInfo, flatRoute,
+  counterIncrementAction,
+  counterDecrementAction, counterRandomAction,
+}) {
   const navigate = useNavigate()
-  console.log('View1')
+  console.log('Demo/index')
   console.log('store')
+  console.log(store)
   console.log(store.getState())
+
+  useEffect(() => {
+    let watch = store.subscribe((e) => {
+      console.log('subscribe')
+      console.log(e)
+      console.log(store.getState())
+    })
+    return() => {
+      watch()
+    }
+  }, [])
 
   // 计数器随机加10以内整数
   const randomFun = (val) => {
@@ -26,12 +42,13 @@ function View1 ({ counter, userInfo, flatRoute, counterIncrementAction, counterD
   }
   return (
     <div className='pg-doc'>
-      <p>User: {JSON.stringify(userInfo)}</p>
+      <p>Demo/index-User: {JSON.stringify(userInfo)}</p>
       <p>flatRoute: {JSON.stringify(flatRoute)}</p>
 
       <p>Count: {counter}</p>
       <p>
-        <button onClick={counterIncrementAction}>增加1</button>&nbsp;&nbsp;
+        <button onClick={() => { store.dispatch(counterIncrementAction()) }}>增加1</button>&nbsp;&nbsp;
+        <button onClick={() => { store.dispatch({ type: 'counter-increment' }) }}>增加1</button>&nbsp;&nbsp;
         <button onClick={counterDecrementAction}>减少1</button>&nbsp;&nbsp;
         <button onClick={randomFun}>随机加10以内整数</button>
       </p>
