@@ -186,13 +186,14 @@ function Router () {
       <h2>react-router-dom V4的说明</h2>
       <h3>创建过程</h3>
       <div className='code'>
-        <pre>import &#123; HashRouter, Switch, Route &#125; from &apos;react-router-dom&apos;</pre>
+        <pre>import &#123; HashRouter, Switch, Route, withRouter &#125; from &apos;react-router-dom&apos;</pre>
         <pre>
           <img alt='react-router-dom V4的初始化' src={require('@/assets/images/doc/react-router-dom-v4-init.png')} />
           <img alt='react-router-dom V4的路由' src={require('@/assets/images/doc/react-router-dom-v4-route.png')} />
         </pre>
         <pre>两种路由形式：HashRouter BrowserRouter</pre>
         <pre>Switch：保证匹配路由的唯一性，否则网址有可能匹配到多个路由，进而将全部路由文件渲染</pre>
+        <pre>withRouter：是 react-router-dom 库中的一个高阶组件（Higher-Order Component, HOC），它用于将 React 路由器的上下文（context）传递给那些没有直接位于组件内的组件。这样做的目的是为了让这些组件能够访问到路由器提供的属性，如 match、location 和 history 等。使用方法：在路由渲染的地方，直接导出即可：export default withRouter(Routes)</pre>
 
       </div>
 
