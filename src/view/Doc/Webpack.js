@@ -67,7 +67,7 @@ function Webpack () {
           </tr>
           <tr>
             <td>3、创建Compiler实例</td>
-            <td>使用这些参数初始化Compiler对象，并加载所有配置的插件，并执行run方法开始编译过程。‌。</td>
+            <td>使用这些参数初始化Compiler对象，并加载所有配置的插件，并执行run方法开始编译过程。</td>
           </tr>
           <tr>
             <td rowSpan={3}>二、编译阶段</td>
@@ -297,14 +297,16 @@ function Webpack () {
 
       <h2>path的join和resolve</h2>
       <h3>1.连接路径：path.join([path1][, path2][, ...])</h3>
-      <p>path.join( )方法可以连接任意多个字符串格式的路径（其他格式会报错）。要连接的多个路径可做为参数传入，不会校验结果的真实存在性。该方法在接边路径的同时也会对路径进行规范化，所以每个参数开头和结尾有没有/不影响最后的结果。</p>
-      <p>不管参数中是不是/开头，都统一处理为正确的格式后按拼接进行组合‌，不会添加项目自身的路径，除非你在前面通过__dirname指定了该路径</p>
+      <p>path.join( )方法可以连接任意多个字符串格式的路径（其他格式会报错）。要连接的多个路径可做为参数传入，不会校验结果的真实存在性。</p>
+      <p>该方法在连接路径的同时也会对路径进行规范化，统一处理为正确的格式后按拼接进行组合。所以除了第一个参数的开头和最后一个参数的结尾，其余地方的开头和结尾有没有/不影响最后的结果。</p>
+      <p>该方法不会添加项目自身的路径，除非你在前面通过__dirname指定了该路径。__dirname是指你操作文件夹的绝对路径，不含文件名，如本项目操作文件为/config/webpack.config.js，其__dirname为：/Users/wanghongwei/study/react/react-18.2/config</p>
 
       <h3>2.路径解析：path.resolve([from ...], to)</h3>
       <p>path.resolve( )方法可以将多个字符串格式的路径解析为一个<em>规范化的绝对路径</em>，当前面的参数都是非String格式且第一合法参数是/开头时，不会报错，会自动忽略这些非法参数，但如果合法参数后有非法参数会报错，如：[ ], &apos;/aaa&apos; 不报错；[ ], &apos;aaa&apos; 报错； &apos;aaa&apos;, [ ] 报错</p>
       <p>其处理方式类似于对这些路径逐一进行cd操作，与cd操作不同的是，这引起路径可以是文件，并且可不必实际存在（resolve()方法不会利用底层的文件系统判断路径是否存在，而只是进行路径字符串操作）‌</p>
       <p>‌特别注意当参数中有绝对路径时（也就是/开头），将会使前面解析的路径结果清空，输出当前参数所代表的路径</p>
       <p>该方法可以理解为会自动以项目路径为起点（夲示例为：/Users/wanghongwei/study/react/react-18.2/），然后进行路径操作，当参数为__dirname时就相当于碰到了一个绝对路径，路径瞬间变为运行的这个文件的路径</p>
+      <p>‌解析后的路径如果以/结尾，也会被自动忽略掉</p>
       <p>运行文件：/Users/wanghongwei/study/react/react-18.2/config/webpack.config.js</p>
       <p>path引入：const path = require( &apos;path &apos;)，其中结果中 ... = wanghongwei/study/react</p>
 
@@ -314,7 +316,22 @@ function Webpack () {
         </thead>
         <tbody>
           <tr>
-            <td>__dirname</td>
+            <td colSpan={2}>path.join()</td>
+          </tr>
+          <tr>
+            <td>path.join()</td>
+            <td>.</td>
+          </tr>
+          <tr>
+            <td>path.join(&apos;/a/&apos;,&apos;/b/&apos;,&apos;/c/&apos;)</td>
+            <td>/a/b/c/</td>
+          </tr>
+          <tr>
+            <td>path.join(&apos;a/&apos;,&apos;/b/&apos;,&apos;/c&apos;)</td>
+            <td>a/b/c</td>
+          </tr>
+          <tr>
+            <td>path.join(__dirname)</td>
             <td>/Users/.../react-18.2/config</td>
           </tr>
           <tr>
@@ -332,6 +349,25 @@ function Webpack () {
           <tr>
             <td>path.join(&apos;/&apos;, &apos;//&apos;, &apos;/src/xxx&apos;)</td>
             <td>/src/xxx（参数中开头结尾多余的/会进行正确的格式化）</td>
+          </tr>
+          <tr>
+            <td colSpan={2}>path.resolve()</td>
+          </tr>
+          <tr>
+            <td>path.resolve()</td>
+            <td>/Users/.../react-18.2</td>
+          </tr>
+          <tr>
+            <td>path.resolve(&apos;/a/&apos;,&apos;/b/&apos;,&apos;/c/&apos;)</td>
+            <td>/c</td>
+          </tr>
+          <tr>
+            <td>path.resolve(&apos;a/&apos;,&apos;/b/&apos;,&apos;/c&apos;)</td>
+            <td>/c</td>
+          </tr>
+          <tr>
+            <td>path.resolve(__dirname)</td>
+            <td>/Users/.../react-18.2/config</td>
           </tr>
           <tr>
             <td>path.resolve(__dirname, &apos;../src/xxx&apos;)</td>
