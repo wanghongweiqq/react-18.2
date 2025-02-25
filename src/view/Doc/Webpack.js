@@ -305,7 +305,7 @@ function Webpack () {
       <p>path.resolve( )方法可以将多个字符串格式的路径解析为一个<em>规范化的绝对路径</em>，当前面的参数都是非String格式且第一合法参数是/开头时，不会报错，会自动忽略这些非法参数，但如果合法参数后有非法参数会报错，如：[ ], &apos;/aaa&apos; 不报错；[ ], &apos;aaa&apos; 报错； &apos;aaa&apos;, [ ] 报错</p>
       <p>其处理方式类似于对这些路径逐一进行cd操作，与cd操作不同的是，这引起路径可以是文件，并且可不必实际存在（resolve()方法不会利用底层的文件系统判断路径是否存在，而只是进行路径字符串操作）‌</p>
       <p>‌特别注意当参数中有绝对路径时（也就是/开头），将会使前面解析的路径结果清空，输出当前参数所代表的路径</p>
-      <p>该方法可以理解为会自动以项目路径为起点（夲示例为：/Users/wanghongwei/study/react/react-18.2/），然后进行路径操作，当参数为__dirname时就相当于碰到了一个绝对路径，路径瞬间变为运行的这个文件的路径</p>
+      <p>该方法可以理解为会自动以项目路径为起点（本示例为：/Users/wanghongwei/study/react/react-18.2/），然后进行路径操作，当参数为__dirname时就相当于碰到了一个绝对路径，路径瞬间变为运行的这个文件的路径</p>
       <p>‌解析后的路径如果以/结尾，也会被自动忽略掉</p>
       <p>运行文件：/Users/wanghongwei/study/react/react-18.2/config/webpack.config.js</p>
       <p>path引入：const path = require( &apos;path &apos;)，其中结果中 ... = wanghongwei/study/react</p>
