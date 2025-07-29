@@ -12,8 +12,8 @@ import PropTypes from 'prop-types'
 import './index.scss'
 
 function Layout ({ flatRoute }) {
-  console.log('flatRoute')
-  console.log(flatRoute)
+  // console.log('flatRoute')
+  // console.log(flatRoute)
 
   const switchTheme = () => {
     // alert(1)

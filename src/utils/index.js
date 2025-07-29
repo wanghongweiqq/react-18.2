@@ -123,9 +123,113 @@ const searchToParams = (url) => {
   return query
 }
 
+// 转化为日期格式
+const formatToDate = (date) => {
+  if(Object.prototype.toString.call(date) === '[object Date]') {
+    return date
+  }else if(Object.prototype.toString.call(date) === '[object String]' && date !== '') {
+    return new Date(date.replace(/-/g, '/'))
+  }else if(Object.prototype.toString.call(date) === '[object Number]') {
+    return new Date(date)
+  }else{
+    return null
+  }
+}
+
+/* 日期格式化
+   * 1. date：
+   * 字符串格式：'2020/01/01 12:00:00'、'2020-01-01'、'Jan 01 2020 12:00:00'、'Jan 01, 2020'
+   * 数字格式（1970/01/01至今毫秒数）：1577808000000
+   * 日期格式：new Date(2020,00,01,12,00,0)、new Date(字符串格式/数字格式)
+   * 2. reg：
+   * [YMDhms]的任意组合形式，但要保证位数对应，注意大小写，因为有两个m
+   * reg每个时间节点要有其他字符隔开，时间外的内容不要含这个字符集合中的字母
+   * 正确：YYYY-MM-DD hh:mm:ss、YYYY年MM月DD日、YYYYMMDD（做了特殊处理），错误：hhmmss
+	*/
+const formatDateToString = (date, params = {}) => {
+  let { reg = 'YYYY-MM-DD hh:mm:ss', empty = '' } = params
+  const time = formatToDate(date)
+  const regOriginal = reg
+  if(time === null) {
+    return empty
+  }
+  let f = {
+    Y: time.getFullYear(),
+    M: time.getMonth() + 1,
+    D: time.getDate(),
+    h: time.getHours(),
+    m: time.getMinutes(),
+    s: time.getSeconds(),
+  }
+  if(regOriginal === 'YYYYMMDD') {
+    reg = 'YYYY MM DD'
+  }
+  let result = reg.replace(/([YMDhms])+/g, (v, i) => {
+    if (i) {
+      let val = '0' + f[i]
+      return val.slice(-v.length)
+    }
+  })
+  if(regOriginal === 'YYYYMMDD') {
+    result = result.replace(/\s/g, '')
+  }
+  return result
+}
+
+// 日期毫秒数转为日期对象：123334 => { days, hours, minutes, seconds, milliseconds }
+const formatMsToObject = (ms) => {
+  // 确保输入是数字
+  if (typeof ms !== 'number' || isNaN(ms)) {
+    return
+  }
+  const isNegative = ms < 0
+  ms = Math.abs(ms)
+
+  const seconds = Math.floor(ms / 1000)
+  const days = Math.floor(seconds / 86400)
+  const hours = Math.floor((seconds % 86400) / 3600)
+  const minutes = Math.floor((seconds % 3600) / 60)
+  const remainingSeconds = seconds % 60
+
+  return {
+    days: isNegative ? -days : days,
+    hours: isNegative ? -hours : hours,
+    minutes: isNegative ? -minutes : minutes,
+    seconds: isNegative ? -remainingSeconds : remainingSeconds,
+    milliseconds: isNegative ? -(ms % 1000) : (ms % 1000),
+  }
+}
+
+// 日期毫秒数转为可读性的字符串形式：123334 => xx天 xx小时 xx分钟
+const formatMsToString = (ms, showMilliseconds = false) => {
+  const time = formatMsToObject(ms)
+  let result = ''
+
+  if (time.days !== 0) {
+    result += `${ time.days }天 `
+  }
+  if (time.hours !== 0 || time.days !== 0) {
+    result += `${ time.hours }小时 `
+  }
+  if (time.minutes !== 0 || time.hours !== 0 || time.days !== 0) {
+    result += `${ time.minutes }分钟 `
+  }
+
+  if (showMilliseconds) {
+    result += `${ time.seconds }.${ time.milliseconds.toString().padStart(3, '0') }秒`
+  } else {
+    result += `${ time.seconds }秒`
+  }
+
+  return result.trim()
+}
+
 export {
   dataType,
   copyDeep,
   paramsToSearch,
   searchToParams,
+  formatDateToString,
+  formatMsToObject,
+  formatMsToString,
 }

@@ -102,7 +102,7 @@ function EscapeSequence () {
             <td>&quot;</td>
             <td>&quot ;</td>
             <td>&#34 ;</td>
-            <td colSpan={3}>双引号，&apos;&nbsp;&quot;&apos;.charCodeAt(0)=34 </td>
+            <td colSpan={3}>双引号，&apos;&quot;&apos;.charCodeAt(0)=34 </td>
           </tr>
           <tr>
             <td>‘</td>

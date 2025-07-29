@@ -21,12 +21,25 @@ import Operator from '@/view/Doc/Operator.js'
 import Env from '@/view/Doc/Env.js'
 import EscapeSequence from '@/view/Doc/EscapeSequence.js'
 import Webpack from '@/view/Doc/Webpack.js'
+import Popover from '@/view/Doc/Popover.js'
+import Txt from '@/view/Doc/Txt/'
 
 import React from 'react'
 const doc = {
   path: 'doc',
   meta: { title: '文档' },
   children: [
+    {
+      path: 'txt',
+      element: <Txt />,
+      meta: { title: 'txt' },
+    },
+    {
+      path: 'popover',
+      element: <Popover />,
+      meta: { title: 'Popover' },
+    },
+
     {
       path: 'init',
       element: <Init />,

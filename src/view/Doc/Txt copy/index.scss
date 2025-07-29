@@ -1,0 +1,41 @@
+.pg-txt {
+  padding: 50px 20px;
+
+  p {
+    padding: 5px 0;
+  }
+
+  input.txt {
+    box-sizing: border-box;
+    width: 400px;
+    height: 32px;
+    padding: 5px 10px;
+  }
+
+  input.date {
+    box-sizing: border-box;
+    width: 200px;
+    height: 32px;
+    padding: 5px 10px;
+    margin-left: 10px;
+  }
+
+  button {
+    box-sizing: border-box;
+    width: 80px;
+    height: 32px;
+    padding: 5px 10px;
+    margin-left: 10px;
+  }
+
+  .txt-list {
+    padding: 20px 0;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dashed #ccc;
+    }
+  }
+}
