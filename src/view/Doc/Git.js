@@ -13,7 +13,7 @@ function Git () {
       <h1>git说明</h1>
 
       <h2>1、github与sourcetree配置</h2>
-      <p>sourcetree推送到github时报错：Support for password authentication was removed on August 13, 2021. Please use a personal access tokens</p>
+      <p>sourcetree推送到github时报错：<span className='text-danger'>Support for password authentication was removed on August 13, 2021. Please use a personal access tokens</span></p>
       <table>
         <tbody>
           <tr>

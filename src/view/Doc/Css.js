@@ -265,13 +265,13 @@ function Css () {
               <p className='before-after-normal'>王宏伟</p>
 
               <p>demo：使用伪元素::before为普通标签模拟input及其placeholder</p>
-              <p className='before-after-placeholder'suppressContentEditableWarning contentEditable='true'>p标签设置属性contentEditable=&apos;true&apos;模拟input的可编辑性，清空内容后会使设置的样式生效：empty::before &#123; color: #ccc; content: &quot;请输入内容&quot;; &#125;，从而模拟placeholder。</p>
+              <p className='before-after-placeholder' suppressContentEditableWarning contentEditable='true'>p标签设置属性contentEditable=&apos;true&apos;模拟input的可编辑性，清空内容后会使设置的样式生效，好奇怪手动删除时最后会残留br标签导致后面不生效，以html格式修改删除时可以生效：&:empty::before &#123; color: #ccc; content: &quot;请输入内容&quot;; &#125;，从而模拟placeholder。</p>
 
               <p>以下是content属性的一些高阶示例</p>
               <p>demo：使用attr(xxx)进行元素标签属性的拼接</p>
               <p className='before-after-content-attr'><a title='菜鸟教程官网' href='https://www.runoob.com'>菜鸟教程，后面文字为伪元素::after根据a标签的属性添加：</a></p>
               <p>demo：使用quotes open-quote close-quote 进行拼接</p>
-              <p className='before-after-content-quotes'>感觉这个quotes拼接没啥用，直接在两个对应的伪元素中写不就完了。添加双引号要用反斜杠\转义</p>
+              <p className='before-after-content-quotes'>感觉这个quotes拼接没啥用，直接在两个对应的伪元素中写不就完了。添加双引号要用反斜杠\转义，before添加的双引号，after添加的小括号。</p>
               <p>demo：使用counter-increment:xxx、content: counter(xxx)进行项目编号的拼接</p>
               <ul className='before-after-content-counter-increment padding-top-10'>
                 <li>左边数字和符号为使用伪元素::before的content属性进行添加</li>
@@ -438,7 +438,7 @@ function Css () {
           <tr>
             <td>:first-of-type</td>
             <td>
-              <p>选择某个父级元素下第一个同类型子元素，如果有多个类型就会选取多个。同类型指的是元素标签名相同，而该标签设置的属性也为同类型。</p>
+              <p>选择某个父级元素下第一个同类型子元素，如果有多个类型就会选取多个。同类型指的是元素标签名相同，而该标签设置的属性不同（如类名）也为同类型。</p>
               <p className='first-of-type'><b>普通的b元素1</b>&nbsp;&nbsp;<ins /><ins /><ins /><ins /><ins /><b>普通的b元素2</b></p>
               <p>:first-child 和 :first-of-type区别</p>
               <p>假设p标签下有子元素ins和其他元素如b、i等</p>
@@ -923,9 +923,10 @@ function Css () {
 
         </tbody>
       </table>
-      <p className='to-lower-case'>,to-lower-case</p>
 
-      <p>1、使用@each为一个颜色的list生成不同的类名：
+      <p>1、使用@each为一个颜色的list生成不同的类名： </p>
+      <p>@each遍历的数据是一个数组，$i为<em>每一项的值</em>，而不是索引值，在样式声明中可以直接使用该值，而在拼接类名等选择器时要使用<em>#&#123; &#125;包裹 </em></p>
+      <p>
         <span className='item-red'>className=item-red</span>&#12288;
         <span className='item-green'>className=item-green</span>&#12288;
         <span className='item-blue'>className=item-blue</span>
@@ -934,7 +935,9 @@ function Css () {
         <pre>$colors:red,green,blue; &#12288;</pre>
         <pre>@each $i in $colors &#123; .item-#&#123; $i &#125; &#123; color: $i; &#125;</pre>
       </div>
-      <p>2、使用@each为一个颜色的map生成不同的类名：
+      <p><img alt='使用@each为一个颜色的list生成不同的类名' src={require('@/assets/images/doc/classname-list.png')} /></p>
+      <p>2、使用@each为一个颜色的map生成不同的类名：</p>
+      <p>
         <span className='text-default'>className=text-default</span>&#12288;
         <span className='text-disabled'>className=text-disabled</span>&#12288;
         <span className='text-primary'>className=text-primary</span>&#12288;
@@ -943,6 +946,9 @@ function Css () {
         <span className='text-danger'>className=text-danger</span>
       </p>
       <p><img alt='使用@each为一个颜色的map生成不同的类名' src={require('@/assets/images/doc/classname-map.png')} /></p>
+
+      <p>3、Introspection 函数:使用unit获取数字后的单位：</p>
+      <p className='unit-content'>12px的单位是:</p>
 
     </div>
   )

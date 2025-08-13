@@ -14,7 +14,15 @@ const Child1 = () => <div>{console.log('1子组件渲染，未使用memo优化�
 const Child2 = memo(function Child2 () { return(<div>{console.log('2子组件渲染，虽然定义组件时，没有关于属性的入参，但只要使用的地方定义的属性发生了改变就会被重复渲染')}</div>) })
 
 // Child3 为定义子组件时正常入参的示例
-const Child3 = memo(function Child3 ({ number, flag }) { return(<div>{console.log('3子组件渲染，定义组件时正常入参，使用的地方定义了属性', flag, number)}</div>) })
+const Child3 = memo(
+  function Child3 ({ number, flag }) {
+    return(<div>{console.log('3子组件渲染，定义组件时正常入参，使用的地方定义了属性', flag, number)}</div>)
+  }, (prev, next) => {
+    console.log('一般不用写这第二个入参')
+    console.log(prev)
+    console.log(next)
+  },
+)
 Child3.propTypes = {
   number: PropTypes.array,
   flag: PropTypes.bool,
@@ -43,7 +51,7 @@ Child6.propTypes = { add: PropTypes.func }
 
 // Child7
 const Child7 = memo(function Child7 ({ result }) {
-  console.log(`7子组件渲染，定义组件时使用了memo，其属性值是计算的结果，可以用箭头函数返回或者用useMemo返回相应的值，夲示例其值为${ result }`)
+  console.log(`7子组件渲染，定义组件时使用了memo，其属性值是计算的结果，可以用箭头函数返回或者用useMemo返回相应的值，本示例其值为${ result }`)
   return(<p>{result}</p>)
 })
 Child7.propTypes = { result: PropTypes.number }
@@ -72,7 +80,7 @@ const Parent = () => {
     }
     console.log('使用了useMemo，进行了大量计算')
     return number
-  }, [ ])
+  }, [ ])// 第二个参数deps为空数组时，只在初始话时执行一次，以后不再执行
   const getResult1 = () => {
     console.log('需要传入子组件的计算属性值，使用的箭头函数')
     const res = Math.round(Math.random() * 10)

@@ -17,7 +17,7 @@ import { getUserRightAction } from '@/store/redux/userRight'
 import { setFlatRouteAction } from '@/store/redux/flatRoute'
 
 function SetRouter ({ userInfo, userRight, flatRoute, getUserInfoAction, getUserRightAction, setFlatRouteAction }) {
-  console.log('SetRouter')
+  // console.log('SetRouter')
   const location = useLocation()
   let flatRoutes = [] // 扁平化的路由，临时使用的变量，方便重置和push等，SetRouter的props改变时，自动重置，无需再userRight改变时重置
   const [ flatRoutesList, setPlatRoutesList ] = useState([])
@@ -116,8 +116,8 @@ function SetRouter ({ userInfo, userRight, flatRoute, getUserInfoAction, getUser
   }, [ location.pathname ])
 
   // routes作为useRoutes的入参，通过useRoutes方法后，返回react路由主体
-  console.log('routes')
-  console.log(routes)
+  // console.log('routes')
+  // console.log(routes)
   const router = useRoutes(routes)
 
   if (flatRoute.length > 0) { // 不使用flatRoutesList判断，因为setPlatRoutesList方法后，会执行状态存储setFlatRouteAction(flatRoutesList)方法，导致使用状态属性flatRoute的组件重复渲染

@@ -1,12 +1,14 @@
 /*
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
- * @Date: 2024-04-19 15:27:06
+ * @Date: 2025-05-20 14:10:59
  * @Description: 页面/组件/功能的描述
- * @FilePath: /react-18.2/src/view/Demo/View1.js
+ * @FilePath: /react-18.2/src/view/Doc/PopoverCP.js
  */
+
 import React, { useState, useRef, useEffect } from'react'
 import ReactDOM from'react-dom'
+import PropTypes from 'prop-types'
 
 const Popover = ({ children, content, getPopoverContainer }) => {
   const [ visible, setVisible ] = useState(false)
@@ -16,12 +18,18 @@ const Popover = ({ children, content, getPopoverContainer }) => {
   // 点击外部区域关闭弹层
   useEffect(() => {
     const handleClickOutside = (event) => {
+      console.log('handleClickOutside')
+      console.log(popoverRef.current)
+      console.log(triggerRef.current)
+      console.log(event.target)
+      console.log(triggerRef.current.contains(event.target))
       if (
-        popoverRef.current &&
-       !popoverRef.current.contains(event.target) &&
-        triggerRef.current &&
-       !triggerRef.current.contains(event.target)
+        popoverRef.current
+        && !popoverRef.current.contains(event.target)
+        && triggerRef.current
+        && !triggerRef.current.contains(event.target)
       ) {
+        console.log(1)
         setVisible(false)
       }
     }
@@ -33,6 +41,7 @@ const Popover = ({ children, content, getPopoverContainer }) => {
 
   // 处理触发元素点击事件
   const handleTriggerClick = () => {
+    console.log(2)
     setVisible(!visible)
   }
 
@@ -50,14 +59,7 @@ const Popover = ({ children, content, getPopoverContainer }) => {
       {visible && ReactDOM.createPortal(
         <div
           ref={popoverRef}
-          style={{
-            position: 'absolute',
-            backgroundColor: 'white',
-            border: '1px solid gray',
-            padding: '10px',
-            boxShadow: '0 0 5px rgba(0, 0, 0, 0.3)',
-            zIndex: 1000,
-          }}
+          className='popover'
         >
           {content}
         </div>,
@@ -65,6 +67,12 @@ const Popover = ({ children, content, getPopoverContainer }) => {
       )}
     </>
   )
+}
+
+Popover.propTypes = {
+  children: PropTypes.node,
+  content: PropTypes.node,
+  getPopoverContainer: PropTypes.any,
 }
 
 export default Popover

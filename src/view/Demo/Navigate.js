@@ -11,12 +11,18 @@ import { searchToParams } from '@/utils'
 
 function Navigate () {
   console.log('Navigate')
-  const { state: { x, y }, state, search } = useLocation()
-  const [ searchParams, setSearchParams ] = useSearchParams()
+  const {
+    //  state: { x , y  },//http://localhost:3000/demo/navigate 直接访问时会报错x,y不存在
+    state, search,
+  } = useLocation()
   console.log(useLocation())
   console.log('useLocation-state:', state)
-  console.log('useLocation-state:', x)
-  console.log('useLocation-state:', y)
+  if(state) {
+    const { x, y } = state
+    console.log('useLocation-state-x:', x)
+    console.log('useLocation-state-y:', y)
+  }
+  const [ searchParams, setSearchParams ] = useSearchParams()
   console.log('useLocation-search:', search)
   console.log('useLocation-search-params:', searchToParams())
 

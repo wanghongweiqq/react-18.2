@@ -70,7 +70,7 @@ function Redux (props) {
               <p>legacy_createStore接收三个参数(reducer, preloadedState, enhancer)</p>
               <p>1、reducer：action处理函数reducer，必传</p>
               <p>2、preloadedState：初始状态state，非必传，会覆盖掉reducer方法里设置的初始值</p>
-              <p>3、enhancer：增强器函数，非必传，也就是我们说的中间件函数，在有异步时配置该参数</p>
+              <p>3、enhancer：[ɪnˈhænsər]增强器函数，非必传，也就是我们说的中间件函数，在有异步时配置该参数</p>
               <p>项目里legacy_createStore只能创建一次，多次创建将会导致状态失效。特别是在方法里使用的legacy_createStore，这个方法只能执行一遍。如跳房子项目里的状态存储使用的redux版本号3.7.2的createStore，并写在configureStore方法里return创建的存储：export const store = configureStore()，configureStore这个方法只能执行一次，直接使用api形式的时候可以：import &#123; store  &#125; from ……即可</p>
             </td>
           </tr>
@@ -137,7 +137,7 @@ function Redux (props) {
               <p>替换store当前的全部reducer（本项目里就是combineReducers），类似于用legacy_createStore创建。nextReducer参数表示‌全部，而不是特定的某一个。</p>
               <p>redux中可以用于实现动态添加reducer到store，如果某些Reducers在添加前后都在，这些Reducers的值会一直保持到添加后，而不会被初始化。</p>
               <p><button onClick={() => { store.replaceReducer(newRootReducer) }}>replaceReducer</button></p>
-              <p>先点击实例里的按钮，改变counter值，再点击这里添加了一个counter2，然后再点击实例，会发现counter和counter2虽然使用的同一个文件，但却拥有各自的值。</p>
+              <p>先点击实例里的按钮，改变counter值，再点击这里添加了一个counter2，然后再点击实例，会发现counter和counter2虽然使用的同一个文件，但却拥有各自的值。在控制台中查看console</p>
             </td>
           </tr>
         </tbody>

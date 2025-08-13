@@ -10,7 +10,7 @@ import React from 'react'
 function Operator () {
   console.log('!!')
   const a = '11'
-  console.log(a.toString()) // 输出: "1011"
+  console.log(3 / 2) // 输出: "1011"
   console.log(typeof a.toString()) // 输出: "1011"
 
   return (
@@ -22,6 +22,8 @@ function Operator () {
       <p>ES2020 ( ES11 ) 引入了一个新的 Null 判断运算符??。它的行为类似||，但是只有运算符左侧的值为null或undefined时，才会返回右侧的值。</p>
       <pre>null ?? 3        //3</pre>
       <pre>undefined ?? 3   //3</pre>
+      <pre>0 ?? 3           //0</pre>
+      <pre>&apos;&apos; ?? 3          //&apos;&apos;</pre>
       <pre>7 ?? 3           //7</pre>
 
       <h2>?. 链判断运算符（可选链运算符）</h2>
@@ -81,7 +83,7 @@ function Operator () {
       <h3>十转XX进制：toString( radix )</h3>
       <p>radix-基数，可选，表示要解析的数字的基数，默认10，该值介于 2 ~ 36 之间。要转换的必须是数字类型</p>
       <p>数据转化，必须对Number类型进行toString，返回相应进制的字符串。如果是字符串格式的数字将返回该字符串，不会进行进制/基数转化。</p>
-      <pre>const num = 11       // 不能直接使用11.toString(2)，会报错</pre>
+      <pre>const num = 11       // 不能直接使用11.toString(2)，会报错，会将数字后面的点当做小数点，从而造成语法解析错误，可以使用(11).toString(X)或者11..toString(X) </pre>
       <pre>num.toString(2)      // 十转二，结果: &#39;1011&#39;</pre>
       <pre>num.toString(8)      // 十转二，结果: &#39;13&#39;</pre>
 

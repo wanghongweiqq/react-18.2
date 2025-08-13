@@ -92,7 +92,7 @@
 
   .before-after-content-counter-increment {
     li {
-      counter-increment: item;
+      counter-increment: item 3; /* 第1个参数随便起个名字，伪类里使用该名字，第2个参数缺省值为1 */
 
       &::before {
         content: counter(item) ". ";
@@ -108,7 +108,7 @@
     .item-h1 {
       font-size: $font-size-normal + 2;
       font-weight: bold;
-      counter-reset: item-h2;
+      counter-reset: item-h2;/* 每个item-h1下面的item-h2重置 */
       counter-increment: item-h1;
 
       &::before {
@@ -462,10 +462,10 @@
 }
 $a:
   ("small": 12px, "normal": 18px, "large": 24px);
-$b: quote(unit(12abc2王宏伟));
+$b: quote(unit(12px));
 
-.to-lower-case {
-  &::before {
+.unit-content {
+  &::after {
     content: $b;
   }
 }

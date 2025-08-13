@@ -8,14 +8,14 @@
 
 .pg-css {
   $colors:red,green,blue;
-
-  // @for $i from 1 through length($colors){
-  //   .item-#{nth($colors,$i)} { color:nth($colors,$i); }
-  // }
+  $colors:red green blue;
    
   @each $i in $colors{
     .item-#{ $i } { color: $i; }
   }
 
+  // @for $i from 1 through length($colors){ // through:穿过，含有其后的值，to:到，不含有其后的值
+  //   .item-#{nth($colors,$i)} { color:nth($colors,$i); }
+  // }
 }
 
