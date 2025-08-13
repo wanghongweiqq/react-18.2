@@ -137,7 +137,7 @@ function Redux (props) {
               <p>替换store当前的全部reducer（本项目里就是combineReducers），类似于用legacy_createStore创建。nextReducer参数表示‌全部，而不是特定的某一个。</p>
               <p>redux中可以用于实现动态添加reducer到store，如果某些Reducers在添加前后都在，这些Reducers的值会一直保持到添加后，而不会被初始化。</p>
               <p><button onClick={() => { store.replaceReducer(newRootReducer) }}>replaceReducer</button></p>
-              <p>先点击实例里的按钮，改变counter值，再点击这里添加了一个counter2，然后再点击实例，会发现counter和counter2虽然使用的同一个文件，但却拥有各自的值。</p>
+              <p>先点击实例里的按钮，改变counter值，再点击这里添加了一个counter2，然后再点击实例，会发现counter和counter2虽然使用的同一个文件，但却拥有各自的值。在控制台中查看console</p>
             </td>
           </tr>
         </tbody>

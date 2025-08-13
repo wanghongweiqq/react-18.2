@@ -10,7 +10,7 @@ import React, { useState, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { formatMsToString } from '@/utils'
 
-let rafTag = null // 一定要定义\声明在主函数的外边，内部的话会给不断地render给重新定义为null
+let rafTag = null // 一定要定义/声明在主函数的外边，内部的话会让不断地render给重新定义为null
 
 function TipsTop ({ list, deleteCallback, updateFlag }) {
   // console.log('TipsTop-init', rafTag)
@@ -98,6 +98,7 @@ function TipsTop ({ list, deleteCallback, updateFlag }) {
     if(updateFlag > 0) {
       getLatestItem()
     }
+  // }, [ list ]) // 不使用list是为了要实现删除的动画，500毫秒内接连两次改变了list，第一次list的引用修改会导致这里死循环，因为数据没有被真正删除，后面逻辑判断需要删除，又执行回调，陷入死循环
   }, [ updateFlag ])
 
   const cacelRAF = () => {

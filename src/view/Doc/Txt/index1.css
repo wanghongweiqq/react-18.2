@@ -1,0 +1,23 @@
+@property --gradient-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-image:
+    linear-gradient(
+      var(--gradient-angle),
+      #ff6b6b,
+      #4ecdc4
+    );
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --gradient-angle: 360deg;
+  }
+}

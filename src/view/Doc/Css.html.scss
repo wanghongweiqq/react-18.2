@@ -8,6 +8,7 @@
 
 .pg-css {
   $colors:red,green,blue;
+  $colors:red green blue;
    
   @each $i in $colors{
     .item-#{ $i } { color: $i; }

@@ -57,18 +57,16 @@ function View1 ({
   }
 
   // 按钮点击执行时，debonceFunc(...args)执行的时候会将其对应的参数传递进来，然后通过核心方法里的箭头函数里的...args回传给debounce里的第一个参数，该参数是个方法，...args作为该方法的一个参数
-  // const debonceFunc = debounce((...args) => {
-  //   console.log('防抖执行：', ...args)
-  // })
-  // const debonceC = debounce((...args) => {
-  //   console.log('防抖执行：', ...args)
-  // })
-  function debonceFunc (...args) {
-    console.log(...args)
-    debounce((...args) => {
-      console.log('防抖执行：', ...args)
-    })()
-  }
+  const debonceFunc = debounce((...args) => {
+    console.log('防抖执行：', ...args)
+  })
+  // 函数声明的形式由于没哟初始话执行，导致核心方法（采用了闭包的形式）里的timer不是私有的，最终没有防抖功能
+  // function debonceFunc (...args) {
+  //   console.log(...args)
+  //   debounce((...args) => {
+  //     console.log('防抖执行：', ...args)
+  //   })(...args)
+  // }
 
   return (
     <div className='pg-doc'>

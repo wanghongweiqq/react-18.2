@@ -6,8 +6,9 @@
  * @FilePath: /react-18.2/src/view/Doc/Txt/index.js
  */
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './index.scss'
+// import './index1.css'
 import Tips from './TipsTop'
 import AddTxt from './AddTxt'
 import { formatDateToString } from '@/utils'
@@ -17,12 +18,18 @@ function Txt () {
   const [ list, setList ] = useState([])
   console.log('index-render')
 
+  // useEffect(() => {
+  //   console.log('useEffect-list')
+  // }, [ list ]) // list引用改变时才能触发
   // 添加内容
   const addCallback = (item) => {
-    // react的渲染机制 通过浅比较（Object.is）判断状态是否变化，直接修改原数组引用不变，不会触发更新。
-    // 数组改变引用的方法有：1、解构；2、filter；3、map
+    // react的渲染机制 通过浅比较（Object.is）判断状态是否变化，直接修改原数组引用不变，不会触发更新。引用相同就认为没有变化，不需要更新状态和渲染
     // list.unshift(item)
+    // list.splice(0, 0, item)
+    // setList(list)
+    // 数组改变引用的方法有：1、解构；2、filter；3、map 4、toSpliced
     // setList([ ...list ])
+    // setList(list.toSpliced(0, 0, item))
     // setList([ item, ...list ])
     setList(prev => [ item, ...prev ])
     setUpdateFlag(Date.now())
@@ -52,6 +59,12 @@ function Txt () {
 
   return (
     <div className='pg-txt'>
+      <div className='box'>
+        <div className='box-content'>
+        11
+        </div>
+      </div>
+
       <Tips
         list={list}
         deleteCallback={deleteCallback}
