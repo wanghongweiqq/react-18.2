@@ -6,5 +6,5 @@
  * @FilePath: /react-18.2/src/view/Doc/UseContext/context2.js
  */
 import React from 'react'
-const GlobalContext = React.createContext({ name: 'zhangsan', age: 1 })
-export default GlobalContext
+const Context2 = React.createContext({ name: 'zhangsan', age: 1 })
+export default Context2
