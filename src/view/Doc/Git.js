@@ -8,12 +8,15 @@
 import React from 'react'
 
 function Git () {
+  const sshCopyShell = 'tr -d \'\n\' < ~/.ssh/id_ed25519.pub | pbcopy'
   return (
     <div className='pg-doc'>
       <h1>git说明</h1>
 
       <h2>1、github与sourcetree配置</h2>
       <p>sourcetree推送到github时报错：<span className='text-danger'>Support for password authentication was removed on August 13, 2021. Please use a personal access tokens</span></p>
+      <h3>方式1：PAT （个人访问令牌）Personal access tokens，无需本地配置，但安全性比较低，</h3>
+      <p>在对应的代码服务器生成，生成后一定要记住那一串字符串，因为代码网站不会给你记录该值，忘记只能重新生成，重新生成的话之前的都会失效</p>
       <table>
         <tbody>
           <tr>
@@ -33,6 +36,48 @@ function Git () {
               <p>2.1、新建（直接克隆远程）：顶部菜单【文件】→【新建】→弹窗窗口里在【新进】下拉菜单下选择→【从URL克隆】，在弹窗的窗口中填写【源URL】</p>
               <p>2.2、已有项目（未关联远程）：在soursetree窗口的右上角点击【设置】→弹窗窗口中选择【远程仓库】→【添加】→ 弹窗窗口中填写【URL/路径】</p>
               <p><img alt='sourcetree配置' src={require('@/assets/images/doc/github-url.png')} /></p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>方式2：SSH keys（Secure Shell Keys）是一种基于非对称加密技术的身份验证凭证，需要本地生成对应的密钥</h3>
+      <p>用于在不安全的网络中建立安全的远程连接。它由一对密钥组成：公钥（Public Key）和私钥（Private Key），通过加密机制确保通信的安全性和身份的真实性。基本组成与原理：</p>
+      <p>公钥：可公开分享，用于加密数据或验证签名。通常存储在远程服务器（如 GitHub、云服务器）,如 ~/.ssh/id_rsa.pub</p>
+      <p>私钥：必须严格保密，用于解密数据或生成签名。保存在本地根目录，如 ~/.ssh/id_rsa，这个保密不要透露给别人</p>
+      <p>工作原理：当用户通过 SSH 连接服务器时，服务器用公钥加密随机字符串发送给客户端，客户端用私钥解密并返回，验证通过后建立加密通道。</p>
+      <table>
+        <tbody>
+          <tr>
+            <td width='120'>SSH keys生成</td>
+            <td>
+              <h4>参数解释</h4>
+              <p>-t：类型：ED25519 算法（最好）、RSA 算法、ECDSA 算法；</p>
+              <p>-f：文件位置；</p>
+              <p>-C：注释内容，一般邮箱；</p>
+              <p>-b：长度</p>
+              <h4>执行脚本</h4>
+              <p>以下方式任选其一：</p>
+              <p>一、自动化操作（不需要输入任何，一步到位）</p>
+              <p>ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N</p>
+              <p>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</p>
+              <p>二、如果不想添加注释的话，输入下面的命令，一路回车即可。</p>
+              <p>ssh-keygen -t ed25519</p>
+              <p>三、如果需要注释的话，输入下面的命令，注释内容不要带空格</p>
+              <p>ssh-keygen -t ed25519 -C &quot;&lt;注释内容&gt;&quot;</p>
+              <p><img alt='SSH keys' width={500} src={require('@/assets/images/doc/ssh-keys.png')} /></p>
+            </td>
+          </tr>
+          <tr>
+            <td>代码服务器配置</td>
+            <td>
+              <h4>1、复制xxx.pub代码</h4>
+              <p>以下方式任选其一</p>
+              <p>一、复制.pub代码，可以组合键 cmd+shift+. 打开隐藏文件，然后在.ssh文件夹找到对应的.pub文件，打开后拷贝代码。</p>
+              <p>二、也可使用命令行：{JSON.stringify(sshCopyShell)}</p>
+              <h4>2、代码服务器上设置SSH Key</h4>
+              <p>以github为例：右侧头像 -&gt; Settings -&gt; 左侧 SSH and GPG keys -&gt; 填写相关信息，将复制的xxx.pub代码粘贴进Key/公约栏里，Title: 自由发挥，Key type:Authentication Key</p>
+              <p>要使用SSH的格式去配置仓库地址：如 git@github.com:wanghongweiqq/react-18.2.git，HTTPS的话能够克隆，但无法推送</p>
             </td>
           </tr>
         </tbody>

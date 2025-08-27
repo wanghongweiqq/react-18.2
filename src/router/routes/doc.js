@@ -23,12 +23,18 @@ import EscapeSequence from '@/view/Doc/EscapeSequence.js'
 import Webpack from '@/view/Doc/Webpack.js'
 import Popover from '@/view/Doc/Popover.js'
 import Txt from '@/view/Doc/Txt/'
+import UseContext from '@/view/Doc/UseContext/'
 
 import React from 'react'
 const doc = {
   path: 'doc',
   meta: { title: '文档' },
   children: [
+    {
+      path: 'useContext',
+      element: <UseContext />,
+      meta: { title: 'useContext' },
+    },
     {
       path: 'txt',
       element: <Txt />,
