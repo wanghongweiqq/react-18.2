@@ -1,18 +1,36 @@
+.ly-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .ly-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 12px;
+  border-bottom: 2px solid #ccc;
 }
 
-.ly-menu {
-  padding: 10px;
+.ly-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
 
-  >dt {
-    font-weight: bold;
+  .ly-menu {
+    padding: 12px 0;
+    overflow-y: auto;
+    border-right: 2px solid #ccc;
+
+    >li {
+      padding: 0 12px;
+      line-height: 2;
+    }
   }
 
-  >dd {
-    line-height: 2;
+  .ly-content {
+    flex: 1;
+    padding-left: 12px;
+    overflow-y: auto;
   }
 }

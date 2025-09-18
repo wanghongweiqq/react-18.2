@@ -5,24 +5,41 @@
  * @Description: 页面公共部分
  * @FilePath: /react-18.2/src/layout/index.js
  */
-import React, { useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Outlet, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import './index.scss'
 
 function Layout ({ flatRoute }) {
-  // console.log('flatRoute')
-  // console.log(flatRoute)
+  const themeEnum = {
+    light: '浅色',
+    dark: '深色',
+  }
+  const themeDark = {
+    color: '#fff',
+    background: '#333',
+  }
+  const themeLight = {
+    color: '#333',
+    background: '#fff',
+  }
+  const root = document.documentElement
 
+  const [ theme, setTheme ] = useState(themeEnum.light)
+  const themeRef = useRef(themeEnum.light)
   const switchTheme = () => {
     // alert(1)
-    const colorDark = '#FF6100'
-    const isDark = document.documentElement.style.getPropertyValue('--primary-color') === colorDark
-    if (!isDark) {
-      document.documentElement.style.setProperty('--primary-color', colorDark)
+    // const isThemeDark = root.style.getPropertyValue('--font-color') === themeDark.color
+    console.log('theme:', theme, 'themeRef:', themeRef) // 闭包导致theme不会改变，一直是初始值：themeEnum.light
+    if (themeRef.current === themeEnum.dark) { // 当前是深色主题，那要变为浅色主题
+      setTheme(themeEnum.light)
+      root.style.setProperty('--font-color', themeLight.color)
+      root.style.setProperty('--bg-color', themeLight.background)
     } else {
-      document.documentElement.style.setProperty('--primary-color', '#333')
+      setTheme(themeEnum.dark)
+      root.style.setProperty('--font-color', themeDark.color)
+      root.style.setProperty('--bg-color', themeDark.background)
     }
   }
   useEffect(() => {
@@ -32,18 +49,26 @@ function Layout ({ flatRoute }) {
       document.getElementById('theme-toggle').removeEventListener('click', switchTheme)
     }
   }, [])
-
+  useEffect(() => {
+    console.log('theme')
+    themeRef.current = theme
+  }, [ theme ])
   return (
     <div className='ly-wrapper'>
       <div className='ly-title'>
         <p>首页layout</p>
-        <button id='theme-toggle'>切换主题</button>
+        <button id='theme-toggle'>切换主题：{theme}</button>
       </div>
-      <Outlet />
-      <dl className='ly-menu'>
-        <dt>路由列表：</dt>
-        {flatRoute.map(item => <dd key={item.path}><Link to={item.path}>{item.meta.title}</Link></dd>)}
-      </dl>
+      <div className='ly-main'>
+        <ul className='ly-menu'>
+          {flatRoute.map(item =>
+            <li key={item.path}><Link to={item.path}>{item.meta.title}</Link></li>,
+          )}
+        </ul>
+        <ul className='ly-content'>
+          <Outlet />
+        </ul>
+      </div>
     </div>
   )
 }

@@ -15,7 +15,7 @@ function Env () {
       <h1>环境变量Env配置说明</h1>
 
       <h2>推荐使用：dotenv-cli</h2>
-      <p>dotenv-cli 中的cli通常指的是命令行界面（‌Command-Line Interface）‌的安装模式，与之对应的为无需依赖图形用户界面(GUI)。</p>
+      <p>dotenv-cli 中的cli通常指的是命令行界面（‌Command-Line Interface）‌的安装模式，与之对应的为无需依赖命令行的图形用户界面(GUI)。</p>
       <p>在某些情况下，‌如Vue CLI的安装，‌CLI还被用来指代一个特定的命令行工具，‌用于快速（‌自动化）‌构建项目的一个脚手架。</p>
       <h3>1、安装dotenv-cli</h3>
       <p>npm install dotenv-cli --save-dev</p>

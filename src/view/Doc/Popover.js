@@ -45,7 +45,7 @@ const PopoverDemo = () => {
   // 问题4
   function question4 () {
     // 创建Worker实例
-    const worker = new Worker('http://me.tiaofangzi.com:3000/worker.js')
+    const worker = new Worker('http://localhost:3000/worker.js')
     // 监听计算结果
     worker.onmessage = (e) => {
       console.log(`文件大小：${ e.data.size } 字节`)
@@ -56,7 +56,7 @@ const PopoverDemo = () => {
       const file = e.target.files[0]
       // console.log('file.size', file.size)
       // 创建Worker实例
-      // const worker = new Worker('http://me.tiaofangzi.com:3000/worker.js')
+      // const worker = new Worker('http://localhost:3000/worker.js')
       // 传递消息
       worker.postMessage(file)
       // 监听计算结果

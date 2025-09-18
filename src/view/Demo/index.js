@@ -18,11 +18,14 @@ function View1 ({
   counterIncrementAction,
   counterDecrementAction, counterRandomAction,
 }) {
+
   const navigate = useNavigate()
-  console.log('Demo/index')
-  console.log('store')
-  console.log(store)
-  console.log(store.getState())
+  const a = { x: 1, 'null': 3 }; let b = null; const c = a[b]
+  // console.log('c', c)
+  // console.log('Demo/index')
+  // console.log('store')
+  // console.log(store)
+  // console.log(store.getState())
 
   useEffect(() => {
     let watch = store.subscribe((e) => {
@@ -41,39 +44,8 @@ function View1 ({
     counterRandomAction(num)
   }
 
-  const debounce = (fn, delay = 3000) => {
-    let timer // 当触发的地方使用函数表达式，也就是变量声明（而非函数声明），初始话时就被执行，值为undefined，利用了闭包特性，保证每一个计时器（timer）都是独立的，当触发需要防抖的方法时，会直接调用下面return的方法，而不会重新声明let timer。
-    console.log('timer', timer)
-    const debounced = (...args) => {
-      timer && clearTimeout(timer)
-      timer = setTimeout(() => {
-        fn(...args)
-      }, delay)
-    }
-    debounced.clear = () => {
-      timer && clearTimeout(timer)
-    }
-    return debounced
-  }
-
-  // 按钮点击执行时，debonceFunc(...args)执行的时候会将其对应的参数传递进来，然后通过核心方法里的箭头函数里的...args回传给debounce里的第一个参数，该参数是个方法，...args作为该方法的一个参数
-  const debonceFunc = debounce((...args) => {
-    console.log('防抖执行：', ...args)
-  })
-  // 函数声明的形式由于没有初始话执行，导致核心方法（采用了闭包的形式）里的timer不是私有的，最终没有防抖功能
-  // function debonceFunc (...args) {
-  //   console.log(...args)
-  //   debounce((...args) => {
-  //     console.log('防抖执行：', ...args)
-  //   })(...args)
-  // }
-
   return (
     <div className='pg-doc'>
-
-      <button onClick={debonceFunc}>防抖1</button>&nbsp;&nbsp;
-      <button onClick={debonceFunc.clear}>清除防抖</button>&nbsp;&nbsp;
-
       <p>Demo/index-User: {JSON.stringify(userInfo)}</p>
       <p>flatRoute: {JSON.stringify(flatRoute)}</p>
 
