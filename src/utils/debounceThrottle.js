@@ -15,6 +15,8 @@ function useDebounceThrottle (params = {}) {
   const [ IsPendingDebounceThrottle, setIsPendingDebounceThrottle ] = useState(false) // 是否正处于等待/挂起状态，可以在此状态下做一些：loading、disabled或其他提示信息
 
   const clearDebounceThrottle = () => {
+    console.log('clearDebounceThrottle')
+    console.log(timerDebounceThrottle.current)
     if(timerDebounceThrottle.current) {
       clearTimeout(timerDebounceThrottle.current)
       setIsPendingDebounceThrottle(false)
@@ -43,7 +45,7 @@ function useDebounceThrottle (params = {}) {
   }
 
   useEffect(() => {
-    return clearDebounceThrottle()
+    return clearDebounceThrottle
   }, [])
 
   return [

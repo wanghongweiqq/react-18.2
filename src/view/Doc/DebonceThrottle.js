@@ -5,8 +5,8 @@
  * @Description: 防抖和节流
  * @FilePath: /react-18.2/src/view/Doc/DebonceThrottle.js
  */
-import React, { useState, useEffect } from 'react'
-import useDebounceThrottle from '@/utils/debounceThrottle2.js'
+import React, { useState } from 'react'
+import useDebounceThrottle from '@/utils/debounceThrottle.js'
 console.log('DebonceThrottle-外')
 
 function DebonceThrottle () {
