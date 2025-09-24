@@ -89,6 +89,7 @@ function DebonceThrottle () {
   //   setX(Math.random())
   //   console.log('防抖执行：', ...args)
   // })
+
   // 函数声明的形式由于没有初始话执行，导致核心方法（采用了闭包的形式）里的timer不是私有的，最终没有防抖功能
   // function debonceFunc (...args) {
   //   console.log(...args)

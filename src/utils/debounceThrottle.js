@@ -11,8 +11,9 @@ function useDebounceThrottle (params = {}) {
   // type：类型，1、throttle：节流，默认值，2、debounce：防抖
   const { type = 'throttle' } = params
 
-  const timerDebounceThrottle = useRef(null) // 计时器标识
-  const [ IsPendingDebounceThrottle, setIsPendingDebounceThrottle ] = useState(false) // 是否正处于等待/挂起状态，可以在此状态下做一些：loading、disabled或其他提示信息
+  const timerDebounceThrottle = useRef(null) // 计时器标识，useRef<NodeJS.Timeout>
+
+  const [ isPendingDebounceThrottle, setIsPendingDebounceThrottle ] = useState(false) // 是否正处于等待/挂起状态，可以在此状态下做一些：loading、disabled或其他提示信息
 
   const clearDebounceThrottle = () => {
     console.log('clearDebounceThrottle')
@@ -25,8 +26,9 @@ function useDebounceThrottle (params = {}) {
   }
 
   const setDebounceThrottle = (fn, delay = 5000) => {
+    console.log('render-setDebounceThrottle', 'timerDebounceThrottle', timerDebounceThrottle, 'isPendingDebounceThrottle', isPendingDebounceThrottle)
     if(type === 'throttle') { // 节流
-      if(!IsPendingDebounceThrottle) { // 不处于(挂起/等待)状态
+      if(!isPendingDebounceThrottle) { // 不处于(挂起/等待)状态
         setIsPendingDebounceThrottle(true)
         fn()
         timerDebounceThrottle.current = setTimeout(() => {
@@ -47,11 +49,11 @@ function useDebounceThrottle (params = {}) {
   useEffect(() => {
     return clearDebounceThrottle
   }, [])
-
+  console.log('render-useDebounceThrottle', 'timerDebounceThrottle', timerDebounceThrottle, 'isPendingDebounceThrottle', isPendingDebounceThrottle)
   return [
     setDebounceThrottle,
     clearDebounceThrottle,
-    IsPendingDebounceThrottle,
+    isPendingDebounceThrottle,
   ]
 }
 
