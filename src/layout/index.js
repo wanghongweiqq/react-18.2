@@ -50,7 +50,7 @@ function Layout ({ flatRoute }) {
     }
   }, [])
   useEffect(() => {
-    console.log('theme')
+    // console.log('theme')
     themeRef.current = theme
   }, [ theme ])
   return (
