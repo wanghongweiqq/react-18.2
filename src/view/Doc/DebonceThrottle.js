@@ -5,21 +5,22 @@
  * @Description: 防抖和节流
  * @FilePath: /react-18.2/src/view/Doc/DebonceThrottle.js
  */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import useDebounceThrottle from '@/utils/debounceThrottle.js'
 console.log('DebonceThrottle-外')
 
 function DebonceThrottle () {
+  console.log('render-start')
   const [ X, setX ] = useState(0)
-
+  useEffect((val) => {
+    console.log('x-change', X, val)
+  }, [ X ])
   // 节流
   const [ setThrottle, clearThrottle, isPendingThrottle ] = useDebounceThrottle()
   const [ setThrottle2, clearThrottle2, isPendingThrottle2 ] = useDebounceThrottle()
   // 防抖
   const [ setDebounce, clearDebounce, isPendingDebounce ] = useDebounceThrottle({ type: 'debounce' })
   const [ setDebounce2, clearDebounce2, isPendingDebounce2 ] = useDebounceThrottle({ type: 'debounce' })
-
-  console.log('View1-render1', 'isPendingThrottle:', isPendingThrottle)
 
   const throttleFunc = (...args) => {
     setThrottle(() => {
@@ -95,6 +96,7 @@ function DebonceThrottle () {
   //     console.log('防抖执行：', ...args)
   //   })(...args)
   // }
+  console.log('render-end')
 
   return (
     <div className='pg-doc'>
@@ -102,7 +104,7 @@ function DebonceThrottle () {
 
       <h2>节流示例</h2>
       <div>X的值为(随机数):{X}</div>
-
+      <p>执行时机：X的值改变 -&gt; render -&gt; useEffect X的副作用</p>
       <h3>示例1</h3>
       <div>
         <p>{isPendingThrottle ? '挂起状态、运行中' : '普通状态、可点击'}</p>
