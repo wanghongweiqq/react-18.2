@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
- * @Author: 王宏伟 a3
-=======
  * @Author: 王宏伟 a1
->>>>>>> parent of 43e861d (feat: a2)
  * @Email：wanghongwei@hualala.com
  * @Date: 2024-03-04 15:46:24
  * @Description: 入口文件
