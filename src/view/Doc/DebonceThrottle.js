@@ -6,7 +6,7 @@
  * @FilePath: /react-18.2/src/view/Doc/DebonceThrottle.js
  */
 import React, { useState, useEffect } from 'react'
-import useDebounceThrottle from '@/utils/debounceThrottle.js'
+import useDebounceThrottle from '@/utils/debounceThrottle2.js'
 console.log('DebonceThrottle-外')
 
 function DebonceThrottle () {
@@ -26,7 +26,7 @@ function DebonceThrottle () {
     setThrottle(() => {
       setX(Math.random())
       console.log('节流执行1：', ...args)
-    }, 10000)
+    }, 2000)
   }
   const throttleFunc2 = (...args) => {
     setThrottle2(() => {
@@ -39,7 +39,7 @@ function DebonceThrottle () {
     setDebounce(() => {
       setX(Math.random())
       console.log('防抖执行1：', ...args)
-    }, 10000)
+    }, 2000)
   }
   const debonceFunc2 = (...args) => {
     setDebounce2(() => {

@@ -10,6 +10,7 @@ import { useState, useEffect, useRef } from 'react'
 function useDebounceThrottle (params = {}) {
   // type：类型，1、throttle：节流，默认值，2、debounce：防抖
   const { type = 'throttle' } = params
+  console.log('方法内-render')
 
   const timerDebounceThrottle = useRef(null) // 计时器标识，useRef<NodeJS.Timeout>
 

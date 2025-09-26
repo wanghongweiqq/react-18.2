@@ -14,12 +14,13 @@ function useDebounceThrottle (params = {}) {
 
   // const timerDebounceThrottle = useRef(null) // 计时器标识
   const [ timerDebounceThrottle, setTimerDebounceThrottle ] = useState(null)
-  const [ IsPendingDebounceThrottle, setIsPendingDebounceThrottle ] = useState(false) // 是否正处于等待/挂起状态，可以在此状态下做一些：loading、disabled或其他提示信息
+  const [ isPendingDebounceThrottle, setIsPendingDebounceThrottle ] = useState(false) // 是否正处于等待/挂起状态，可以在此状态下做一些：loading、disabled或其他提示信息
 
-  // console.log('IsPendingDebounceThrottle:', IsPendingDebounceThrottle)
+  // console.log('isPendingDebounceThrottle:', isPendingDebounceThrottle)
   const clearDebounceThrottle = () => {
     console.log('clearDebounceThrottle')
     console.log(timerDebounceThrottle)
+    // useState定义的timer无法实现卸载时清除的动作，因为clearDebounceThrottle方法为useEffect内的方法，由于闭包特性，timerDebounceThrottle一直为初始值null
     if(timerDebounceThrottle) {
       clearTimeout(timerDebounceThrottle)
       setIsPendingDebounceThrottle(false)
@@ -28,9 +29,9 @@ function useDebounceThrottle (params = {}) {
   }
 
   const setDebounceThrottle = (fn, delay = 5000) => {
-    // console.log('setDebounceThrottle', 'IsPendingDebounceThrottle:', IsPendingDebounceThrottle)
+    console.log('setDebounceThrottle', 'timerDebounceThrottle', timerDebounceThrottle, 'isPendingDebounceThrottle:', isPendingDebounceThrottle)
     if(type === 'throttle') { // 节流
-      if(!IsPendingDebounceThrottle) { // 不处于(挂起/等待)状态
+      if(!isPendingDebounceThrottle) { // 不处于(挂起/等待)状态
         setIsPendingDebounceThrottle(true)
         fn()
         const a = setTimeout(() => {
@@ -47,22 +48,22 @@ function useDebounceThrottle (params = {}) {
         setTimerDebounceThrottle(null)
       }, delay)
       console.log('a', a)
-      setTimerDebounceThrottle(a)// useState定义的timer每次调用页面点击都会重新复制，然后导致父页面刷新，而useRef的不会，所以要使用useRef，减少父组件的重复渲染
+      setTimerDebounceThrottle(a)// useState定义的timer每次调用页面点击都会重新赋值，然后导致父页面刷新，而useRef的不会，所以要使用useRef，减少父组件的重复渲染
     }
   }
 
-  useEffect(() => { // useState定义的timer无法实现卸载时清除的动作，感觉timerDebounceThrottle失控了
-    console.log('useEffect')
+  useEffect(() => {
     // return clearDebounceThrottle
     return () => {
       clearDebounceThrottle()
     }
   }, [])
+  console.log('render-useDebounceThrottle', 'timerDebounceThrottle', timerDebounceThrottle, 'isPendingDebounceThrottle', isPendingDebounceThrottle)
 
   return [
     setDebounceThrottle,
     clearDebounceThrottle,
-    IsPendingDebounceThrottle,
+    isPendingDebounceThrottle,
   ]
 }
 
