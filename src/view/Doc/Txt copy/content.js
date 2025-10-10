@@ -14,7 +14,7 @@ function content () {
   // console.log('content-记事本')
 
   return (
-    <h2>记事本1</h2>
+    <h2>记事本</h2>
   )
 }
 // content.propTypes = { a: PropTypes.any }
