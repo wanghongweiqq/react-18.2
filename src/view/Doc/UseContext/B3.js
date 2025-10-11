@@ -9,7 +9,7 @@
 import React, { useContext } from 'react'
 import Context3 from './context3'
 
-function B () {
+function B3 () {
   const context = useContext(Context3)
   return (
     <div>
@@ -19,4 +19,4 @@ function B () {
   )
 }
 
-export default B
+export default B3
