@@ -24,6 +24,7 @@ import Webpack from '@/view/Doc/Webpack.js'
 import Popover from '@/view/Doc/Popover.js'
 import Txt from '@/view/Doc/Txt/'
 import UseContext from '@/view/Doc/UseContext/'
+import UseReducer from '@/view/Doc/UseReducer/'
 import DebonceThrottle from '@/view/Doc/DebonceThrottle/'
 
 import React from 'react'
@@ -40,6 +41,11 @@ const doc = {
       path: 'useContext',
       element: <UseContext />,
       meta: { title: 'useContext' },
+    },
+    {
+      path: 'useReducer',
+      element: <UseReducer />,
+      meta: { title: 'useReducer' },
     },
     {
       path: 'txt',
