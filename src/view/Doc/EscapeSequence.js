@@ -31,9 +31,9 @@ function EscapeSequence () {
       <table className='escape-sequence-table'>
         <thead>
           <tr>
-            <th>字符</th>
-            <th>实体名称</th>
-            <th>实体编号</th>
+            <th width='60'>字符</th>
+            <th width='90'>实体名称</th>
+            <th width='100'>实体编号</th>
             <th colSpan={3}>说明</th>
           </tr>
         </thead>

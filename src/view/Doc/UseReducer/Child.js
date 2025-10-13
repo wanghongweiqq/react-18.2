@@ -26,7 +26,7 @@ function Child () {
 
   return (
     <div>
-      <h2>子组件Child</h2>
+      <h3>子组件Child</h3>
       <p>count:{state?.count}</p>
       <p>
         <button onClick={change1}>增加1</button>
