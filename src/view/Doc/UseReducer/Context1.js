@@ -6,5 +6,5 @@
  * @FilePath: /react-18.2/src/view/Doc/UseContext/context2.js
  */
 import React from 'react'
-const Context3 = React.createContext()
-export default Context3
+const Context1 = React.createContext()
+export default Context1

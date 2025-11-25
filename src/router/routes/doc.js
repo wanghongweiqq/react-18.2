@@ -26,6 +26,7 @@ import Txt from '@/view/Doc/Txt/'
 import UseContext from '@/view/Doc/UseContext/'
 import UseReducer from '@/view/Doc/UseReducer/'
 import DebonceThrottle from '@/view/Doc/DebonceThrottle/'
+import RepeatRender from '@/view/Doc/RepeatRender/'
 
 import React from 'react'
 const doc = {
@@ -51,6 +52,11 @@ const doc = {
       path: 'txt',
       element: <Txt />,
       meta: { title: 'txt' },
+    },
+    {
+      path: 'repeatRender',
+      element: <RepeatRender />,
+      meta: { title: 'repeatRender' },
     },
     {
       path: 'popover',

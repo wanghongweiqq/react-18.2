@@ -103,7 +103,7 @@ function UseReducer () {
           <Child />
 
           <h2>方法中的参数没值时的分析</h2>
-          <p>中间参数不传时不能直接在两个逗号直接什么都不写，会报错</p>
+          <p>中间参数不传时不能直接在两个逗号直接什么都不写，本地运行时就会报错 - 编译有问题：Compiled with problems</p>
           <p>参数不传时相当于是传了一个undefined，和传null的区别如下：</p>
           <table>
             <tbody>

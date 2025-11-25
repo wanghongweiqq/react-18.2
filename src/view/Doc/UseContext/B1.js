@@ -11,7 +11,7 @@ import Context1 from './context1'
 
 function B1 () {
   const context = useContext(Context1)
-  console.log('context', context)
+  console.log('B1 context', context)
   return (
     <div>
       <p>子组件B1的内容，使用的简洁的useContext</p>
