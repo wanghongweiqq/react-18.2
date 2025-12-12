@@ -2,7 +2,7 @@
  * @Author: 王宏伟
  * @Email：wanghongwei@hualala.com
  * @Date: 2025-07-20 14:14:32
- * @Description: debounce防抖和throttle节流的核心方法
+ * @Description: debounce防抖和throttle节流的核心方法，不要使用2，使用debounce-throttle.js
  * @FilePath: /react-18.2/src/utils/debounce-throttle2.js
  */
 import { useState, useEffect, useRef } from 'react'
