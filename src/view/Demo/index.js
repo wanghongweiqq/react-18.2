@@ -51,9 +51,9 @@ function View1 ({
 
       <p>Count: {counter}</p>
       <p>
-        <button onClick={() => { store.dispatch(counterIncrementAction()) }}>增加1</button>&nbsp;&nbsp;
-        <button onClick={() => { store.dispatch({ type: 'counter-increment' }) }}>增加1</button>&nbsp;&nbsp;
-        <button onClick={counterDecrementAction}>减少1</button>&nbsp;&nbsp;
+        <button onClick={() => { store.dispatch(counterIncrementAction()) }}>增加1</button>
+        <button onClick={() => { store.dispatch({ type: 'counter-increment' }) }}>增加1</button>
+        <button onClick={counterDecrementAction}>减少1</button>
         <button onClick={randomFun}>随机加10以内整数</button>
       </p>
       <p>state参数：传参于无形中，刷新不会消失（这点比vue的params强），复制链接到新tab下，参数会清空</p>
