@@ -28,6 +28,7 @@ import UseReducer from '@/view/Doc/UseReducer/'
 import DebonceThrottle from '@/view/Doc/DebonceThrottle/'
 import RepeatRender from '@/view/Doc/RepeatRender/'
 import Ref from '@/view/Doc/Ref/'
+import SetState from '@/view/Doc/SetState/'
 
 import React from 'react'
 const doc = {
@@ -38,6 +39,11 @@ const doc = {
       path: 'debonce-throttle',
       element: <DebonceThrottle />,
       meta: { title: 'debonce-throttle' },
+    },
+    {
+      path: 'setState',
+      element: <SetState />,
+      meta: { title: 'setState' },
     },
     {
       path: 'ref',

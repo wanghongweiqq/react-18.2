@@ -8,7 +8,7 @@
 import React, { useState, useEffect } from 'react'
 import useDebounceThrottle from '@/utils/debounceThrottle.js'
 // import useDebounceThrottle from '@/utils/debounceThrottle2.js' //计时器标识使用了useState，无法卸载时清除计时器
-console.log('DebonceThrottle-外')
+// console.log('DebonceThrottle-外')
 
 function DebonceThrottle () {
   console.log('render-start')
